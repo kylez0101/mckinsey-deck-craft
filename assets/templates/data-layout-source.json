@@ -1,0 +1,1308 @@
+{
+  "data": {
+    "brand": {
+      "primary": "#1D5C63"
+    },
+    "cost": {
+      "labor": 6480,
+      "security": 3360,
+      "setup": 2000
+    },
+    "budget": 35000,
+    "internalUsed": 24,
+    "internalCap": 28,
+    "externalUsed": 0,
+    "lowRate": 0.7,
+    "b": {
+      "cost": 16380,
+      "income": 25344,
+      "external": 0
+    },
+    "d": {
+      "cost": 30780,
+      "income": 41760,
+      "external": 28
+    },
+    "periods": [
+      "第1周",
+      "第2周",
+      "第3周",
+      "第4周",
+      "第5周",
+      "第6周"
+    ],
+    "weeklyIncome": [
+      2400,
+      2800,
+      3000,
+      3400,
+      4000,
+      4560
+    ],
+    "weekends": 6,
+    "source": "书店合成数据，连续6个周末、12晚；金额为元，非实绩",
+    "unknownRepeatPurchase": null
+  },
+  "calculated": {
+    "income": {
+      "op": "add",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.0"
+        },
+        {
+          "ref": "data.weeklyIncome.1"
+        },
+        {
+          "ref": "data.weeklyIncome.2"
+        },
+        {
+          "ref": "data.weeklyIncome.3"
+        },
+        {
+          "ref": "data.weeklyIncome.4"
+        },
+        {
+          "ref": "data.weeklyIncome.5"
+        }
+      ]
+    },
+    "weekendOperatingCost": {
+      "op": "divide",
+      "args": [
+        {
+          "op": "add",
+          "args": [
+            {
+              "ref": "data.cost.labor"
+            },
+            {
+              "ref": "data.cost.security"
+            }
+          ]
+        },
+        {
+          "ref": "data.weekends"
+        }
+      ]
+    },
+    "spend": {
+      "op": "add",
+      "args": [
+        {
+          "ref": "data.cost.labor"
+        },
+        {
+          "ref": "data.cost.security"
+        },
+        {
+          "ref": "data.cost.setup"
+        }
+      ]
+    },
+    "net": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "calc.income"
+        },
+        {
+          "ref": "calc.spend"
+        }
+      ]
+    },
+    "headroom": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.budget"
+        },
+        {
+          "ref": "calc.spend"
+        }
+      ]
+    },
+    "lowNet": {
+      "op": "subtract",
+      "args": [
+        {
+          "op": "multiply",
+          "args": [
+            {
+              "ref": "calc.income"
+            },
+            {
+              "ref": "data.lowRate"
+            }
+          ]
+        },
+        {
+          "ref": "calc.spend"
+        }
+      ]
+    },
+    "bNet": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.b.income"
+        },
+        {
+          "ref": "data.b.cost"
+        }
+      ]
+    },
+    "bLow": {
+      "op": "subtract",
+      "args": [
+        {
+          "op": "multiply",
+          "args": [
+            {
+              "ref": "data.b.income"
+            },
+            {
+              "ref": "data.lowRate"
+            }
+          ]
+        },
+        {
+          "ref": "data.b.cost"
+        }
+      ]
+    },
+    "dNet": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.d.income"
+        },
+        {
+          "ref": "data.d.cost"
+        }
+      ]
+    },
+    "dLow": {
+      "op": "subtract",
+      "args": [
+        {
+          "op": "multiply",
+          "args": [
+            {
+              "ref": "data.d.income"
+            },
+            {
+              "ref": "data.lowRate"
+            }
+          ]
+        },
+        {
+          "ref": "data.d.cost"
+        }
+      ]
+    },
+    "budgetRatio": {
+      "op": "divide",
+      "args": [
+        {
+          "ref": "calc.spend"
+        },
+        {
+          "ref": "data.budget"
+        }
+      ]
+    },
+    "withinBudget": {
+      "op": "lte",
+      "args": [
+        {
+          "ref": "calc.spend"
+        },
+        {
+          "ref": "data.budget"
+        }
+      ]
+    },
+    "downsidePositive": {
+      "op": "gte",
+      "args": [
+        {
+          "ref": "calc.lowNet"
+        },
+        0
+      ]
+    },
+    "eligible": {
+      "op": "and",
+      "args": [
+        {
+          "ref": "calc.withinBudget"
+        },
+        {
+          "ref": "calc.downsidePositive"
+        }
+      ]
+    },
+    "selectedRow": {
+      "op": "if",
+      "args": [
+        {
+          "ref": "calc.eligible"
+        },
+        0,
+        {
+          "op": "if",
+          "args": [
+            {
+              "op": "and",
+              "args": [
+                {
+                  "op": "lte",
+                  "args": [
+                    {
+                      "ref": "data.b.cost"
+                    },
+                    {
+                      "ref": "data.budget"
+                    }
+                  ]
+                },
+                {
+                  "op": "gte",
+                  "args": [
+                    {
+                      "ref": "calc.bLow"
+                    },
+                    0
+                  ]
+                }
+              ]
+            },
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    "decision": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "ref": "calc.selectedRow"
+            },
+            0
+          ]
+        },
+        "优先试行枢纽两店方案",
+        {
+          "op": "if",
+          "args": [
+            {
+              "op": "eq",
+              "args": [
+                {
+                  "ref": "calc.selectedRow"
+                },
+                1
+              ]
+            },
+            "优先试行全店至21点方案",
+            "维持现有营业，暂缓新增投入"
+          ]
+        }
+      ]
+    },
+    "spendStatus": {
+      "op": "if",
+      "args": [
+        {
+          "ref": "calc.withinBudget"
+        },
+        "测算支出仍在预算内",
+        "测算支出已超预算上限"
+      ]
+    },
+    "unknownLabel": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "ref": "data.unknownRepeatPurchase"
+            },
+            null
+          ]
+        },
+        "复购效应尚未知，不计入贡献",
+        "复购信息已取得"
+      ]
+    },
+    "largestCostIndex": {
+      "op": "if",
+      "args": [
+        {
+          "op": "and",
+          "args": [
+            {
+              "op": "gte",
+              "args": [
+                {
+                  "ref": "data.cost.labor"
+                },
+                {
+                  "ref": "data.cost.security"
+                }
+              ]
+            },
+            {
+              "op": "gte",
+              "args": [
+                {
+                  "ref": "data.cost.labor"
+                },
+                {
+                  "ref": "data.cost.setup"
+                }
+              ]
+            }
+          ]
+        },
+        0,
+        {
+          "op": "if",
+          "args": [
+            {
+              "op": "gte",
+              "args": [
+                {
+                  "ref": "data.cost.security"
+                },
+                {
+                  "ref": "data.cost.setup"
+                }
+              ]
+            },
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "largestCostReason": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "ref": "calc.largestCostIndex"
+            },
+            0
+          ]
+        },
+        "人工是三项支出中金额最大的一项",
+        {
+          "op": "if",
+          "args": [
+            {
+              "op": "eq",
+              "args": [
+                {
+                  "ref": "calc.largestCostIndex"
+                },
+                1
+              ]
+            },
+            "安保能耗是金额最大的一项",
+            "一次准备是金额最大的一项"
+          ]
+        }
+      ]
+    },
+    "weekNet0": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.0"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "ref": "calc.weekendOperatingCost"
+            },
+            {
+              "ref": "data.cost.setup"
+            }
+          ]
+        }
+      ]
+    },
+    "weekNet1": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.1"
+        },
+        {
+          "ref": "calc.weekendOperatingCost"
+        }
+      ]
+    },
+    "weekNet2": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.2"
+        },
+        {
+          "ref": "calc.weekendOperatingCost"
+        }
+      ]
+    },
+    "weekNet3": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.3"
+        },
+        {
+          "ref": "calc.weekendOperatingCost"
+        }
+      ]
+    },
+    "weekNet4": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.4"
+        },
+        {
+          "ref": "calc.weekendOperatingCost"
+        }
+      ]
+    },
+    "weekNet5": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.weeklyIncome.5"
+        },
+        {
+          "ref": "calc.weekendOperatingCost"
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "name": "配色与数据联动模板库",
+    "mode": "template_example",
+    "theme": {
+      "ref": "data.brand"
+    },
+    "slides": [
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "T01",
+        "title": "主题配色与数据联动样张",
+        "subtitle": "六种分析布局，使用同一份合成测算",
+        "kicker": "可编辑模板扩展",
+        "status": "示例主色：深青；封面保持用户指定背景",
+        "date": "2026年10月24日"
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "T02",
+        "title": "一个主色系即可建立清晰层级",
+        "subtitle": "主色突出证据，中性色承载参照，浅色建立从属关系",
+        "sections": [
+          {
+            "heading": "颜色角色",
+            "text": "主色用于关键数据\n中性色用于参照\n浅色用于适度强调"
+          },
+          {
+            "heading": "统一测算",
+            "text": "图表与表格共用数据\n金额与结论同步生成\n未知值保留明确状态"
+          },
+          {
+            "heading": "按关系选布局",
+            "text": "比较、趋势与方案取舍\n主图或图文并读\n密集内容分配到附页"
+          }
+        ],
+        "decision": "本文件展示同一组证据的不同表达；示例主色可由用户替换。"
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A01",
+        "title": "三项成本构成完整测算支出",
+        "subtitle": "比较主图：将更多空间留给同口径数量关系",
+        "chart": {
+          "categories": [
+            "人工",
+            "安保能耗",
+            "一次准备"
+          ],
+          "series": [
+            {
+              "name": "测算支出",
+              "values": [
+                {
+                  "ref": "data.cost.labor"
+                },
+                {
+                  "ref": "data.cost.security"
+                },
+                {
+                  "ref": "data.cost.setup"
+                }
+              ]
+            }
+          ],
+          "unit": "金额：元，覆盖6个周末",
+          "format": "#,##0",
+          "emphasisIndex": {
+            "ref": "calc.largestCostIndex"
+          },
+          "emphasisReason": {
+            "ref": "calc.largestCostReason"
+          }
+        },
+        "takeaway": {
+          "text": [
+            "总支出 ",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            " 元；预算余量 ",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            " 元。"
+          ]
+        }
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A02",
+        "title": {
+          "ref": "calc.spendStatus"
+        },
+        "subtitle": "比较与解释：把数值差异与条件放在同一页",
+        "chart": {
+          "categories": [
+            "人工",
+            "安保能耗",
+            "一次准备"
+          ],
+          "series": [
+            {
+              "name": "测算支出",
+              "values": [
+                {
+                  "ref": "data.cost.labor"
+                },
+                {
+                  "ref": "data.cost.security"
+                },
+                {
+                  "ref": "data.cost.setup"
+                }
+              ]
+            }
+          ],
+          "unit": "金额：元，覆盖6个周末",
+          "format": "#,##0",
+          "emphasisIndex": {
+            "ref": "calc.largestCostIndex"
+          },
+          "emphasisReason": {
+            "ref": "calc.largestCostReason"
+          }
+        },
+        "insights": [
+          {
+            "heading": "完整成本",
+            "text": {
+              "text": [
+                "人工、安保、准备合计 ",
+                {
+                  "ref": "calc.spend",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "预算占用",
+            "text": {
+              "text": [
+                {
+                  "ref": "calc.budgetRatio",
+                  "format": "percent"
+                },
+                "，余量 ",
+                {
+                  "ref": "calc.headroom",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "事实边界",
+            "text": {
+              "ref": "calc.unknownLabel"
+            }
+          }
+        ],
+        "takeaway": "改动成本后，应重新检查预算和下行情景。"
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A03",
+        "title": {
+          "op": "if",
+          "args": [
+            {
+              "op": "lt",
+              "args": [
+                {
+                  "ref": "calc.weekNet0"
+                },
+                0
+              ]
+            },
+            "首周准备支出使净贡献转负",
+            "持续成本影响各周净贡献"
+          ]
+        },
+        "subtitle": "趋势主图：保留时间顺序与成本影响，不平滑处理",
+        "chart": {
+          "categories": {
+            "ref": "data.periods"
+          },
+          "series": [
+            {
+              "name": "增量贡献",
+              "values": {
+                "ref": "data.weeklyIncome"
+              }
+            },
+            {
+              "name": "扣除成本后",
+              "values": [
+                {
+                  "ref": "calc.weekNet0"
+                },
+                {
+                  "ref": "calc.weekNet1"
+                },
+                {
+                  "ref": "calc.weekNet2"
+                },
+                {
+                  "ref": "calc.weekNet3"
+                },
+                {
+                  "ref": "calc.weekNet4"
+                },
+                {
+                  "ref": "calc.weekNet5"
+                }
+              ]
+            }
+          ],
+          "unit": "金额：元／周末；首周包含一次准备支出",
+          "format": "#,##0"
+        },
+        "takeaway": {
+          "text": [
+            "六周末净贡献合计 ",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            " 元；首周支出包含一次准备。"
+          ]
+        }
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A04",
+        "title": "周度贡献与成本共同影响试点表现",
+        "subtitle": "趋势与解释：在主图旁交代转折、总量与证据边界",
+        "chart": {
+          "categories": {
+            "ref": "data.periods"
+          },
+          "series": [
+            {
+              "name": "增量贡献",
+              "values": {
+                "ref": "data.weeklyIncome"
+              }
+            },
+            {
+              "name": "扣除成本后",
+              "values": [
+                {
+                  "ref": "calc.weekNet0"
+                },
+                {
+                  "ref": "calc.weekNet1"
+                },
+                {
+                  "ref": "calc.weekNet2"
+                },
+                {
+                  "ref": "calc.weekNet3"
+                },
+                {
+                  "ref": "calc.weekNet4"
+                },
+                {
+                  "ref": "calc.weekNet5"
+                }
+              ]
+            }
+          ],
+          "unit": "金额：元／周末；首周包含一次准备支出",
+          "format": "#,##0"
+        },
+        "insights": [
+          {
+            "heading": "首周投入",
+            "text": {
+              "text": [
+                "一次准备 ",
+                {
+                  "ref": "data.cost.setup",
+                  "format": "money"
+                },
+                " 元计入首周"
+              ]
+            }
+          },
+          {
+            "heading": "完整周期",
+            "text": {
+              "text": [
+                "增量贡献 ",
+                {
+                  "ref": "calc.income",
+                  "format": "money"
+                },
+                " 元，净贡献 ",
+                {
+                  "ref": "calc.net",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "比较口径",
+            "text": "每周末、同单位；\n测算不代表实际业绩"
+          }
+        ],
+        "takeaway": "把一次性成本与持续成本分开读取。"
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A05",
+        "title": "同口径比较三种营业方案",
+        "subtitle": "决策总表：同时保留贡献、支出与外援约束",
+        "headers": [
+          "方案",
+          "总支出／元",
+          "基准净贡献／元",
+          "低需求净贡献／元",
+          "外援／人时周末"
+        ],
+        "rows": [
+          [
+            "枢纽两店",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            {
+              "ref": "data.externalUsed",
+              "format": "integer"
+            }
+          ],
+          [
+            "全店21点",
+            {
+              "ref": "data.b.cost",
+              "format": "money"
+            },
+            {
+              "ref": "calc.bNet",
+              "format": "money"
+            },
+            {
+              "ref": "calc.bLow",
+              "format": "money"
+            },
+            {
+              "ref": "data.b.external",
+              "format": "integer"
+            }
+          ],
+          [
+            "全店22点",
+            {
+              "ref": "data.d.cost",
+              "format": "money"
+            },
+            {
+              "ref": "calc.dNet",
+              "format": "money"
+            },
+            {
+              "ref": "calc.dLow",
+              "format": "money"
+            },
+            {
+              "ref": "data.d.external",
+              "format": "integer"
+            }
+          ],
+          [
+            "维持现状",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "numericColumns": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "highlightRow": {
+          "ref": "calc.selectedRow"
+        },
+        "columnWidths": [
+          220,
+          210,
+          250,
+          250,
+          234
+        ],
+        "takeaway": {
+          "ref": "calc.decision"
+        },
+        "caption": "低需求情景为需求贡献下降30%；非概率或置信区间。"
+      },
+      {
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "测算总支出=",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "元；基准净贡献=",
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            "元；低需求净贡献=",
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            },
+            "元；预算余量=",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            "元。",
+            {
+              "ref": "calc.unknownLabel"
+            },
+            "。需求低情景为收入贡献下降30%，其他成本不变。"
+          ]
+        },
+        "layout": "A06",
+        "title": {
+          "ref": "calc.decision"
+        },
+        "subtitle": "决策与条件：紧凑证据表配合可执行的判断条件",
+        "headers": [
+          "方案",
+          "支出／元",
+          "净贡献／元",
+          "低需求净贡献／元"
+        ],
+        "rows": [
+          [
+            "枢纽两店",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            {
+              "ref": "calc.net",
+              "format": "money"
+            },
+            {
+              "ref": "calc.lowNet",
+              "format": "money"
+            }
+          ],
+          [
+            "全店21点",
+            {
+              "ref": "data.b.cost",
+              "format": "money"
+            },
+            {
+              "ref": "calc.bNet",
+              "format": "money"
+            },
+            {
+              "ref": "calc.bLow",
+              "format": "money"
+            }
+          ],
+          [
+            "全店22点",
+            {
+              "ref": "data.d.cost",
+              "format": "money"
+            },
+            {
+              "ref": "calc.dNet",
+              "format": "money"
+            },
+            {
+              "ref": "calc.dLow",
+              "format": "money"
+            }
+          ],
+          [
+            "维持现状",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "numericColumns": [
+          1,
+          2,
+          3
+        ],
+        "highlightRow": {
+          "ref": "calc.selectedRow"
+        },
+        "columnWidths": [
+          210,
+          198,
+          199,
+          199
+        ],
+        "insights": [
+          {
+            "heading": "预算条件",
+            "text": {
+              "text": [
+                "支出上限 ",
+                {
+                  "ref": "data.budget",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "下行情景",
+            "text": {
+              "text": [
+                "枢纽方案低需求净贡献 ",
+                {
+                  "ref": "calc.lowNet",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "执行边界",
+            "text": "先核实最低在岗；\n试行后复核真实需求"
+          }
+        ],
+        "takeaway": "推荐与条件一起生成，数据变化后重新判断。"
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "condition": {
+        "op": "gt",
+        "args": [
+          {
+            "ref": "data.budget"
+          },
+          0
+        ]
+      },
+      "message": "预算上限必须为正数"
+    },
+    {
+      "condition": {
+        "op": "gte",
+        "args": [
+          {
+            "ref": "data.cost.labor"
+          },
+          0
+        ]
+      },
+      "message": "人工支出不能为负数"
+    }
+  ]
+}

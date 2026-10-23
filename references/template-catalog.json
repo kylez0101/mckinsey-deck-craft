@@ -1,0 +1,269 @@
+{
+  "version": "2",
+  "canvas_px": [
+    1280,
+    720
+  ],
+  "fonts": {
+    "title": "Songti SC",
+    "body": "Arial Unicode MS"
+  },
+  "cover": {
+    "asset": "assets/brand/cover-background.jpg",
+    "text_color": "#FFFFFF"
+  },
+  "presentation": "assets/templates/consulting-page-library.pptx",
+  "input_example": "assets/templates/page-library.json",
+  "builder": "scripts/build-deck.mjs",
+  "templates": [
+    {
+      "id": "T01",
+      "name": "封面",
+      "question": "交代主题与受众",
+      "inputs": [
+        "title",
+        "subtitle",
+        "kicker?",
+        "status?",
+        "date?"
+      ],
+      "capacity": {
+        "title_units": 22
+      },
+      "native_objects": [
+        "editable_white_text",
+        "user_background_image"
+      ],
+      "physical_page": 1
+    },
+    {
+      "id": "T02",
+      "name": "执行摘要",
+      "question": "建议与依据如何支持本次决定",
+      "inputs": [
+        "sections",
+        "metrics?",
+        "decision?"
+      ],
+      "capacity": {
+        "sections": 3,
+        "metrics_max": 3
+      },
+      "native_objects": [
+        "text",
+        "semantic_icons"
+      ],
+      "physical_page": 2
+    },
+    {
+      "id": "T03",
+      "name": "事实与数据对照",
+      "question": "同口径数量关系说明什么",
+      "inputs": [
+        "chart",
+        "facts",
+        "takeaway?",
+        "caveat?"
+      ],
+      "capacity": {
+        "categories": [
+          2,
+          5
+        ],
+        "facts": [
+          1,
+          3
+        ],
+        "numeric_series": 1
+      },
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx",
+        "native_fact_table"
+      ],
+      "physical_page": 3
+    },
+    {
+      "id": "T04",
+      "name": "方案比较",
+      "question": "相同标准下如何取舍",
+      "inputs": [
+        "headers",
+        "rows",
+        "highlightColumn?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "options": [
+          2,
+          4
+        ],
+        "rows": [
+          2,
+          5
+        ]
+      },
+      "native_objects": [
+        "native_table"
+      ],
+      "physical_page": 4
+    },
+    {
+      "id": "T05",
+      "name": "现状与目标",
+      "question": "同一维度怎样改变",
+      "inputs": [
+        "rows",
+        "headers?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "dimensions": [
+          2,
+          5
+        ],
+        "columns": 3
+      },
+      "native_objects": [
+        "native_table"
+      ],
+      "physical_page": 5
+    },
+    {
+      "id": "T06",
+      "name": "流程与例外",
+      "question": "谁交接什么，例外转给谁",
+      "inputs": [
+        "steps",
+        "exception?",
+        "roles?",
+        "emphasisStep?",
+        "takeaway?",
+        "releaseConditions?",
+        "gateLabel?"
+      ],
+      "capacity": {
+        "steps": [
+          3,
+          5
+        ],
+        "exception_destinations": 1,
+        "roles_max": 3,
+        "and_conditions": [
+          2,
+          4
+        ],
+        "condition_mode_steps": 3
+      },
+      "native_objects": [
+        "native_nodes",
+        "attached_connectors",
+        "native_role_table"
+      ],
+      "physical_page": 6
+    },
+    {
+      "id": "T07",
+      "name": "阶段交付与责任",
+      "question": "每阶段交付什么、何时完成",
+      "inputs": [
+        "stages",
+        "takeaway?"
+      ],
+      "capacity": {
+        "stages": [
+          2,
+          4
+        ]
+      },
+      "native_objects": [
+        "native_table",
+        "editable_stage_headers"
+      ],
+      "physical_page": 7
+    },
+    {
+      "id": "T08",
+      "name": "时间计划",
+      "question": "关键活动何时执行并复核",
+      "inputs": [
+        "periods",
+        "rows",
+        "phases?",
+        "gates?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "periods": [
+          4,
+          6
+        ],
+        "workstreams": [
+          2,
+          3
+        ],
+        "gates_max": 3
+      },
+      "native_objects": [
+        "native_table",
+        "editable_stage_bands"
+      ],
+      "physical_page": 8
+    },
+    {
+      "id": "T09",
+      "name": "指标验收",
+      "question": "用什么口径决定是否达到要求",
+      "inputs": [
+        "metrics",
+        "rows",
+        "headers?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "metrics": [
+          2,
+          3
+        ],
+        "criteria": [
+          2,
+          4
+        ]
+      },
+      "native_objects": [
+        "native_table",
+        "editable_metric_text"
+      ],
+      "physical_page": 9
+    },
+    {
+      "id": "T10",
+      "name": "预算与决策",
+      "question": "投入、条件和权限是什么",
+      "inputs": [
+        "rows",
+        "total?",
+        "decisions",
+        "unit?",
+        "headers?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "budget_components": [
+          2,
+          4
+        ],
+        "decisions": [
+          1,
+          3
+        ]
+      },
+      "native_objects": [
+        "native_budget_table",
+        "editable_decision_text"
+      ],
+      "physical_page": 10
+    }
+  ],
+  "builder_revision": "post-blind-1"
+}

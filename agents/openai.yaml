@@ -1,0 +1,4 @@
+interface:
+  display_name: "麦肯锡样本 · 论证与PPT制作"
+  short_description: "从九份精选样本提炼故事线、论证与版式规则，支持跨主题生成和审查演示文稿"
+  default_prompt: "请用 $mckinsey-deck-craft 分析我的主题，组织证据与故事线，并制作适合目标受众的可编辑PPT。"

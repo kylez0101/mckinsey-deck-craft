@@ -1,0 +1,50 @@
+{
+  "target": {
+    "original_file": "894149-81.png",
+    "source_deck": "894149",
+    "source_page": 31,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "gear": {
+    "original_file": "894149-87.png",
+    "source_deck": "894149",
+    "source_page": 31,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "people": {
+    "original_file": "894149-89.png",
+    "source_deck": "894149",
+    "source_page": 31,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "bulb": {
+    "original_file": "894149-83.png",
+    "source_deck": "894149",
+    "source_page": 31,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "books": {
+    "original_file": "894149-124.png",
+    "source_deck": "894149",
+    "source_page": 35,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "clock": {
+    "original_file": "912721-80.png",
+    "source_deck": "912721",
+    "source_page": 9,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "checklist": {
+    "original_file": "912721-83.png",
+    "source_deck": "912721",
+    "source_page": 9,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  },
+  "quality": {
+    "original_file": "894149-91.png",
+    "source_deck": "894149",
+    "source_page": 31,
+    "use": "Generic monochrome icon from user-supplied reference, retained unchanged"
+  }
+}

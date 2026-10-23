@@ -1,0 +1,87 @@
+{
+  "status": "synthetic_example",
+  "source": "既有合成盲测简报A及其已复核测算，不是真实机构或经营结果",
+  "period": "连续6个周末，12晚",
+  "currency": "人民币元",
+  "options": [
+    {
+      "id": "A",
+      "name": "维持20点",
+      "low": 0.0,
+      "base": 0.0,
+      "high": 0.0,
+      "cost": 0,
+      "external": 0,
+      "internal": 0
+    },
+    {
+      "id": "B",
+      "name": "全店至21点",
+      "low": 1360.8,
+      "base": 8964.0,
+      "high": 16567.2,
+      "cost": 16380,
+      "external": 0,
+      "internal": 28
+    },
+    {
+      "id": "C",
+      "name": "枢纽两店至22点",
+      "low": 2272.0,
+      "base": 8320.0,
+      "high": 14368.0,
+      "cost": 11840,
+      "external": 0,
+      "internal": 24
+    },
+    {
+      "id": "D",
+      "name": "全店至22点",
+      "low": -1548.0,
+      "base": 10980.0,
+      "high": 23508.0,
+      "cost": 30780,
+      "external": 28,
+      "internal": 28
+    }
+  ],
+  "hourly": [
+    {
+      "name": "社区 20–21点",
+      "gross": 900,
+      "net": 720
+    },
+    {
+      "name": "社区 21–22点",
+      "gross": 450,
+      "net": 405
+    },
+    {
+      "name": "枢纽 20–21点",
+      "gross": 1500,
+      "net": 1200
+    },
+    {
+      "name": "枢纽 21–22点",
+      "gross": 1000,
+      "net": 900
+    }
+  ],
+  "selected": "C",
+  "budget": 35000,
+  "internalCap": 28,
+  "externalCap": 32,
+  "bridge": {
+    "income": 20160,
+    "labor": 6480,
+    "security": 3360,
+    "setup": 2000,
+    "net": 8320
+  },
+  "assumptions": [
+    "需求统一±30%，转移率和40%贡献率不变",
+    "不计未经验证的复购效应",
+    "预算上限按支出，不以销售回款抵扣",
+    "推荐C以较低支出、下行仍正与无外援为依据，非所有目标占优"
+  ]
+}
