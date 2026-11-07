@@ -246,6 +246,8 @@ Check your available PPT tools and use them to produce editable output.
 <a id="resources"></a>
 ## Resources and attribution
 
+- **Updates and examples:** [Changelog](CHANGELOG.md) · [Example index](examples/README.md)
+
 - **Start:** [SKILL.md](SKILL.md) · [Learning guide](references/learning-guide.md) · [Task modes](references/task-modes.md)
 - **Build:** [Storylines](references/storyline-patterns.md) · [Layouts](references/layout-patterns.md) · [Editable templates](references/editable-templates.md) · [Professional charts](references/professional-chart-design.md)
 - **Adapt:** [Style profiles](references/style-profiles.md) · [Themes](references/theme-system.md) · [Data binding](references/data-binding.md) · [Cross-agent compatibility](references/agent-compatibility.md)

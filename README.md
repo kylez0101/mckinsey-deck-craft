@@ -265,6 +265,7 @@ WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴�
 
 | 资源 | 入口 |
 |---|---|
+| 更新与案例索引 | [变更记录](CHANGELOG.md) · [案例目录](examples/README.md) |
 | 执行入口与任务分支 | [SKILL.md](SKILL.md) · [任务模式](references/task-modes.md) |
 | 故事线与视觉方法 | [故事线](references/storyline-patterns.md) · [视觉系统](references/visual-system.md) · [原样本版式](references/layout-patterns.md) |
 | 原生模板与图表 | [基础页面库](assets/templates/consulting-page-library.pptx) · [专业图表库](assets/templates/professional-chart-gallery.pptx) · [数据布局库](assets/templates/data-layout-library.pptx) |
