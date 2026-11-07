@@ -44,7 +44,7 @@ const twoColorTheme = createTheme({primary:'#1D5C63',accent:'#9B6A24'});
 
 ## 封面约束
 
-当前项目的封面固定使用 `assets/brand/cover-background.jpg` 和白字，与正文主题无关。传入主色不会重染封面、替换原图或改变封面文字颜色。只有用户明确调整封面时才修改这一约束。
+封面由独立的[样式配置](style-profiles.md)控制。默认 `personal` 使用 `assets/brand/cover-background.jpg` 和白字；`generic` 或显式品牌覆盖可采用其他封面。传入正文主色不会重染封面、替换原图或改变封面文字颜色。`audit.cover` 仅说明封面另行配置，实际设置记录在 `style.json`，不能据主题审计推断封面已经核验。
 
 ## 检查与参考
 

@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import {renderDataPage} from '../data-pages.mjs';
 
 function fixture(){
- const seen={charts:[],tables:[],texts:[],shapes:[],fontCalls:0};
+ const seen={charts:[],tables:[],texts:[],shapes:[],rules:[],fontCalls:0};
  const cells=new Map();
  const slide={charts:{add:(type,options)=>{const chart={type,options};seen.charts.push(chart);return chart;}}};
  const theme={C:{ink:'ink',blue:'blue',pale:'pale',gray:'gray',rule:'rule',white:'white',primaryText:'text-primary'}};
  const helpers={
-  tx:(...args)=>seen.texts.push(args),rule:()=>{},shape:(...args)=>seen.shapes.push(args),takeaway:()=>{},applyPresentationChartFont:()=>seen.fontCalls++,
+  tx:(...args)=>seen.texts.push(args),rule:(...args)=>seen.rules.push(args),shape:(...args)=>seen.shapes.push(args),takeaway:()=>{},applyPresentationChartFont:()=>seen.fontCalls++,
   nativeTable:(...args)=>{
    seen.tables.push(args);
    return {getCell:(r,c)=>{const k=`${r}/${c}`;if(!cells.has(k))cells.set(k,{text:{}});return cells.get(k);}};
@@ -83,4 +83,54 @@ test('two-line header leaves space for units and the selected marker uses actual
 test('default numeric chart formats do not expose an optional decimal point on integers',()=>{
  const f=fixture(),p=comparison();delete p.chart.format;renderDataPage({...f,p});assert.equal(f.seen.charts[0].options.series[0].dataLabels.numberFormatCode,'#,##0');
  p.chart.series[0].values=[.5,1.25,2.5];const g=fixture();renderDataPage({...g,p});assert.equal(g.seen.charts[0].options.series[0].dataLabels.numberFormatCode,'#,##0.00');
+});
+
+test('host font family and scaling reach chart labels, axes and native table cells',()=>{
+ const chartFixture=fixture(),scale=1.25;
+ Object.assign(chartFixture.helpers,{fontFamily:'Host Sans',fontSize:size=>size*scale,textScale:scale});
+ let fontOptions;
+ chartFixture.helpers.applyPresentationChartFont=(chart,options)=>{fontOptions=options;chartFixture.seen.fontCalls++;};
+ renderDataPage({...chartFixture,p:comparison()});
+ const options=chartFixture.seen.charts[0].options;
+ for(const style of [options.xAxis.textStyle,options.yAxis.textStyle,options.legend.textStyle,options.dataLabels.textStyle,options.series[0].dataLabels.textStyle])assert.equal(style.typeface,'Host Sans');
+ assert.equal(options.xAxis.textStyle.fontSize,18*scale);
+ assert.equal(options.yAxis.textStyle.fontSize,17*scale);
+ assert.equal(options.series[0].dataLabels.textStyle.fontSize,18*scale);
+ assert.deepEqual(fontOptions,{fontFamily:'Host Sans'});
+ const tableFixture=fixture();
+ Object.assign(tableFixture.helpers,{fontFamily:'Host Sans',fontSize:size=>size*scale,textScale:scale});
+ renderDataPage({...tableFixture,p:{layout:'A05',headers:['方案','投入'],rows:[['甲','1'],['乙','2']]}});
+ for(const cell of tableFixture.cells.values()){
+  assert.equal(cell.text.style.typeface,'Host Sans');
+  assert.equal(cell.text.style.fontSize,19.5*scale);
+ }
+});
+
+test('presentation analysis rail reserves the height required by three scaled text lines',()=>{
+ const f=fixture(),scale=24/19.5;
+ Object.assign(f.helpers,{fontFamily:'Host Sans',fontSize:size=>size*scale,textScale:scale});
+ const text='第一行证据\n第二行证据\n第三行证据';
+ renderDataPage({...f,p:{...comparison(),layout:'A02',insights:Array.from({length:3},()=>({heading:'判断依据',text}))}});
+ const box=f.seen.texts.find(args=>args[1]==='analysis-text-0');
+ assert.equal(box[2],text);
+ assert.ok(box[6]>=3*f.helpers.fontSize(19.5)*1.18,`height ${box[6]} must fit three lines of scaled text`);
+ const finalBox=f.seen.texts.find(args=>args[1]==='analysis-text-2');
+ assert.ok(finalBox[4]+finalBox[6]<=570,'last rail text must stay above the caption area');
+ const separator=f.seen.rules.find(args=>args[1]==='analysis-rule-0');
+ assert.equal(separator[3],186+130-9+4);
+ assert.ok(separator[3]>box[4]+box[6]);
+ const reading=fixture();
+ renderDataPage({...reading,p:{...comparison(),layout:'A02',insights:Array.from({length:3},()=>({heading:'判断依据',text}))}});
+ assert.equal(reading.seen.rules.find(args=>args[1]==='analysis-rule-0')[3],186+130-9);
+});
+
+test('explicit trend bounds may exclude zero while bar comparisons continue to include it',()=>{
+ const p={layout:'A03',chart:{categories:['第1周','第2周','第3周'],series:[{name:'完成率',values:[.97,.98,.99]}],unit:'单位：%',format:'0%',min:.95,max:1}};
+ const f=fixture();renderDataPage({...f,p});
+ assert.equal(f.seen.charts[0].options.yAxis.min,.95);
+ assert.equal(f.seen.charts[0].options.yAxis.max,1);
+ const rail=fixture();renderDataPage({...rail,p:{...p,layout:'A04',insights:[{heading:'同口径变化',text:'比较同一指标'}]}});
+ assert.equal(rail.seen.charts[0].options.yAxis.min,.95);
+ const bar=comparison();bar.chart.min=.95;bar.chart.max=20;
+ assert.throws(()=>renderDataPage({...fixture(),p:bar}),/must include zero/);
 });

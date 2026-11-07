@@ -15,7 +15,7 @@
 ```text
 请安装这个 Skill：https://github.com/kylez0101/mckinsey-deck-craft
 识别当前 Agent，使用它支持的用户级或项目级技能目录。
-下载完整仓库，保留 SKILL.md、references/、assets/、scripts/ 的相对结构。
+下载完整仓库，保留 SKILL.md、references/、assets/、scripts/、schemas/、evals/、examples/ 的相对结构。
 如果已有同名安装，先检查来源并保留本地修改。
 安装后确认能读到 SKILL.md、模板 PPT 和参考文档，再告诉我本机的调用方式。
 不要把“已下载”当作“已验证能够生成 PPT”；请说明可用的 PPT 制作工具。
@@ -44,7 +44,7 @@ git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.agents/skills/
 ### WorkBuddy：下载后上传
 
 1. 下载 [完整技能 ZIP](https://github.com/kylez0101/mckinsey-deck-craft/releases/latest/download/mckinsey-deck-craft.zip)。也可在仓库页面点 **Code → Download ZIP** 获取源码。
-2. 在 WorkBuddy 打开 **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**，选择完整技能包并完成导入；官方上传界面支持包含 `SKILL.md` 的文件夹和 ZIP；若 ZIP 被拒绝，解压后选择完整技能文件夹上传。保持 `SKILL.md` 与 `references/`、`assets/`、`scripts/` 同级。
+2. 在 WorkBuddy 打开 **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**，选择完整技能包并完成导入；官方上传界面支持包含 `SKILL.md` 的文件夹和 ZIP；若 ZIP 被拒绝，解压后选择完整技能文件夹上传。保持 `SKILL.md` 与 `references/`、`assets/`、`scripts/`、`schemas/`、`evals/`、`examples/` 同级。
 3. 在“已安装”中确认技能出现，再输入：`请使用 mckinsey-deck-craft，为我制作一份客服效率提升方案。`
 
 WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴进市场对话就会自动安装。下载包的结构已检查，WorkBuddy 客户端导入尚未实测。单独上传 `.md` 会遗漏本 Skill 的模板和脚本，应使用完整包；开放平台的上架元数据规范不等于本地导入规范。[上传格式说明](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [官方指引](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
@@ -137,15 +137,54 @@ WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴�
 - `references/`：故事线、18类版式、图表、数据绑定、主题及交付检查。
 - `assets/templates/`：10类基础页面、7款专业图表/表格、6种数据布局；附 JSON 与总览。
 - `assets/examples/`、`assets/icons/`、`assets/brand/`：参考页、图标和固定封面。
-- `scripts/`：数据模型、主题、布局构建器和测试；`agents/openai.yaml` 仅为 Codex UI 元数据。
+- `scripts/`：数据模型、主题、布局构建器、预检、分项验收和测试；`agents/openai.yaml` 仅为 Codex UI 元数据。
+- `schemas/template-contract.json`：字段与容量的唯一结构化定义；生成模板目录和说明中的字段表。
+- `evals/`：冻结的任务简报与独立评分标准，供基线/Skill对照使用。
+- `examples/`：非制造业整套示例的原始事实、绑定源数据、故事板与设计取舍。
 
 在仓库根目录运行：
 
 ```sh
-node --test scripts/tests/data-model.test.mjs scripts/tests/data-pages.test.mjs
-node scripts/tests/theme.test.mjs
+node --test scripts/tests/*.test.mjs
+node scripts/sync-template-catalog.mjs --check
+node scripts/preflight.mjs --input examples/saas-budget/source.json
 ```
 
-这些测试不要求完整 PPT 运行环境，也不证明每个 Agent 的实际导入和演示导出已经通过。最终作品仍按[成品检查](references/production-checks.md)核对。
+这些测试和默认预检不要求完整 PPT 运行环境；`preflight.mjs --full` 额外检查当前运行库、字体和 Python。它们不证明每个 Agent 的实际导入和演示导出已经通过。最终作品仍按[成品检查](references/production-checks.md)核对。
 
 原始 PPT 不随仓库分发；文件标识、页码、哈希和归纳边界见[来源说明](references/corpus-map.md)。图像和图标保留来源记录，相关素材权利归原权利人；本仓库未额外授权第三方素材。
+
+
+## 5. 按任务使用，按证据验收
+
+入口区分五种任务：学习样本、故事板、新建成品、审查、局部修改。只读当前任务所需参考；纯审查交付发现，已要求修改的任务直接实施。局部修改保留未涉及范围，并回查图表、工作簿、正文与推荐之间的依赖。单页任务不追加封面，普通页面JSON使用 `mode: "single-slide"`；完整成品默认 `mode: "deck"`。详见[任务模式](references/task-modes.md)。
+
+品牌与使用场景通过普通页面JSON的 `style` 配置；统一源数据输入时放在 `presentation.style`：
+
+```json
+{
+  "style": {
+    "profile": "generic",
+    "purpose": "presentation"
+  }
+}
+```
+
+默认 `personal` / `reading` 保留原有个人封面与阅读排版；`generic` 提供中性品牌起点，`presentation` 面向现场演示。字体、封面和页脚可显式覆盖，实际字体与版面须重新核验。正文主题色继续使用独立的 `theme` 配置。参数和例子见[样式配置](references/style-profiles.md)。
+
+机器构建成功返回 `machine_checks_passed`。验收记录将结构/数据、内容、视觉、编辑重开和目标应用分别标为 `passed` / `failed` / `not_run`，附对应证据；全部要求完成后才标记 `verified`。没有执行的PowerPoint内检查不会默认通过。
+
+## 6. 整套示例与Skill评测
+
+- [SaaS预算决策](examples/saas-budget/README.md)：在收益未知的情况下比较预算与试点条件，修改投入后重新判断建议。
+- [高校共享服务](examples/university-service/README.md)：从需求与服务范围组织分阶段试点，保留证据缺口和进入条件。
+
+示例均为合成事实，包含可重建的源JSON、逐页故事板和修改前后对照，用来解释页序、证据和视觉选择。它们不能证明真实项目效果，也不作为未见题目的盲测成绩。成品构建和视觉检查范围以各例记录为准。
+
+固定任务评测将执行者简报和评估者期望分开。可用以下命令准备一次可重现的基线/Skill对照：
+
+```sh
+node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" --seed "reliability-01"
+```
+
+随后由执行者实际完成任务，另一评估者核对完整产物和证据，再用评分器汇总。准备任务或运行单元测试不等于完成了Agent盲测；缺失的运行和人工判断保留 `not_run`。具体流程、报告格式与评分命令见[评测说明](references/evaluation.md)。

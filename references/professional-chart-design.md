@@ -18,6 +18,27 @@
 
 G01、G03、G05的通用原生XY模块为[advanced-xy.mjs](../scripts/advanced-xy.mjs)。它不替代业务计算或完整页面构建器；颜色、基准方案和标签位置应由新任务明确指定，不默认某个字母永远是推荐项。
 
+### XY模块的跨主题接口
+
+三个同步函数保留 `addRangeChart(slide, rect, data)`、`addDumbbellChart(slide, rect, data)` 和 `addInvestmentChart(slide, rect, data)`。导入模块和生成图表配置无需 Codex 私有运行环境；真正导出仍需宿主提供的原生图表 API。第四参数可传 `{applyChartFont, fontFamily, fontSize}`（默认标签字号18px）：在 Codex 中把当前工具的 `applyPresentationChartFont` 作为 `applyChartFont`，以同步设置运行库的图表字体；省略适配器时仍为轴和标签显式设置字体，不能据此宣称已在目标应用检查。
+
+```js
+addInvestmentChart(slide, rect, {
+  options: [{id: 'A', name: '方案甲', cost: 0.2, base: 0.3}],
+  axes: {
+    x: {label: '成本', unit: '万元', decimals: 2},
+    y: {label: '改善比例', percent: true, decimals: 1}
+  }
+}, {applyChartFont: applyPresentationChartFont, fontFamily: 'Arial Unicode MS'});
+// X点值保留0.2，标签为“成本 0.20 万元”；Y点值0.3显示为30.0%。
+```
+
+- `data.display` 设置共用的 `unit`、`decimals`（0–12）、`locale` 和 `percent`；`data.axes.x/y` 可覆盖这些设置，并指定 `label`、`min/max/majorUnit`、`includeZero`。默认保留小数，整数仍无小数；极小非零数使用科学记数，不将其先取整到“分”或零。单位文字只作标示，不自动换算币种、数量级或周期。比例使用 `percent:true`，如30%输入0.3；此时无需再把`%`作为单位文字。
+- 数值轴按当前数据量级计算自然刻度，默认包含零。显式上下界必须覆盖全部显示数值。区间图将 low、base、high 全部纳入范围，默认在数据与零点两侧留出端点注释空间，避免全正结果贴住左边界时裁切名称；`includeZero:false`可明确选择局部范围。显式边界仍保持原值，作者需为标签预留空间。这些字段命名输入情景，结果可能下降或在基准处达峰，不强制数值单调。与概率、置信区间的区别仍需由作者解释。
+- 区间图的 `options` 只要求 low/base/high；散点图只要求 cost/base；哑铃保留 `hourly` 中 gross/net 的输入名称以兼容旧数据，两端文案通过 `netLabel/grossLabel` 指定，默认使用“比较值/参照值”。缺失、未知和非有限点值直接报错。
+- 区间标签可用 `labels.range/base` 改名。散点保留 `labelText[id]`、`labelPositions[id]`；额外资源行仅在显式提供 `externalLabel` 时出现，其数值来自 `external`，单位用 `externalUnit`。例如书店样例应明确设置“外援”和“人时/周末”，通用默认标签不携带这些业务假设。
+- `chart-scale.mjs` 的 `numericScale(values, options)` 是无I/O的共用刻度函数。运行 `node --test scripts/tests/advanced-xy.test.mjs` 可检查小量级、小数、负数、基准点越界、比例标签及字体适配；这些配置测试不能替代最终PPT渲染和编辑验收。
+
 ## 数据与设计同时成立
 
 先登记来源、事实状态、对象、时间、单位、分母和计算，再定标题。样张的金额为人民币元，方案结果覆盖连续6个周末、12晚；资源为人时/周末，哑铃为每店每晚每小时的金额，不能跨页混用。需求±30%的情景保持转移率和贡献率不变，没有估计发生概率。显示金额可按元四舍五入，原始数据仍保留必要精度；统一说明取整口径，不让尾差被当成业务差异。

@@ -1,4 +1,4 @@
-// Pure, dependency-free palette generation. The fixed photographic cover is not themed.
+// Pure, dependency-free palette generation. Cover styling is resolved separately.
 const WHITE = '#FFFFFF', BLACK = '#000000';
 const NEUTRAL = Object.freeze({ink:'#1D2024', gray:'#5F6368', rule:'#D8DBDE', light:'#F5F6F7', context:'#858B91'});
 
@@ -97,7 +97,7 @@ export function createTheme(config = {}) {
       primaryFillAdjusted:fill !== primary,
       primaryTextAdjusted:primaryText !== primary,
       chromaticFamilies:accent === undefined || accent === primary ? 1 : 2,
-      cover:'fixed-user-image-white-text',
+      cover:'controlled-by-style-profile',
       rules:[
         'Use one primary family and only an explicitly supplied accent; neutral colors do not encode categories.',
         'Use primaryText for colored text on white and onPrimary for text on the blue fill token.',

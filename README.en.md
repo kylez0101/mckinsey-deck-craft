@@ -15,7 +15,7 @@ Send this to an agent with file and terminal tools:
 ```text
 Install this skill: https://github.com/kylez0101/mckinsey-deck-craft
 Identify the current agent and use its supported user-level or project-level skills location.
-Download the entire repository. Keep SKILL.md, references/, assets/, and scripts/ together.
+Download the entire repository. Keep SKILL.md, references/, assets/, scripts/, schemas/, evals/, and examples/ together.
 If an installation already exists, check its origin and preserve local changes first.
 Verify that you can read SKILL.md, the PPT templates, and the reference documents.
 Then tell me how to invoke it in this agent and which PPT authoring tools are available.
@@ -45,7 +45,7 @@ Check that the skill appears, starting a new session if needed. Invoke `/mckinse
 ### WorkBuddy: download and upload
 
 1. Download the [complete skill ZIP](https://github.com/kylez0101/mckinsey-deck-craft/releases/latest/download/mckinsey-deck-craft.zip). **Code → Download ZIP** on the repository also provides a source archive.
-2. Open **Experts · Skills · Connectors → Skills → Add Skill → Upload Skill** (Chinese UI: **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**) and import the full package. The official upload interface accepts folders and ZIP files containing `SKILL.md`. If the ZIP is rejected, extract it and upload the complete skill folder. Keep `SKILL.md` next to `references/`, `assets/`, and `scripts/`.
+2. Open **Experts · Skills · Connectors → Skills → Add Skill → Upload Skill** (Chinese UI: **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**) and import the full package. The official upload interface accepts folders and ZIP files containing `SKILL.md`. If the ZIP is rejected, extract it and upload the complete skill folder. Keep `SKILL.md` next to `references/`, `assets/`, `scripts/`, `schemas/`, `evals/`, and `examples/`.
 3. Confirm it appears under installed skills, then ask: `Use mckinsey-deck-craft to create a customer-service productivity proposal.`
 
 Custom WorkBuddy skills use its upload flow; pasting a GitHub link into a marketplace conversation is not a documented automatic installation route. The package structure is checked locally; WorkBuddy import has not been tested in its client. A standalone `.md` upload omits this skill’s templates and scripts, so use the full package. Open-platform marketplace metadata requirements are separate from local import requirements. [Upload formats](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [Official guide](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
@@ -138,15 +138,54 @@ Claude Code, WorkBuddy, and other hosts without the Codex runtime should use the
 - `references/`: storylines, 18 layout archetypes, charts, data binding, themes, and delivery checks.
 - `assets/templates/`: 10 base page types, 7 professional chart/table examples, and 6 data layouts, with JSON and overview images.
 - `assets/examples/`, `assets/icons/`, `assets/brand/`: reference pages, icons, and fixed cover artwork.
-- `scripts/`: data model, themes, page builders, and tests; `agents/openai.yaml` is optional Codex UI metadata.
+- `scripts/`: data model, themes, page builders, preflight, scoped acceptance, and tests; `agents/openai.yaml` is optional Codex UI metadata.
+- `schemas/template-contract.json`: the canonical field and capacity definition used to generate the catalog and documented field table.
+- `evals/`: frozen task briefs and separate evaluator expectations for baseline/skill comparisons.
+- `examples/`: complete nonmanufacturing examples with raw facts, bound source data, storyboards, and design rationale.
 
 Run from the repository root:
 
 ```sh
-node --test scripts/tests/data-model.test.mjs scripts/tests/data-pages.test.mjs
-node scripts/tests/theme.test.mjs
+node --test scripts/tests/*.test.mjs
+node scripts/sync-template-catalog.mjs --check
+node scripts/preflight.mjs --input examples/saas-budget/source.json
 ```
 
-These checks do not need the full PPT runtime and do not establish successful import or export in every agent. Validate final work using the [delivery checks](references/production-checks.md). Operational references are currently written in Chinese; ask the agent to explain them or produce your deliverables in English as needed.
+These tests and the default preflight do not need the full PPT runtime. Add `--full` to preflight to check the current runtime, fonts, and Python. These checks do not establish successful import or export in every agent. Validate final work using the [delivery checks](references/production-checks.md). Operational references are currently written in Chinese; ask the agent to explain them or produce your deliverables in English as needed.
 
 Original PPTs are not distributed. File identifiers, page maps, hashes, and inference boundaries remain in the [source map](references/corpus-map.md). Images and icons retain provenance; third-party materials remain the property of their respective rights holders, and the repository grants no additional rights to those materials.
+
+
+## 5. Route by task, accept with evidence
+
+The entry point distinguishes learning, storyboarding, creation, review, and local edits. Load only references needed by the current task. Review-only requests produce findings; requests that already include edits proceed to implementation. Local edits preserve unrelated content and recheck dependencies across charts, workbooks, narrative, and recommendations. Single-slide tasks do not add a cover: use `mode: "single-slide"` in page JSON. Complete decks default to `mode: "deck"`. See [task modes](references/task-modes.md).
+
+Configure brand and reading context through `style` in page JSON, or `presentation.style` in bound source data:
+
+```json
+{
+  "style": {
+    "profile": "generic",
+    "purpose": "presentation"
+  }
+}
+```
+
+The default `personal` / `reading` profile preserves the existing personal cover and reading layout. `generic` provides a neutral brand starting point; `presentation` targets live delivery. Explicit font, cover, and footer overrides still require font and layout verification. Body theme colors remain in the separate `theme` configuration. See [style profiles](references/style-profiles.md) for parameters and examples.
+
+Successful machine builds return `machine_checks_passed`. Acceptance records track structure/data, content, visual inspection, edit/reopen behavior, and the target application separately as `passed`, `failed`, or `not_run`, with evidence. Use `verified` only after all required checks pass. An unperformed PowerPoint check remains unperformed.
+
+## 6. Whole-deck examples and skill evaluation
+
+- [SaaS budget decision](examples/saas-budget/README.md): compare budget and pilot conditions while benefits remain unknown, then reconsider the recommendation when investment changes.
+- [University shared service](examples/university-service/README.md): connect demand and service scope to a phased pilot, retaining evidence gaps and entry conditions.
+
+Both use synthetic facts and include rebuildable source JSON, storyboards, and before/after comparisons explaining narrative and visual choices. They do not establish business outcomes or count as unseen evaluation tasks. Each example records its actual build and visual verification scope.
+
+The frozen evaluation set separates performer briefs from evaluator expectations. Prepare a reproducible baseline/skill comparison with:
+
+```sh
+node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" --seed "reliability-01"
+```
+
+Performers then complete the tasks; an independent evaluator checks full artifacts and evidence before the scorer summarizes results. Preparing tasks or passing unit tests does not establish completed agent evaluations. Missing runs and manual judgments remain `not_run`. See [evaluation](references/evaluation.md) for the workflow, report schema, and scoring command.

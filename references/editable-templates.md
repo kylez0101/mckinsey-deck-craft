@@ -1,31 +1,41 @@
 # 10类原生可编辑模板的复用
 
-整套模板见[可编辑模板库](../assets/templates/consulting-page-library.pptx)与[总览](../assets/templates/overview.jpg)，每页对应一个T编号。完整可执行输入见[模板示例JSON](../assets/templates/page-library.json)。T编号用于选择页面关系，不能决定新题目的结论或整套页序。机器可读字段与容量见[模板目录](template-catalog.json)。
+整套模板见[可编辑模板库](../assets/templates/consulting-page-library.pptx)与[总览](../assets/templates/overview.jpg)，每页对应一个T编号。完整可执行输入见[模板示例JSON](../assets/templates/page-library.json)。T编号用于选择页面关系，不能决定新题目的结论或整套页序。字段、容量和默认值的唯一维护来源为[模板契约](../schemas/template-contract.json)；[模板目录](template-catalog.json)和下表均由它生成。修改契约后运行 `node scripts/sync-template-catalog.mjs`，检查同步用 `--check`。
 
-## 固定封面
+## 个人默认封面
 
-本用户指定使用[原始深蓝背景](../assets/brand/cover-background.jpg)铺满16:9画布，所有封面文字为原生白字。保留图片原色和比例，不叠加麦肯锡旧封面背景、机构Logo或其他装饰。短标题48px，必要上下文19–23px；该尺寸仅用于封面，正文标题31px。背景是独立位图，白字单独可编辑。
+`style.profile: "personal"` 默认使用[原始深蓝背景](../assets/brand/cover-background.jpg)铺满16:9画布，所有封面文字为原生白字。保留图片原色和比例，不叠加麦肯锡旧封面背景、机构Logo或其他装饰。短标题48px，必要上下文19–23px；该尺寸仅用于封面，正文标题31px。背景是独立位图，白字单独可编辑。这些尺寸描述随包阅读版模板；新报告可通过[样式配置](style-profiles.md)选择通用品牌、指定封面/字体或现场演示字号。目录中的 `fonts` / `cover` 记录静态模板素材样式，运行时样式默认值以 `style-profiles.mjs` 为准。
 
 ## 按关系选择
 
-| ID | 页面任务 | 常用字段及当前生成器容量 |
-|---|---|---|
-| T01 | 封面 | title、kicker、subtitle、status、date；主标题单行约22个中文等宽单位以内 |
-| T02 | 执行摘要 | sections：3组heading/text/可选icon；metrics：可选最多3组value/label；decision：决策请求 |
-| T03 | 事实与数据对照 | chart：heading/categories/values/unit/max/majorUnit/可选format；2–5个非负同单位数据；facts：1–3行label/text/可选icon；takeaway、caveat |
-| T04 | 方案比较 | headers、rows、可选highlightColumn、takeaway；2–4个方案加维度列，按同一维度比较，单元格主要2行 |
-| T05 | 现状与目标 | 可选headers、rows、takeaway；2–5个维度，3列逐行对应 |
-| T06 | 流程与例外 | steps：3–5步；emphasisStep：从0起；exception：fromStep/text；roles：最多3行；可选roleHeaders、takeaway |
-| T07 | 阶段交付与责任 | stages：2–4组name/deliverable/criteria/owner；takeaway；每阶段保留交付物与进入下一阶段条件 |
-| T08 | 时间计划 | periods：4–6段；rows：2–3条工作流；phases：name/span，span总和等于periods数；gates：最多3组heading/text；takeaway |
-| T09 | 指标验收 | metrics：2–3组label/value；rows：2–4行；可选headers、takeaway；表格3列 |
-| T10 | 预算与决策 | unit、rows：2–4分项、可选headers；可选total：value/label/condition；decisions：1–3组heading/text；takeaway |
+<!-- TEMPLATE-CONTRACT:START -->
+| ID | 页面任务 | 专属字段（? 为可选） | 容量（数组项数） |
+|---|---|---|---|
+| T01 | 封面 | `kicker?`、`status?`、`date?` | 按文字容量检查 |
+| T02 | 执行摘要 | `sections`、`metrics?`、`decision?` | sections：3；metrics：0–3 |
+| T03 | 事实与数据对照 | `chart`、`facts`、`takeaway?`、`caveat?` | chart.categories：2–5；chart.values：2–5；facts：1–3 |
+| T04 | 方案比较 | `headers`、`rows`、`highlightColumn?`、`takeaway?` | headers：3–5；rows：2–5 |
+| T05 | 现状与目标 | `headers?`、`rows`、`takeaway?` | headers：3；rows：2–5 |
+| T06 | 流程与例外 | `steps`、`emphasisStep?`、`exception?`、`roles?`、`roleHeaders?`、`takeaway?`、`releaseConditions?`、`gateLabel?` | steps：3–5；roles：0–3；roleHeaders：3；releaseConditions：2–4 |
+| T07 | 阶段交付与责任 | `stages`、`takeaway?` | stages：2–4 |
+| T08 | 时间计划 | `periods`、`rows`、`phases?`、`gates?`、`takeaway?` | periods：4–6；rows：2–3；phases：1–不限；gates：0–3 |
+| T09 | 指标验收 | `metrics`、`rows`、`headers?`、`takeaway?` | metrics：2–3；rows：2–4；headers：3 |
+| T10 | 预算与决策 | `unit?`、`rows`、`headers?`、`total?`、`decisions`、`decisionHeading?`、`takeaway?` | rows：2–4；headers：3；decisions：1–3 |
+| A01 | 比较主图 | `chart`、`caption?`、`takeaway?` | chart.categories：2–7；chart.series：1–2 |
+| A02 | 比较与解释 | `chart`、`caption?`、`takeaway?`、`insights` | chart.categories：2–7；chart.series：1–2；insights：1–3 |
+| A03 | 趋势主图 | `chart`、`caption?`、`takeaway?` | chart.categories：3–8；chart.series：1–2 |
+| A04 | 趋势与解释 | `chart`、`caption?`、`takeaway?`、`insights` | chart.categories：3–8；chart.series：1–2；insights：1–3 |
+| A05 | 决策总表 | `headers`、`rows`、`numericColumns?`、`highlightRow?`、`columnWidths?`、`caption?`、`takeaway?` | headers：2–6；rows：2–5 |
+| A06 | 决策与条件 | `headers`、`rows`、`numericColumns?`、`highlightRow?`、`columnWidths?`、`caption?`、`takeaway?`、`insights` | headers：2–5；rows：2–4；insights：1–3 |
+<!-- TEMPLATE-CONTRACT:END -->
 
-通用字段：layout、title、subtitle、source、notes。源信息必须按本页实际内容填写，完整证据/细则进入本页真实备注。文字字段可用字符串或字符串数组（逐行）。T03必须是真实输入或明确的演示数据，不把空缺补成0；生成器只适用非负单序列水平条形图，其他关系按当前演示工具另选原生图表。
+通用字段：`layout`、`title` 必填，`subtitle`、`source`、`notes` 可选。上表列专属字段；`roleHeaders` 和 `decisionHeading` 等可选控制也属于契约。源信息必须按本页实际内容填写，完整证据/细则进入本页真实备注。文字字段可用字符串或字符串数组（逐行）。T03必须是真实输入或明确的演示数据，不把空缺补成0；生成器只适用非负单序列水平条形图，其他关系按当前演示工具另选原生图表。
 
-T06另支持“条件齐备后执行”变体：`releaseConditions`为2–4行“条件名、内容”的二列表；`steps`恰好3步，`gateLabel`可选，用于明确全部条件同时满足后的动作。它与普通路径/例外模式二选一，详细例外另页。AND门槛表示条件同时成立，不能画成依次进行的步骤；此模式仍属于T06。
+T06另支持“条件齐备后执行”变体：`releaseConditions`的容量见上表，每行为“条件名、内容”的二列表；条件模式的 `steps` 恰好3步，`gateLabel`可选，用于明确全部条件同时满足后的动作。它与普通路径/例外模式二选一，详细例外另页。AND门槛表示条件同时成立，不能画成依次进行的步骤；此模式仍属于T06。
 
-新增字段或图表类型需要成对保留输入与扩展构建器。基础构建器对未知字段报错，避免重放扩展输入时悄悄漏掉正文证据。多系列或含负值的图按真实关系选A布局、专业图表或专用原生扩展，不为套用T03删除负值。
+`scripts/template-contract.mjs` 的 `validateDocument` / `validateSlide` 在不加载PPT运行库时检查字段、必填项、行列容量和基本关联。整套报告的 `mode` 默认为 `deck`，首张为T01；`mode: "single-slide"` 必须恰好一页，允许直接使用正文布局，不自动添加封面。旧示例的 `template_example` 模式继续按整套报告处理。主题与样式的具体值由对应模块校验，文字拟合和图表语义仍需后续渲染检查。
+
+新增字段或图表类型需要先更新契约，再成对保留输入与扩展构建器。基础构建器对未知字段报错，避免重放扩展输入时悄悄漏掉正文证据。多系列或含负值的图按真实关系选A布局、专业图表或专用原生扩展，不为套用T03删除负值。
 
 ## 图表与表格补充样张
 
@@ -60,7 +70,7 @@ Artifact Tool对已有原生图表执行导入、修改、原始导出时，可�
 
 ## 交付核对
 
-逐页放大查看后，再看全套密度与节奏。核对固定新封面、单行标题、字号与留白、表格/icon的语义和变化。结构检查、内容检查、实际修改重开分别取证。模板示意内容只属于模板；业务成品不得残留“填写/指标A/对象A”等指导文本或旧主题。
+逐页放大查看后，再看全套密度与节奏。核对本次选定封面、单行标题、字号与留白、表格/icon的语义和变化。结构检查、内容检查、实际修改重开分别取证。模板示意内容只属于模板；业务成品不得残留“填写/指标A/对象A”等指导文本或旧主题。
 
 ## 数据驱动布局与自定义主题
 
