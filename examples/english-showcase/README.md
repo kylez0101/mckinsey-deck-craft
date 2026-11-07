@@ -1,8 +1,8 @@
 # English showcase
 
-Three English demo slides with chrome and cobalt-glass 3D illustrations, large typography and native editable content. This is a collection of page examples, not a complete decision report.
+Three English demo slides with large typography, clear spacing and native editable content. This is a collection of page examples, not a complete decision report.
 
-[Download the three-slide PPTX](report.pptx) · [Synthetic data and exact image prompts](source.json) · [Checks](checks.json)
+[Download the three-slide PPTX](report.pptx) · [Synthetic source data](source.json) · [Checks](checks.json)
 
 | Slide | Page purpose | Editable objects |
 |---|---|---|
@@ -12,15 +12,15 @@ Three English demo slides with chrome and cobalt-glass 3D illustrations, large t
 
 All numbers are synthetic. The cost options have different scopes; this example does not establish which investment has the best return. The research service remains conditional. The bridge shows contribution in a six-weekend scenario, not profit or ROI.
 
-## Artwork and typography
+## Typography
 
-The three illustrations were generated with OpenAI imagegen for this showcase. They are embedded raster images with transparency. Text, charts and flow elements remain separate native objects. Exact prompts and source-data lineage are recorded in [source.json](source.json); illustration files are under [assets/showcase/icons](../../assets/showcase/icons).
+Text, charts and flow elements remain separate native objects. Source-data lineage is recorded in [source.json](source.json).
 
 The deck uses Avenir Next and DIN Condensed, verified in the authoring renderer. Those fonts may need installation or substitution on the recipient's machine.
 
 ## Verification
 
-The delivered PPTX was finalized, reimported and rendered on all three slides. Checks cover package integrity, slide geometry, declared fonts, both native charts, and their two embedded literal-data workbook snapshots. English-only visible text, arithmetic, illustration placement and label contrast were reviewed from the final renders.
+The delivered PPTX was finalized, reimported and rendered on all three slides. Checks cover package integrity, slide geometry, declared fonts, both native charts, and their two embedded literal-data workbook snapshots. English-only visible text, arithmetic, spacing and label contrast were reviewed from the final renders.
 
 PowerPoint desktop and Google Slides have not been tested. These checks do not establish target-application appearance or editing behavior. This showcase is separate from the frozen 24-execution evaluation record.
 

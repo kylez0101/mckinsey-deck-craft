@@ -1,12 +1,12 @@
 {
   "status": "machine_checks_passed_and_visual_reviewed",
   "presentation": "report.pptx",
-  "sha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+  "sha256": "17a723232bf323327b11b3b3ed481a8969d5036712e3cceea583983f5f83000f",
   "slides": 3,
   "language": "English",
   "nativeCharts": 2,
   "embeddedWorkbookSnapshots": 2,
-  "rasterIllustrations": 3,
+  "rasterIllustrations": 0,
   "checks": {
     "packageIntegrity": "passed",
     "slideGeometry": "passed",
@@ -14,10 +14,6 @@
     "nativeChartsAndWorkbookCaches": "passed",
     "reimportAndAllSlideRender": "passed",
     "visibleLanguageAndArithmetic": "passed",
-    "independentVisualReview": {
-      "score": 94,
-      "verdict": "pass"
-    },
     "powerPointDesktop": "not_run",
     "googleSlides": "not_run",
     "inconsistentContributionRejected": {
@@ -26,14 +22,21 @@
       "exitCode": 1,
       "finalPptxCreated": false
     },
-    "missingRuntimeGuard": "passed"
+    "missingRuntimeGuard": "passed",
+    "visualReview": {
+      "status": "passed",
+      "scope": "All three finalized slides inspected after removing illustrations and centering metric blocks"
+    },
+    "pictureCount": {
+      "expected": 0,
+      "actual": 0
+    }
   },
   "limits": [
     "Synthetic data only; no proven business outcomes.",
-    "Illustrations are raster images; text, chart and flow objects are native.",
     "Not part of the frozen 24-execution evaluation."
   ],
-  "sourceSha256": "e001355b67040331b442da58d39f6a63be26cc1c9680316bff179fd13ecd47dd",
+  "sourceSha256": "76f897e4879729e8dc92c27c0cacff11d45c4c7af4f6f525ffebd50c2102c1cd",
   "existingSuite": {
     "passed": 88,
     "failed": 0,

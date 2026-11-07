@@ -5,7 +5,7 @@ Earlier releases are listed on [GitHub Releases](https://github.com/kylez0101/mc
 ## [1.1.0.0] - 2026-11-07
 
 ### Added
-- Three English showcase slides with generated 3D icons, a downloadable editable PPTX, source data, rebuild script and bounded check record.
+- Three English showcase slides with native charts and clear typography, a downloadable editable PPTX, source data, rebuild script and bounded check record.
 - Real editable-output previews with direct deck, source-data, and storyboard links.
 - Short requests for first use, scoped edits, theme changes, and data-driven recommendation updates.
 

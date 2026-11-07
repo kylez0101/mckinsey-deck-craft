@@ -1,13 +1,12 @@
 {
   "scope": "Actual editable English synthetic demo slides, reimported and rendered; target applications not verified.",
-  "artwork": "AI-generated raster illustrations; native editable text, charts and flow",
   "previews": [
     {
       "preview": "saas-decision.jpg",
       "sourcePresentation": "examples/english-showcase/report.pptx",
-      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+      "sourceSha256": "17a723232bf323327b11b3b3ed481a8969d5036712e3cceea583983f5f83000f",
       "physicalSlide": 1,
-      "previewSha256": "a269b40db6c3fe6a1ec00826c1796098b48b9781a09d23cae649024d877fdc4d",
+      "previewSha256": "51c25fb6797357c2d59646df59ea69bf02413e4a8a8a4841172b922eafe113d6",
       "dimensions": [
         1440,
         810
@@ -17,9 +16,9 @@
     {
       "preview": "university-service.jpg",
       "sourcePresentation": "examples/english-showcase/report.pptx",
-      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+      "sourceSha256": "17a723232bf323327b11b3b3ed481a8969d5036712e3cceea583983f5f83000f",
       "physicalSlide": 2,
-      "previewSha256": "e99cca1c293ca6b89e592a9bca878dc88dab3f7e91198e86d8618e03789ab1b1",
+      "previewSha256": "4ff21511d9d6de25306a33eac4474286eb901a73b0201bc43c51389a6712305e",
       "dimensions": [
         1440,
         810
@@ -29,9 +28,9 @@
     {
       "preview": "professional-charts.jpg",
       "sourcePresentation": "examples/english-showcase/report.pptx",
-      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+      "sourceSha256": "17a723232bf323327b11b3b3ed481a8969d5036712e3cceea583983f5f83000f",
       "physicalSlide": 3,
-      "previewSha256": "4715c5f62f48110784b0a4cc62da2d59fc264e090c309210800d2de45b10e8b2",
+      "previewSha256": "bcaffbdb952428f62260ea4dc5f26e8de5c4f828ed7f447eb75ab69e3581cf61",
       "dimensions": [
         1440,
         810

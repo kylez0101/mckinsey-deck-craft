@@ -13,4 +13,4 @@
 
 ## English showcase
 
-[Three English demo slides](english-showcase/README.md) use chrome and cobalt-glass icons with native text, charts and a pilot flow. [Download the PPTX](english-showcase/report.pptx). This page collection is separate from the two complete Chinese worked reports and the frozen evaluation runs.
+[Three English demo slides](english-showcase/README.md) use clear typography with native charts and a pilot flow. [Download the PPTX](english-showcase/report.pptx). This page collection is separate from the two complete Chinese worked reports and the frozen evaluation runs.

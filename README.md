@@ -13,25 +13,25 @@
 <a id="gallery"></a>
 ## 1. 成品画廊
 
-三张全英文展示页，采用金属与蓝色玻璃质感图标。预览来自同一份可下载的PPT，文字、图表与流程保持原生可编辑；3D图标为AI生成的透明图片。以下数字全部为合成数据。
+三张全英文展示页，以关键数字、原生图表和清晰留白呈现分析。预览来自同一份可下载的PPT，文字、图表与流程保持原生可编辑。以下数字全部为合成数据。
 
-[下载3页英文PPTX](examples/english-showcase/report.pptx) · [源数据与图标提示词](examples/english-showcase/source.json) · [检查记录](examples/english-showcase/checks.json)
+[下载3页英文PPTX](examples/english-showcase/report.pptx) · [源数据](examples/english-showcase/source.json) · [检查记录](examples/english-showcase/checks.json)
 
 ### Investment decisions
 
-[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with a chrome and blue-glass knowledge icon, support demand growth, and native cost bars">](assets/readme/saas-decision.jpg)
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with support demand growth and native cost bars">](assets/readme/saas-decision.jpg)
 
 Compare investment options while keeping cost scope and unknown impact explicit.
 
 ### Shared research service
 
-[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with a chrome and blue-glass university icon, staffing, budget and governance gates, and an editable pilot flow">](assets/readme/university-service.jpg)
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with staffing, budget and governance gates and an editable pilot flow">](assets/readme/university-service.jpg)
 
 Connect demand to the people, budget and governance conditions required before a pilot.
 
 ### Contribution bridge
 
-[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with a chrome and blue-glass value icon and an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
 
 Make every deduction visible with a native chart and a traceable calculation.
 

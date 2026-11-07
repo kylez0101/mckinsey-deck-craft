@@ -37,10 +37,6 @@ function base(no,kicker,title,source){
  tx(s,'page-number',String(no).padStart(2,'0'),1179,683,47,24,16,{color:C.muted,align:'right'});
  return s;
 }
-async function icon(s,key){
- const bytes=await fs.readFile(path.join(root,'assets/showcase/icons',key+'.png'));
- s.images.add({blob:new Uint8Array(bytes),contentType:'image/png',alt:'AI-generated chrome and cobalt-glass '+key+' illustration',fit:'contain',position:{left:177,top:421,width:276,height:236}});
-}
 function label(s,text,x,y,w=680,color=C.cyan){tx(s,text,text,x,y,w,24,14,{color,bold:true});}
 function small(s,name,text,x,y,w=680){tx(s,name,text,x,y,w,28,17,{color:C.muted});}
 function styleChart(ch){applyPresentationChartFont(ch,{fontFamily:font});return ch;}
@@ -50,10 +46,9 @@ const chartBase={hasLegend:false,chartFill:C.bg,plotAreaFill:C.bg,chartLine:line
 {
  const d=data.support;
  const s=base(1,'01  /  INVESTMENT DECISIONS','Demand is rising.\nMake the next move count.','SYNTHETIC DATA  /  Customer support scenario  /  Costs in CNY thousands');
- tx(s,'demand-growth',num((d.tickets.at(-1)/d.tickets[0]-1)*100)+'%',50,248,400,118,116,{display:true,color:C.cyan,bold:true});
- tx(s,'metric-label','MORE SUPPORT TICKETS',55,375,400,26,17,{bold:true});
- small(s,'demand-timeline',d.tickets.map(x=>num(x/1000)+'k').join('  →  ')+'  /  '+d.months[0]+'–'+d.months.at(-1),55,408,400);
- await icon(s,'support');
+ tx(s,'demand-growth',num((d.tickets.at(-1)/d.tickets[0]-1)*100)+'%',50,312,400,118,116,{display:true,color:C.cyan,bold:true});
+ tx(s,'metric-label','MORE SUPPORT TICKETS',55,439,400,26,17,{bold:true});
+ small(s,'demand-timeline',d.tickets.map(x=>num(x/1000)+'k').join('  →  ')+'  /  '+d.months[0]+'–'+d.months.at(-1),55,480,400);
  label(s,'COMPARE COST BEFORE COMMITTING',550,256);
  small(s,'cost-unit','Estimated investment · CNY thousands',550,291);
  const ch=styleChart(s.charts.add('bar',{
@@ -68,15 +63,14 @@ const chartBase={hasLegend:false,chartFill:C.bg,plotAreaFill:C.bg,chartLine:line
  }));
  tx(s,'budget-ceiling','Budget ceiling: '+moneyK(d.budgetCeilingThousands*1000),550,590,670,28,21,{bold:true});
  small(s,'decision-boundary','Different scopes. Validate coverage and impact before selecting.',550,628);
- s.speakerNotes.text='Source: examples/english-showcase/source.json, support. Synthetic inputs derived from examples/saas-budget. January tickets 10,000; February 12,000; March 15,000; Jan-to-Mar growth=(15,000/10,000)-1=50%. Costs: knowledge base 220, process redesign 150, add capacity 280 (CNY thousands). Budget ceiling 300. Costs have different scopes and benefit estimates are unknown. This slide does not claim a preferred or proven ROI option. Illustration is AI-generated raster art; text and chart are native editable elements.';
+ s.speakerNotes.text='Source: examples/english-showcase/source.json, support. Synthetic inputs derived from examples/saas-budget. January tickets 10,000; February 12,000; March 15,000; Jan-to-Mar growth=(15,000/10,000)-1=50%. Costs: knowledge base 220, process redesign 150, add capacity 280 (CNY thousands). Budget ceiling 300. Costs have different scopes and benefit estimates are unknown. This slide does not claim a preferred or proven ROI option. Text and chart are native editable elements.';
 }
 {
  const d=data.research;
  const s=base(2,'02  /  OPERATING MODELS','One shared service.\nThree clear conditions.','SYNTHETIC DATA  /  Shared research service  /  Launch remains conditional');
- tx(s,'request-count',num(d.monthlyRequestComponents.reduce((a,b)=>a+b,0)),50,248,400,118,116,{display:true,color:C.cyan,bold:true});
- tx(s,'metric-label','REQUESTS PER MONTH',55,375,410,26,17,{bold:true});
- small(s,'request-scope','Two departments. One shared workflow.',55,408,410);
- await icon(s,'research');
+ tx(s,'request-count',num(d.monthlyRequestComponents.reduce((a,b)=>a+b,0)),50,312,400,118,116,{display:true,color:C.cyan,bold:true});
+ tx(s,'metric-label','REQUESTS PER MONTH',55,439,410,26,17,{bold:true});
+ small(s,'request-scope','Two departments. One shared workflow.',55,480,410);
  label(s,'ALL THREE GATES MUST BE SATISFIED',550,256);
  const rows=[
   ['01','PEOPLE',num(d.availableStaff)+' staff / minimum of '+num(d.minimumStaff)],
@@ -96,17 +90,16 @@ const chartBase={hasLegend:false,chartFill:C.bg,plotAreaFill:C.bg,chartLine:line
   n.text=text;n.text.style={typeface:font,fontSize:15,bold:true,color:i===1?C.cyan:C.ink,insets:0,alignment:'left',verticalAlignment:'middle',autoFit:'none',wrap:'none'};return n;
  });
  for(let i=0;i<2;i++)s.shapes.connect(nodes[i],nodes[i+1],{kind:'straight',fromSide:'right',toSide:'left',line:line(C.muted,1),tail:{type:'triangle',width:'sm',length:'sm'}});
- s.speakerNotes.text='Source: examples/english-showcase/source.json, research. Synthetic inputs derived from examples/university-service. Monthly request components 12+10+8=30 across two departments. Launch gates are conjunctive, not sequential: minimum two available staff; estimated spend CNY 90,000 within the CNY 100,000 ceiling; approved access, ownership and governance. CNY 10,000 arithmetic headroom is not a realized saving. Scope/pilot/review is the proposed sequence after gate approval. No scientific or service outcome is claimed. Illustration is AI-generated raster art; text and flow are native editable elements.';
+ s.speakerNotes.text='Source: examples/english-showcase/source.json, research. Synthetic inputs derived from examples/university-service. Monthly request components 12+10+8=30 across two departments. Launch gates are conjunctive, not sequential: minimum two available staff; estimated spend CNY 90,000 within the CNY 100,000 ceiling; approved access, ownership and governance. CNY 10,000 arithmetic headroom is not a realized saving. Scope/pilot/review is the proposed sequence after gate approval. No scientific or service outcome is claimed. Text and flow are native editable elements.';
 }
 {
  const d=data.value;
  const net=d.grossContributionCny-d.peopleCny-d.securityCny-d.setupCny;
  if(net!==d.netContributionCny)throw new Error('Net contribution must match source arithmetic.');
  const s=base(3,'03  /  DATA STORYTELLING','From contribution\nto net value.','SYNTHETIC DATA  /  Six-weekend scenario  /  CNY  /  Contribution, not profit or ROI');
- tx(s,'currency','CNY',55,253,360,27,17,{color:C.muted,bold:true});
- tx(s,'net-contribution',num(net),50,285,421,110,103,{display:true,color:C.cyan,bold:true});
- tx(s,'metric-label','NET CONTRIBUTION',55,404,400,26,17,{bold:true});
- await icon(s,'value');
+ tx(s,'currency','CNY',55,315,360,27,17,{color:C.muted,bold:true});
+ tx(s,'net-contribution',num(net),50,347,421,110,103,{display:true,color:C.cyan,bold:true});
+ tx(s,'metric-label','NET CONTRIBUTION',55,466,400,26,17,{bold:true});
  label(s,'MAKE EVERY DEDUCTION VISIBLE',550,256);
  small(s,'bridge-unit','Contribution bridge · CNY',550,291);
  const none={showValue:false,showSeriesName:false,showCategoryName:false,showLegendKey:false,showPercent:false};
@@ -125,7 +118,7 @@ const chartBase={hasLegend:false,chartFill:C.bg,plotAreaFill:C.bg,chartLine:line
   dataLabels:none
  }));
  tx(s,'bridge-formula',num(d.grossContributionCny)+' − '+num(d.peopleCny)+' − '+num(d.securityCny)+' − '+num(d.setupCny)+' = '+num(net),550,616,676,32,22,{bold:true});
- s.speakerNotes.text='Source: examples/english-showcase/source.json, value. Synthetic six-weekend contribution scenario derived from assets/templates/professional-chart-gallery.pptx, physical slide 3. Gross contribution CNY 20,160 less people 6,480, security 3,360 and setup 2,000 equals net contribution 8,320. Floating bases 13,680; 10,320; 8,320 are arithmetic layout values, not additional business amounts. This is contribution, not sales profit or ROI. Illustration is AI-generated raster art; text and stacked native bridge chart are editable elements.';
+ s.speakerNotes.text='Source: examples/english-showcase/source.json, value. Synthetic six-weekend contribution scenario derived from assets/templates/professional-chart-gallery.pptx, physical slide 3. Gross contribution CNY 20,160 less people 6,480, security 3,360 and setup 2,000 equals net contribution 8,320. Floating bases 13,680; 10,320; 8,320 are arithmetic layout values, not additional business amounts. This is contribution, not sales profit or ROI. Text and the native bridge chart are editable elements.';
 }
 const draft=path.join(buildDir,'candidate-'+Date.now()+'.pptx');
 await (await PresentationFile.exportPptx(deck)).save(draft);

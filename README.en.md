@@ -9,25 +9,25 @@ Turn a decision question and evidence into a consulting-style storyline and edit
 <a id="gallery"></a>
 ## See the outputs
 
-Three English demo slides with chrome and cobalt-glass icons. These previews come from the downloadable deck: text, charts and flows are native editable objects; the 3D illustrations are AI-generated raster images. All data is synthetic, not real business results or McKinsey deliverables.
+Three English demo slides with clear typography and native charts. These previews come from the downloadable deck: text, charts and flows are native editable objects. All data is synthetic, not real business results or McKinsey deliverables.
 
-[Download the three-slide English PPTX](examples/english-showcase/report.pptx) · [Data and exact image prompts](examples/english-showcase/source.json) · [Check record](examples/english-showcase/checks.json)
+[Download the three-slide English PPTX](examples/english-showcase/report.pptx) · [Source data](examples/english-showcase/source.json) · [Check record](examples/english-showcase/checks.json)
 
 ### Investment decisions
 
-[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with a chrome and blue-glass knowledge icon, support demand growth, and native cost bars">](assets/readme/saas-decision.jpg)
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with support demand growth and native cost bars">](assets/readme/saas-decision.jpg)
 
 Compare investment options while keeping cost scope and unknown impact explicit.
 
 ### Shared research service
 
-[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with a chrome and blue-glass university icon, staffing, budget and governance gates, and an editable pilot flow">](assets/readme/university-service.jpg)
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with staffing, budget and governance gates and an editable pilot flow">](assets/readme/university-service.jpg)
 
 Connect demand to the people, budget and governance conditions required before a pilot.
 
 ### Contribution bridge
 
-[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with a chrome and blue-glass value icon and an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
 
 Make every deduction visible with a native chart and a traceable calculation.
 
