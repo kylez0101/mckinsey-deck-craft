@@ -1,0 +1,41 @@
+{
+  "scope": "Actual editable synthetic example slides, reimported/rendered for preview; target-application appearance not verified.",
+  "previews": [
+    {
+      "preview": "saas-decision.jpg",
+      "sourcePresentation": "examples/saas-budget/report.pptx",
+      "sourceSha256": "930060275dc65e550a8659177499828f949b4281a00296f80a82e0a0b11c4b8b",
+      "physicalSlide": 4,
+      "previewSha256": "96f32ea7431903b08120dfb0ee5739065b4cce70499753cfd43389a3f62b09d8",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "operation": "Full-slide resize only; no crop or data edits"
+    },
+    {
+      "preview": "university-service.jpg",
+      "sourcePresentation": "examples/university-service/report.pptx",
+      "sourceSha256": "17b081449a6a970998a8ea0facd7e22ad904ae7a5faaa5f55e2f3906db408272",
+      "physicalSlide": 5,
+      "previewSha256": "94888ac4bcb7cffe93793759704bb7d0601868de901047b8b5567704602be6ef",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "operation": "Full-slide resize only; no crop or data edits"
+    },
+    {
+      "preview": "professional-charts.jpg",
+      "sourcePresentation": "assets/templates/professional-chart-gallery.pptx",
+      "sourceSha256": "9c0d383b07516e25224bd19b3df499d96ab93a0d33640eb4c2d7934ad9e51067",
+      "physicalSlide": 3,
+      "previewSha256": "1e1065367782dba25026bf7ce5d9f27e9ac5a06166a18733b216479010a0d3a6",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "operation": "Full-slide resize only; no crop or data edits"
+    }
+  ]
+}
