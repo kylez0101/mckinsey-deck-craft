@@ -1,0 +1,95 @@
+{
+  "kind": "synthetic",
+  "language": "en",
+  "support": {
+    "tickets": [
+      10000,
+      12000,
+      15000
+    ],
+    "months": [
+      "Jan",
+      "Feb",
+      "Mar"
+    ],
+    "options": [
+      {
+        "name": "Knowledge base",
+        "costThousands": 220
+      },
+      {
+        "name": "Process redesign",
+        "costThousands": 150
+      },
+      {
+        "name": "Add capacity",
+        "costThousands": 280
+      }
+    ],
+    "budgetCeilingThousands": 300,
+    "limitations": "Costs have different scopes. Impact and coverage require validation.",
+    "derivedFrom": "examples/saas-budget/source.json"
+  },
+  "research": {
+    "monthlyRequestComponents": [
+      12,
+      10,
+      8
+    ],
+    "departments": 2,
+    "availableStaff": 2,
+    "minimumStaff": 2,
+    "estimatedSpendCny": 90000,
+    "budgetCeilingCny": 100000,
+    "governance": [
+      "Access",
+      "Ownership",
+      "Approval"
+    ],
+    "derivedFrom": "examples/university-service/source.json"
+  },
+  "value": {
+    "grossContributionCny": 20160,
+    "peopleCny": 6480,
+    "securityCny": 3360,
+    "setupCny": 2000,
+    "netContributionCny": 8320,
+    "scenario": "six weekends",
+    "derivedFrom": "assets/templates/professional-chart-gallery.pptx, physical slide 3"
+  },
+  "artwork": {
+    "method": "OpenAI built-in imagegen",
+    "type": "AI-generated raster illustrations; native slide text, charts and flow remain editable",
+    "prompts": [
+      {
+        "key": "support",
+        "prompt": "Create a premium 3D editorial icon cutout for an English enterprise presentation. Single sculptural object, exceptionally polished chrome and translucent cobalt-blue glass, crisp icy-cyan edge light, one tiny warm amber detail, physically convincing reflections, sophisticated studio product rendering, not cartoon, not a flat app icon, not a rounded-square app tile. Three-quarter isometric view, object fills about 80% of a square canvas with comfortable clean margins. Genuinely transparent background with clean alpha, no ground plane, no drop-shadow rectangle, no text, no letters, no currency symbols, no logos, no watermark. Designed to read clearly at a medium size over a midnight-navy slide. Subject: an elegant open glass knowledge book cradled by a brushed-chrome magnifying-glass ring, with a few precise orbiting information beads. Symbolizes knowledge discovery and customer-support decision-making. Bold, immediately recognizable silhouette; few large parts rather than many tiny details."
+      },
+      {
+        "key": "research",
+        "prompt": "Create a premium 3D editorial icon cutout for an English enterprise presentation. Single sculptural object, exceptionally polished chrome and translucent cobalt-blue glass, crisp icy-cyan edge light, one tiny warm amber detail, physically convincing reflections, sophisticated studio product rendering, not cartoon, not a flat app icon, not a rounded-square app tile. Three-quarter isometric view, object fills about 80% of a square canvas with comfortable clean margins. Genuinely transparent background with clean alpha, no ground plane, no drop-shadow rectangle, no text, no letters, no currency symbols, no logos, no watermark. Designed to read clearly at a medium size over a midnight-navy slide. Subject: a refined glass university colonnade and open-book foundation, enclosed by a slim chrome network orbit linking three luminous nodes. Symbolizes a shared research service, coordination and trusted access. Architectural, sleek and coherent; no graduation text, no crests, no people faces."
+      },
+      {
+        "key": "value",
+        "prompt": "Create a premium 3D editorial icon cutout for an English enterprise presentation. Single sculptural object, exceptionally polished chrome and translucent cobalt-blue glass, crisp icy-cyan edge light, one tiny warm amber detail, physically convincing reflections, sophisticated studio product rendering, not cartoon, not a flat app icon, not a rounded-square app tile. Three-quarter isometric view, object fills about 80% of a square canvas with comfortable clean margins. Genuinely transparent background with clean alpha, no ground plane, no drop-shadow rectangle, no text, no letters, no currency symbols, no logos, no watermark. Designed to read clearly at a medium size over a midnight-navy slide. Subject: three sculptural brushed-silver value discs beside a clear cobalt glass ascending column sculpture, connected by one elegant chrome arc. Symbolizes financial contribution and making business data understandable. Clean large forms, strong asymmetry and balance, no arrows, no labels, no written numbers."
+      }
+    ],
+    "icons": [
+      {
+        "key": "support",
+        "path": "assets/showcase/icons/support.png",
+        "sha256": "d2739caaf1a473516dde9f247f8f65a882465ce88d9652c0b85e518eb435039b"
+      },
+      {
+        "key": "research",
+        "path": "assets/showcase/icons/research.png",
+        "sha256": "91682afb620d04b8a4265e40c0deb7bf9ade9f1c2fba607ac6fa807231a189af"
+      },
+      {
+        "key": "value",
+        "path": "assets/showcase/icons/value.png",
+        "sha256": "fd9aabdca5d6701d8724706499b65c4fa78a2701a961732454bbdc61dc286ee3"
+      }
+    ]
+  }
+}

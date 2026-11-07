@@ -13,31 +13,29 @@
 <a id="gallery"></a>
 ## 1. 成品画廊
 
-预览来自仓库内的可编辑合成案例。点击图片查看大图，或下载PPTX检查原生对象。
+三张全英文展示页，采用金属与蓝色玻璃质感图标。预览来自同一份可下载的PPT，文字、图表与流程保持原生可编辑；3D图标为AI生成的透明图片。以下数字全部为合成数据。
 
-### SaaS 客服投入决策
+[下载3页英文PPTX](examples/english-showcase/report.pptx) · [源数据与图标提示词](examples/english-showcase/source.json) · [检查记录](examples/english-showcase/checks.json)
 
-[<img src="assets/readme/saas-decision.jpg" width="760" alt="客服投入决策的方案比较页，保留成本、作用机制与效果未知状态">](assets/readme/saas-decision.jpg)
+### Investment decisions
 
-在收益未知时比较投入、预算与试点条件。
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with a chrome and blue-glass knowledge icon, support demand growth, and native cost bars">](assets/readme/saas-decision.jpg)
 
-[下载6页PPTX](examples/saas-budget/report.pptx) · [源数据](examples/saas-budget/source.json) · [故事板](examples/saas-budget/storyboard.md)
+Compare investment options while keeping cost scope and unknown impact explicit.
 
-### 高校共享服务试点
+### Shared research service
 
-[<img src="assets/readme/university-service.jpg" width="760" alt="共享服务的人员、预算、治理门槛与原生流程节点">](assets/readme/university-service.jpg)
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with a chrome and blue-glass university icon, staffing, budget and governance gates, and an editable pilot flow">](assets/readme/university-service.jpg)
 
-把服务范围、人员门槛和交接责任放在同一套报告中。
+Connect demand to the people, budget and governance conditions required before a pilot.
 
-[下载6页PPTX](examples/university-service/report.pptx) · [源数据](examples/university-service/source.json) · [故事板](examples/university-service/storyboard.md)
+### Contribution bridge
 
-### 专业图表与表格
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with a chrome and blue-glass value icon and an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
 
-[<img src="assets/readme/professional-charts.jpg" width="760" alt="原生贡献桥展示合成案例的贡献、成本扣减与净贡献">](assets/readme/professional-charts.jpg)
+Make every deduction visible with a native chart and a traceable calculation.
 
-表达情景区间、贡献桥、哑铃比较、资源占用与方案取舍。
-
-[下载图表库](assets/templates/professional-chart-gallery.pptx) · [示例数据](assets/templates/professional-chart-data.json) · [选型说明](references/professional-chart-design.md)
+完整中文教学案例：[客服投入（6页）](examples/saas-budget/README.md) · [共享服务（6页）](examples/university-service/README.md) · [专业图表库](assets/templates/professional-chart-gallery.pptx)
 
 <a id="capabilities"></a>
 ## 2. 你可以用它做什么

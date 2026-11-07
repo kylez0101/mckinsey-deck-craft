@@ -9,31 +9,29 @@ Turn a decision question and evidence into a consulting-style storyline and edit
 <a id="gallery"></a>
 ## See the outputs
 
-These synthetic worked examples are in Chinese. They show the current methods and editable objects, not McKinsey deliverables or real business results. Open an image for detail or download its deck.
+Three English demo slides with chrome and cobalt-glass icons. These previews come from the downloadable deck: text, charts and flows are native editable objects; the 3D illustrations are AI-generated raster images. All data is synthetic, not real business results or McKinsey deliverables.
 
-### SaaS budget decision
+[Download the three-slide English PPTX](examples/english-showcase/report.pptx) · [Data and exact image prompts](examples/english-showcase/source.json) · [Check record](examples/english-showcase/checks.json)
 
-[<img src="assets/readme/saas-decision.jpg" width="760" alt="Chinese option-comparison slide with costs, mechanisms, and unknown effects">](assets/readme/saas-decision.jpg)
+### Investment decisions
 
-Compare costs and pilot conditions when benefits are unknown, then recheck the recommendation as inputs change.
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with a chrome and blue-glass knowledge icon, support demand growth, and native cost bars">](assets/readme/saas-decision.jpg)
 
-[Download six-slide PPTX](examples/saas-budget/report.pptx) · [Source data](examples/saas-budget/source.json) · [Storyboard](examples/saas-budget/storyboard.md)
+Compare investment options while keeping cost scope and unknown impact explicit.
 
-### University shared service
+### Shared research service
 
-[<img src="assets/readme/university-service.jpg" width="760" alt="Chinese pilot-entry slide with staffing, budget, governance conditions, and editable workflow nodes">](assets/readme/university-service.jpg)
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with a chrome and blue-glass university icon, staffing, budget and governance gates, and an editable pilot flow">](assets/readme/university-service.jpg)
 
-Connect service scope to staffing gates, responsibilities and a phased pilot.
+Connect demand to the people, budget and governance conditions required before a pilot.
 
-[Download six-slide PPTX](examples/university-service/report.pptx) · [Source data](examples/university-service/source.json) · [Storyboard](examples/university-service/storyboard.md)
+### Contribution bridge
 
-### Professional charts and tables
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with a chrome and blue-glass value icon and an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
 
-[<img src="assets/readme/professional-charts.jpg" width="760" alt="Chinese contribution bridge showing synthetic contribution, cost deductions, and net contribution">](assets/readme/professional-charts.jpg)
+Make every deduction visible with a native chart and a traceable calculation.
 
-Choose editable ranges, bridges, dumbbells, scatter plots and ledgers for the actual data relationship.
-
-[Download chart library](assets/templates/professional-chart-gallery.pptx) · [Source data](assets/templates/professional-chart-data.json) · [Design guide](references/professional-chart-design.md)
+Full worked cases in Chinese: [SaaS decision (six slides)](examples/saas-budget/README.md) · [Shared service (six slides)](examples/university-service/README.md) · [Professional chart library](assets/templates/professional-chart-gallery.pptx)
 
 <a id="capabilities"></a>
 ## What you can do
@@ -92,7 +90,7 @@ Loading the skill needs file access. Creating an editable PPT also needs a worki
 <details>
 <summary><strong>Complete example: an eight-slide customer-service decision report</strong></summary>
 
-After installation, send this prompt. It requests an English deck; the bundled gallery examples above are in Chinese.
+After installation, send this prompt. It requests an eight-slide English report; the gallery above is a separate three-slide style showcase.
 
 ```text
 Use mckinsey-deck-craft to create “Improving B2B SaaS Customer-Service Productivity”.

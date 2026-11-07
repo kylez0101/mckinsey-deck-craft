@@ -1,41 +1,42 @@
 {
-  "scope": "Actual editable synthetic example slides, reimported/rendered for preview; target-application appearance not verified.",
+  "scope": "Actual editable English synthetic demo slides, reimported and rendered; target applications not verified.",
+  "artwork": "AI-generated raster illustrations; native editable text, charts and flow",
   "previews": [
     {
       "preview": "saas-decision.jpg",
-      "sourcePresentation": "examples/saas-budget/report.pptx",
-      "sourceSha256": "930060275dc65e550a8659177499828f949b4281a00296f80a82e0a0b11c4b8b",
-      "physicalSlide": 4,
-      "previewSha256": "96f32ea7431903b08120dfb0ee5739065b4cce70499753cfd43389a3f62b09d8",
+      "sourcePresentation": "examples/english-showcase/report.pptx",
+      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+      "physicalSlide": 1,
+      "previewSha256": "a269b40db6c3fe6a1ec00826c1796098b48b9781a09d23cae649024d877fdc4d",
       "dimensions": [
         1440,
         810
       ],
-      "operation": "Full-slide resize only; no crop or data edits"
+      "operation": "Uncropped full-slide rendering, resized from 1920x1080 and encoded as JPEG; no image overlays or content edits"
     },
     {
       "preview": "university-service.jpg",
-      "sourcePresentation": "examples/university-service/report.pptx",
-      "sourceSha256": "17b081449a6a970998a8ea0facd7e22ad904ae7a5faaa5f55e2f3906db408272",
-      "physicalSlide": 5,
-      "previewSha256": "94888ac4bcb7cffe93793759704bb7d0601868de901047b8b5567704602be6ef",
+      "sourcePresentation": "examples/english-showcase/report.pptx",
+      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+      "physicalSlide": 2,
+      "previewSha256": "e99cca1c293ca6b89e592a9bca878dc88dab3f7e91198e86d8618e03789ab1b1",
       "dimensions": [
         1440,
         810
       ],
-      "operation": "Full-slide resize only; no crop or data edits"
+      "operation": "Uncropped full-slide rendering, resized from 1920x1080 and encoded as JPEG; no image overlays or content edits"
     },
     {
       "preview": "professional-charts.jpg",
-      "sourcePresentation": "assets/templates/professional-chart-gallery.pptx",
-      "sourceSha256": "9c0d383b07516e25224bd19b3df499d96ab93a0d33640eb4c2d7934ad9e51067",
+      "sourcePresentation": "examples/english-showcase/report.pptx",
+      "sourceSha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
       "physicalSlide": 3,
-      "previewSha256": "1e1065367782dba25026bf7ce5d9f27e9ac5a06166a18733b216479010a0d3a6",
+      "previewSha256": "4715c5f62f48110784b0a4cc62da2d59fc264e090c309210800d2de45b10e8b2",
       "dimensions": [
         1440,
         810
       ],
-      "operation": "Full-slide resize only; no crop or data edits"
+      "operation": "Uncropped full-slide rendering, resized from 1920x1080 and encoded as JPEG; no image overlays or content edits"
     }
   ]
 }

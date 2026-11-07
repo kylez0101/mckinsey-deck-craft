@@ -1,0 +1,42 @@
+{
+  "status": "machine_checks_passed_and_visual_reviewed",
+  "presentation": "report.pptx",
+  "sha256": "41f8e7d1eea3598afee842d101d81b19b0513fa9ca20202a13e840c73d7a9a29",
+  "slides": 3,
+  "language": "English",
+  "nativeCharts": 2,
+  "embeddedWorkbookSnapshots": 2,
+  "rasterIllustrations": 3,
+  "checks": {
+    "packageIntegrity": "passed",
+    "slideGeometry": "passed",
+    "fontPolicy": "passed",
+    "nativeChartsAndWorkbookCaches": "passed",
+    "reimportAndAllSlideRender": "passed",
+    "visibleLanguageAndArithmetic": "passed",
+    "independentVisualReview": {
+      "score": 94,
+      "verdict": "pass"
+    },
+    "powerPointDesktop": "not_run",
+    "googleSlides": "not_run",
+    "inconsistentContributionRejected": {
+      "status": "passed",
+      "changedNetByCny": 1,
+      "exitCode": 1,
+      "finalPptxCreated": false
+    },
+    "missingRuntimeGuard": "passed"
+  },
+  "limits": [
+    "Synthetic data only; no proven business outcomes.",
+    "Illustrations are raster images; text, chart and flow objects are native.",
+    "Not part of the frozen 24-execution evaluation."
+  ],
+  "sourceSha256": "e001355b67040331b442da58d39f6a63be26cc1c9680316bff179fd13ecd47dd",
+  "existingSuite": {
+    "passed": 88,
+    "failed": 0,
+    "skipped": 0
+  }
+}
