@@ -1,88 +1,95 @@
 # mckinsey-deck-craft
 
-**中文** | [English](README.en.md)
+**从决策问题出发，组织证据与故事线，制作可编辑 PPT。**
 
-参考和学习麦肯锡真实案例，归纳咨询式论证、故事线与页面设计，帮助 AI Agent 在新主题上制作可编辑 PPT。支持专业图表与表格、克制的自定义配色，以及统一源数据驱动的内容更新。
+参考真实咨询案例，把资料整理成适合受众的报告、图表与行动建议。支持自定义品牌、统一源数据更新，以及对现有 PPT 的审查和局部修改。
 
-这是个人研究与复用 Skill，非麦肯锡官方产品。使用开放的 `SKILL.md` 结构，提供 Claude Code、Codex、WorkBuddy 及多种国内外 Agent 的安装与使用方式。**技能加载兼容性与 PPT 生成能力分别说明；各产品入口已对照官方文档，未宣称已在所有客户端实测。**
+**中文** | [English](README.en.md) · [![验证检查](https://github.com/kylez0101/mckinsey-deck-craft/actions/workflows/verify.yml/badge.svg)](https://github.com/kylez0101/mckinsey-deck-craft/actions/workflows/verify.yml)
 
-## 1. 拿到链接后怎么安装
+[成品画廊](#gallery) · [快速开始](#quick-start) · [常用提示词](#prompts) · [安装详情](#installation) · [验证记录](#verification)
 
-### 最快：让 Agent 帮你安装
+个人研究与复用 Skill，非麦肯锡官方产品。以下案例均使用合成数据。
 
-将下面这段发送给具有文件和终端工具的 Agent：
+<a id="gallery"></a>
+## 1. 成品画廊
+
+三张全英文展示页，以关键数字、原生图表和清晰留白呈现分析。预览来自同一份可下载的PPT，文字、图表与流程保持原生可编辑。以下数字全部为合成数据。
+
+[下载3页英文PPTX](examples/english-showcase/report.pptx) · [源数据](examples/english-showcase/source.json) · [检查记录](examples/english-showcase/checks.json)
+
+### Investment decisions
+
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with support demand growth and native cost bars">](assets/readme/saas-decision.jpg)
+
+Compare investment options while keeping cost scope and unknown impact explicit.
+
+### Shared research service
+
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with staffing, budget and governance gates and an editable pilot flow">](assets/readme/university-service.jpg)
+
+Connect demand to the people, budget and governance conditions required before a pilot.
+
+### Contribution bridge
+
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
+
+Make every deduction visible with a native chart and a traceable calculation.
+
+完整中文教学案例：[客服投入（6页）](examples/saas-budget/README.md) · [共享服务（6页）](examples/university-service/README.md) · [专业图表库](assets/templates/professional-chart-gallery.pptx)
+
+<a id="capabilities"></a>
+## 2. 你可以用它做什么
+
+| 你的需求 | 交付结果 |
+|---|---|
+| 根据资料制作报告 | 组织决策问题、证据、逐页故事线，生成可编辑 PPT |
+| 先确定结构 | 交付逐页故事板，列明标题、证据、视觉关系和待补资料 |
+| 审查现有 PPT | 定位具体页面的问题，解释影响与修改建议 |
+| 只改一页或一组数字 | 保留未涉及内容，核对相关图表、文字与建议 |
+| 学习咨询式表达 | 对照原样本解释页面职责、论证方式与适用边界 |
+
+关键图表、表格与需修改的图示使用原生对象。样本来自数字制造与运营转型，新主题重新定义行业事实、指标和实施条件。
+
+<a id="quick-start"></a>
+## 3. 快速开始
+
+### 第一步：安装完整 Skill
+
+把下面这段发给能访问 GitHub、读写本地文件的 Agent：
 
 ```text
 请安装这个 Skill：https://github.com/kylez0101/mckinsey-deck-craft
 识别当前 Agent，使用它支持的用户级或项目级技能目录。
 下载完整仓库，保留 SKILL.md、references/、assets/、scripts/、schemas/、evals/、examples/ 的相对结构。
-如果已有同名安装，先检查来源并保留本地修改。
-安装后确认能读到 SKILL.md、模板 PPT 和参考文档，再告诉我本机的调用方式。
-不要把“已下载”当作“已验证能够生成 PPT”；请说明可用的 PPT 制作工具。
+已有同名安装时保留本地修改。
+安装后确认资源齐全，说明调用方式和当前可用的 PPT 制作工具。
 ```
 
-这适用于能访问 GitHub、读写本地文件的 Agent。没有这些工具时，使用下方手动安装或上传方式。
+Claude Code 用 `/mckinsey-deck-craft`，Codex 用 `$mckinsey-deck-craft`。其他 Agent 可直接在请求中指定名称。[手动安装与 WorkBuddy 上传](#installation)
 
-### Claude Code / Codex 手动安装
-
-在**系统终端**执行相应命令，目标文件夹应尚不存在：
-
-```sh
-# Claude Code：用户级安装
-mkdir -p ~/.claude/skills
-git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.claude/skills/mckinsey-deck-craft
-```
-
-```sh
-# Codex：当前官方用户级发现目录
-mkdir -p ~/.agents/skills
-git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.agents/skills/mckinsey-deck-craft
-```
-
-随后在 Agent 内确认技能出现；必要时开启新会话。Claude Code 输入 `/mckinsey-deck-craft`，Codex 输入 `$mckinsey-deck-craft`。这些是**聊天里的调用方式**，不是终端命令。安装到 `~/.agents/skills` 后，无需再为 Codex 复制到第二个目录。
-
-### WorkBuddy：下载后上传
-
-1. 下载 [完整技能 ZIP](https://github.com/kylez0101/mckinsey-deck-craft/releases/latest/download/mckinsey-deck-craft.zip)。也可在仓库页面点 **Code → Download ZIP** 获取源码。
-2. 在 WorkBuddy 打开 **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**，选择完整技能包并完成导入；官方上传界面支持包含 `SKILL.md` 的文件夹和 ZIP；若 ZIP 被拒绝，解压后选择完整技能文件夹上传。保持 `SKILL.md` 与 `references/`、`assets/`、`scripts/`、`schemas/`、`evals/`、`examples/` 同级。
-3. 在“已安装”中确认技能出现，再输入：`请使用 mckinsey-deck-craft，为我制作一份客服效率提升方案。`
-
-WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴进市场对话就会自动安装。下载包的结构已检查，WorkBuddy 客户端导入尚未实测。单独上传 `.md` 会遗漏本 Skill 的模板和脚本，应使用完整包；开放平台的上架元数据规范不等于本地导入规范。[上传格式说明](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [官方指引](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
-
-### 其他 Agent 安装位置
-
-把**完整仓库文件夹**放入对应目录，而非只复制 `SKILL.md`。下面是官方文档规定的发现位置；具体版本的入口和权限可能有差异。
-
-| Agent | 用户级目录 / 项目级目录 | 调用或确认方式 | 官方说明 |
-|---|---|---|---|
-| Claude Code | `~/.claude/skills/` / `.claude/skills/` | `/mckinsey-deck-craft` | [文档](https://code.claude.com/docs/en/skills) |
-| Codex | `~/.agents/skills/` / `.agents/skills/` | `$mckinsey-deck-craft`，或在技能列表选择 | [文档](https://learn.chatgpt.com/docs/build-skills) |
-| Gemini CLI | `~/.gemini/skills/` 或 `~/.agents/skills/`；项目对应同名隐藏目录 | `/skills list` 确认，再自然语言调用 | [文档](https://geminicli.com/docs/cli/skills/) |
-| Cursor | `~/.cursor/skills/` / `.cursor/skills/`；也支持 `.agents/skills/` | `/mckinsey-deck-craft` 或 `@` 选择 | [文档](https://cursor.com/help/customization/skills) |
-| GitHub Copilot | `~/.copilot/skills/` / `.github/skills/`；也支持 `.agents/skills/` | 用名称和任务描述明确要求使用 | [文档](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) |
-| OpenCode | `~/.config/opencode/skills/` / `.opencode/skills/`；也支持 `.agents/skills/` | 自然语言要求用原生 skill 工具加载 | [文档](https://opencode.ai/docs/skills) |
-| CodeBuddy Code | `~/.codebuddy/skills/` / `.codebuddy/skills/` | `/skills` 确认，`/mckinsey-deck-craft` 调用 | [文档](https://www.codebuddy.cn/docs/cli/skills) |
-| TRAE 中国版 | `~/.trae-cn/skills/` / `.trae/skills/`；也支持项目 `.agents/skills/` | 设置中查看，再自然语言调用；优先完整目录复制 | [文档](https://docs.trae.cn/ide_skills) |
-| Qoder 国际 CLI | `~/.qoder/skills/` / `.qoder/skills/` | `/skills reload` 后用 `/mckinsey-deck-craft` | [文档](https://docs.qoder.com/cli/Skills) |
-| Qoder CN IDE | `~/.lingma/skills/` / `.lingma/skills/` | 重启后在 `/` 菜单选择 | [文档](https://docs.qoder.cn/user-guide/skills) |
-| Qwen Code | `~/.qwen/skills/` / `.qwen/skills/`；也支持 `.agents/skills/` | `/skills` 确认，`/mckinsey-deck-craft` 调用 | [文档](https://github.com/QwenLM/qwen-code/blob/main/docs/users/features/skills.md) |
-| Kimi Code CLI | `~/.kimi-code/skills/` / `.kimi-code/skills/`；也支持 `.agents/skills/` | `/skill:mckinsey-deck-craft`；版本不同先查技能列表 | [文档](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html) |
-
-例如，只在某个项目使用 Claude Code 时，在该项目根目录克隆到 `.claude/skills/mckinsey-deck-craft`。Windows 可用 Git Bash 执行上述命令，或下载 ZIP，将 `~` 替换为用户主目录（通常为 `C:\Users\你的用户名`）后通过文件管理器安装。
-
-其他 Agent 若支持自定义 Skills，使用其官方技能导入入口；若不支持自动发现，但能读取工作区文件，将仓库放入工作区并明确要求：
+### 第二步：用现有案例试一次
 
 ```text
-先阅读 ./mckinsey-deck-craft/SKILL.md，按任务需要读取其 references/，
-使用 assets/ 中的模板和资源，执行这个 Skill 的工作流程。
-请用你当前可用的 PPT 工具生成可编辑文件；先核对工具是否可用。
+请使用 mckinsey-deck-craft，读取该Skill安装目录中的 examples/saas-budget/source.json，
+为董事会和客服负责人制作6页中文客服投入决策PPT，包含封面。
+保留合成数据、未知收益和试点条件，交付可编辑文件并检查最终渲染。
 ```
 
-纯聊天网页若无法读取文件夹或执行工具，只能使用提供给它的内容进行写作与故事板分析，不能保证生成可编辑 PPT。更多执行规则见[跨 Agent 兼容说明](references/agent-compatibility.md)。
+也可以直接下载画廊中的成品查看。生成 PPT 需要宿主已有的演示文稿工具；只有文本能力时，可交付故事板与后续制作材料，并说明尚未完成的部分。
 
-## 2. 一个可直接使用的完整示例
+<a id="prompts"></a>
+## 4. 常用提示词
 
-安装确认后，将下文发送给 Agent。Claude Code 可在前面加 `/mckinsey-deck-craft`，Codex 加 `$mckinsey-deck-craft`；其他工具可直接使用正文：
+| 想做什么 | 可直接使用的请求 |
+|---|---|
+| 从新资料制作 | `请使用 mckinsey-deck-craft，根据这份资料制作8页中文决策报告（含封面），受众是管理层，说明可选方案、证据与待确认条件。` |
+| 先写故事板 | `先给逐页故事板，列出每页任务、标题、证据和缺项，暂不生成PPT。` |
+| 局部修改 | `只修改第4页的方案比较，保留其他页面内容与顺序，不增加封面；同步核对受影响的数字与结论。` |
+| 更换品牌 | `使用通用品牌配置，正文主色为#8C1515，封面另行设计，选择实际可用字体，输出适合现场演示的版本。` |
+| 改数后重判 | `把SaaS示例预算从30万元改为20万元，重新检查余量、图表、比较表和试点建议，保持封面，输出一个新文件。` |
+
+<details>
+<summary>展开：带完整演示数据的8页请求</summary>
 
 ```text
 请使用 mckinsey-deck-craft，制作《B2B SaaS 客服效率提升方案》。
@@ -119,7 +126,115 @@ WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴�
 
 **后续修改示例：** `把方案A投入改为26万元，重新检查预算、比较表、正文和有条件的推荐；保持封面不变，输出一个新文件。` 数据联动仅覆盖已建立绑定的内容；手工改 PPT 不会让整篇自动同步。
 
-## 3. 能做什么，需要什么环境
+</details>
+
+<a id="workflow"></a>
+## 5. 从问题到成品
+
+1. **明确决定。** 确认受众、要支持的判断或行动、篇幅和已有资料。
+2. **组织证据。** 区分事实、目标、测算与未知，保留来源、单位、周期和适用条件。
+3. **写逐页故事板。** 让标题与正文支持同一判断，各页衔接清楚。
+4. **制作可编辑对象。** 依据比较、趋势、流程或取舍选择图表与版式。
+5. **检查最终文件。** 从导出文件重新渲染，核对内容、版式、工作簿和代表性编辑行为。
+
+缺少关键事实时保留未知与补证计划。只要故事板的任务，到故事板为止；已要求修改的任务，按指定范围实施。[任务模式](references/task-modes.md)
+
+<a id="customization"></a>
+## 6. 图表、主题与数据更新
+
+| 能力 | 你可以控制什么 | 说明 |
+|---|---|---|
+| 主题与品牌 | 主色、辅助色、字体、封面、页脚 | [主题系统](references/theme-system.md) · [样式配置](references/style-profiles.md) |
+| 阅读场景 | 近距离阅读或现场演示 | `reading` / `presentation` 调整字号与容量，实际显示仍需检查 |
+| 分析关系 | 比较、趋势、情景区间、成本桥、流程、方案表 | [专业图表](references/professional-chart-design.md) · [数据布局](references/data-layouts.md) |
+| 统一源数据 | 同步已绑定的图表、表格、文字、标题与推荐 | [数据绑定](references/data-binding.md)，条件变化后重新判断建议 |
+
+默认 `personal` / `reading` 保留个人深蓝封面和阅读排版；`generic` 提供中性品牌起点。统一源数据输入时，样式放在 `presentation.style`，正文主色放在 `presentation.theme`。
+
+直接在 PowerPoint 手工改数，仍需同步相关文字与表格；整篇联动覆盖已建立的源数据绑定。
+
+<a id="verification"></a>
+## 7. 验证与评测
+
+| 已有证据 | 范围 |
+|---|---|
+| **88项本地测试通过** | 数值、绑定、图表、样式、字段契约、验收与评审包；其中2项需实际演示运行库，便携CI中跳过 |
+| **24次任务执行完成** | 22份可编辑PPT共116页，另有2份受限环境文本交付 |
+| **原始与修复结果分别保留** | 首轮74项检查通过、4项待补证或澄清；补证、标准澄清及辅助修复后78项通过 |
+
+[完整评测与成品证据](evals/results/2026-11-07-complete/README.md) · [评测方法](references/evaluation.md) · [成品检查](references/production-checks.md)
+
+这些结果限于已记录的任务与环境。修复后通过率不能当作未辅助的模型性能或普遍质量优势。PowerPoint桌面与Google Slides行为仍未实测；机器构建通过、视觉检查、编辑重开和目标应用检查分别记录。
+
+<a id="installation"></a>
+## 8. 安装、环境与常见问题
+
+**三种常用入口：** Claude Code 和 Codex 安装到对应技能目录；WorkBuddy 下载源码 ZIP、解压后上传完整技能文件夹。安装成功与能否生成PPT分别确认。
+
+<details>
+<summary>展开：Claude Code、Codex、WorkBuddy及其他平台的完整安装说明</summary>
+
+### Claude Code / Codex 手动安装
+
+在**系统终端**执行相应命令，目标文件夹应尚不存在：
+
+```sh
+# Claude Code：用户级安装
+mkdir -p ~/.claude/skills
+git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.claude/skills/mckinsey-deck-craft
+```
+
+```sh
+# Codex：当前官方用户级发现目录
+mkdir -p ~/.agents/skills
+git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.agents/skills/mckinsey-deck-craft
+```
+
+随后在 Agent 内确认技能出现；必要时开启新会话。Claude Code 输入 `/mckinsey-deck-craft`，Codex 输入 `$mckinsey-deck-craft`。这些是**聊天里的调用方式**，不是终端命令。安装到 `~/.agents/skills` 后，无需再为 Codex 复制到第二个目录。
+
+### WorkBuddy：下载后上传
+
+1. 下载 [最新源码 ZIP](https://github.com/kylez0101/mckinsey-deck-craft/archive/refs/heads/main.zip)。也可在仓库页面点 **Code → Download ZIP** 获取源码。
+2. 解压源码 ZIP，定位包含 `SKILL.md` 的完整技能文件夹。在 WorkBuddy 打开 **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**，上传该文件夹并完成导入；如使用 ZIP 导入，仍需确认入口能识别技能根目录。保持 `SKILL.md` 与 `references/`、`assets/`、`scripts/`、`schemas/`、`evals/`、`examples/` 同级。
+3. 在“已安装”中确认技能出现，再输入：`请使用 mckinsey-deck-craft，为我制作一份客服效率提升方案。`
+
+WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴进市场对话就会自动安装。安装后确认资源目录齐全，WorkBuddy 客户端导入尚未实测。单独上传 `.md` 会遗漏本 Skill 的模板和脚本，应使用完整包；开放平台的上架元数据规范不等于本地导入规范。[上传格式说明](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [官方指引](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+
+### 其他 Agent 安装位置
+
+把**完整仓库文件夹**放入对应目录，而非只复制 `SKILL.md`。下面是官方文档规定的发现位置；具体版本的入口和权限可能有差异。
+
+| Agent | 用户级目录 / 项目级目录 | 调用或确认方式 | 官方说明 |
+|---|---|---|---|
+| Claude Code | `~/.claude/skills/` / `.claude/skills/` | `/mckinsey-deck-craft` | [文档](https://code.claude.com/docs/en/skills) |
+| Codex | `~/.agents/skills/` / `.agents/skills/` | `$mckinsey-deck-craft`，或在技能列表选择 | [文档](https://learn.chatgpt.com/docs/build-skills) |
+| Gemini CLI | `~/.gemini/skills/` 或 `~/.agents/skills/`；项目对应同名隐藏目录 | `/skills list` 确认，再自然语言调用 | [文档](https://geminicli.com/docs/cli/skills/) |
+| Cursor | `~/.cursor/skills/` / `.cursor/skills/`；也支持 `.agents/skills/` | `/mckinsey-deck-craft` 或 `@` 选择 | [文档](https://cursor.com/help/customization/skills) |
+| GitHub Copilot | `~/.copilot/skills/` / `.github/skills/`；也支持 `.agents/skills/` | 用名称和任务描述明确要求使用 | [文档](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) |
+| OpenCode | `~/.config/opencode/skills/` / `.opencode/skills/`；也支持 `.agents/skills/` | 自然语言要求用原生 skill 工具加载 | [文档](https://opencode.ai/docs/skills) |
+| CodeBuddy Code | `~/.codebuddy/skills/` / `.codebuddy/skills/` | `/skills` 确认，`/mckinsey-deck-craft` 调用 | [文档](https://www.codebuddy.cn/docs/cli/skills) |
+| TRAE 中国版 | `~/.trae-cn/skills/` / `.trae/skills/`；也支持项目 `.agents/skills/` | 设置中查看，再自然语言调用；优先完整目录复制 | [文档](https://docs.trae.cn/ide_skills) |
+| Qoder 国际 CLI | `~/.qoder/skills/` / `.qoder/skills/` | `/skills reload` 后用 `/mckinsey-deck-craft` | [文档](https://docs.qoder.com/cli/Skills) |
+| Qoder CN IDE | `~/.lingma/skills/` / `.lingma/skills/` | 重启后在 `/` 菜单选择 | [文档](https://docs.qoder.cn/user-guide/skills) |
+| Qwen Code | `~/.qwen/skills/` / `.qwen/skills/`；也支持 `.agents/skills/` | `/skills` 确认，`/mckinsey-deck-craft` 调用 | [文档](https://github.com/QwenLM/qwen-code/blob/main/docs/users/features/skills.md) |
+| Kimi Code CLI | `~/.kimi-code/skills/` / `.kimi-code/skills/`；也支持 `.agents/skills/` | `/skill:mckinsey-deck-craft`；版本不同先查技能列表 | [文档](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html) |
+
+例如，只在某个项目使用 Claude Code 时，在该项目根目录克隆到 `.claude/skills/mckinsey-deck-craft`。Windows 可用 Git Bash 执行上述命令，或下载 ZIP，将 `~` 替换为用户主目录（通常为 `C:\Users\你的用户名`）后通过文件管理器安装。
+
+其他 Agent 若支持自定义 Skills，使用其官方技能导入入口；若不支持自动发现，但能读取工作区文件，将仓库放入工作区并明确要求：
+
+```text
+先阅读 ./mckinsey-deck-craft/SKILL.md，按任务需要读取其 references/，
+使用 assets/ 中的模板和资源，执行这个 Skill 的工作流程。
+请用你当前可用的 PPT 工具生成可编辑文件；先核对工具是否可用。
+```
+
+纯聊天网页若无法读取文件夹或执行工具，只能使用提供给它的内容进行写作与故事板分析，不能保证生成可编辑 PPT。更多执行规则见[跨 Agent 兼容说明](references/agent-compatibility.md)。
+
+</details>
+
+<details>
+<summary>展开：制作能力与运行环境</summary>
 
 | 使用层级 | 所需能力 | 结果 |
 |---|---|---|
@@ -131,16 +246,32 @@ WorkBuddy 的自定义技能走上传入口；不要假定把 GitHub 链接贴�
 
 没有 Codex 运行环境的 Claude Code、WorkBuddy 等，应优先使用宿主已有的 PPT 能力；无需为阅读或使用模板配置 Codex。仓库内完整构建脚本不是只执行 `npm install` 即可运行的独立生成器。环境变量与替代路径见[兼容说明](references/agent-compatibility.md)。字体缺失时选择可用字体并重新验证排版，不能假定不同系统效果相同。
 
-## 4. 仓库内容与验证
+</details>
 
-- [SKILL.md](SKILL.md)：执行入口与按需阅读路由。
-- `references/`：故事线、18类版式、图表、数据绑定、主题及交付检查。
-- `assets/templates/`：10类基础页面、7款专业图表/表格、6种数据布局；附 JSON 与总览。
-- `assets/examples/`、`assets/icons/`、`assets/brand/`：参考页、图标和固定封面。
-- `scripts/`：数据模型、主题、布局构建器、预检、分项验收和测试；`agents/openai.yaml` 仅为 Codex UI 元数据。
-- `schemas/template-contract.json`：字段与容量的唯一结构化定义；生成模板目录和说明中的字段表。
-- `evals/`：冻结的任务简报与独立评分标准，供基线/Skill对照使用。
-- `examples/`：非制造业整套示例的原始事实、绑定源数据、故事板与设计取舍。
+### 常见问题
+
+**装好后为什么只能输出大纲？** 当前 Agent 还需可用的 PPT 制作工具。Skill 提供方法、资源与可选构建器；完整脚本使用文档说明的 Codex 运行环境，其他宿主可使用自己的演示工具。[兼容说明](references/agent-compatibility.md)
+
+**能把制造业案例换成其他行业吗？** 可以迁移问题、证据、机制与行动的关系；新行业的数据、术语、收益和人员配置需要重新取得依据。
+
+**可编辑是否代表手改后全篇自动同步？** 原生对象可继续修改；全篇更新依赖已建立的源数据绑定和重建流程。
+
+**下载后能用于真实决策吗？** 现有案例用于说明方法和表达。替换为真实资料后，仍需核对来源、成本口径、审批条件与目标应用中的实际显示。
+
+<a id="resources"></a>
+## 9. 资源索引与来源
+
+| 资源 | 入口 |
+|---|---|
+| 更新与案例索引 | [变更记录](CHANGELOG.md) · [案例目录](examples/README.md) |
+| 执行入口与任务分支 | [SKILL.md](SKILL.md) · [任务模式](references/task-modes.md) |
+| 故事线与视觉方法 | [故事线](references/storyline-patterns.md) · [视觉系统](references/visual-system.md) · [原样本版式](references/layout-patterns.md) |
+| 原生模板与图表 | [基础页面库](assets/templates/consulting-page-library.pptx) · [专业图表库](assets/templates/professional-chart-gallery.pptx) · [数据布局库](assets/templates/data-layout-library.pptx) |
+| 整套案例 | [SaaS决策](examples/saas-budget/README.md) · [共享服务](examples/university-service/README.md) |
+| 学习与来源边界 | [学习指南](references/learning-guide.md) · [样本索引](references/corpus-map.md) |
+
+<details>
+<summary>展开：源码与验证命令</summary>
 
 在仓库根目录运行：
 
@@ -150,43 +281,10 @@ node scripts/sync-template-catalog.mjs --check
 node scripts/preflight.mjs --input examples/saas-budget/source.json
 ```
 
-这些测试和默认预检不要求完整 PPT 运行环境；`preflight.mjs --full` 额外检查当前运行库、字体和 Python。它们不证明每个 Agent 的实际导入和演示导出已经通过。最终作品仍按[成品检查](references/production-checks.md)核对。
+`scripts/` 包含编译、主题、布局、预检与验收工具；`schemas/template-contract.json` 是字段与容量的结构化定义。测试与默认预检可脱离完整PPT运行环境；`--full` 另查实际运行库、字体与Python。
 
-原始 PPT 不随仓库分发；文件标识、页码、哈希和归纳边界见[来源说明](references/corpus-map.md)。图像和图标保留来源记录，相关素材权利归原权利人；本仓库未额外授权第三方素材。
+</details>
 
+本项目为个人归纳，非麦肯锡官方产品。原始PPT不随仓库分发；素材来源、页序、哈希与归纳边界见样本索引，第三方素材归原权利人。
 
-## 5. 按任务使用，按证据验收
-
-入口区分五种任务：学习样本、故事板、新建成品、审查、局部修改。只读当前任务所需参考；纯审查交付发现，已要求修改的任务直接实施。局部修改保留未涉及范围，并回查图表、工作簿、正文与推荐之间的依赖。单页任务不追加封面，普通页面JSON使用 `mode: "single-slide"`；完整成品默认 `mode: "deck"`。详见[任务模式](references/task-modes.md)。
-
-品牌与使用场景通过普通页面JSON的 `style` 配置；统一源数据输入时放在 `presentation.style`：
-
-```json
-{
-  "style": {
-    "profile": "generic",
-    "purpose": "presentation"
-  }
-}
-```
-
-默认 `personal` / `reading` 保留原有个人封面与阅读排版；`generic` 提供中性品牌起点，`presentation` 面向现场演示。字体、封面和页脚可显式覆盖，实际字体与版面须重新核验。正文主题色继续使用独立的 `theme` 配置。参数和例子见[样式配置](references/style-profiles.md)。
-
-机器构建成功返回 `machine_checks_passed`。验收记录将结构/数据、内容、视觉、编辑重开和目标应用分别标为 `passed` / `failed` / `not_run`，附对应证据；全部要求完成后才标记 `verified`。没有执行的PowerPoint内检查不会默认通过。
-
-## 6. 整套示例与Skill评测
-
-- [SaaS预算决策](examples/saas-budget/README.md)：在收益未知的情况下比较预算与试点条件，修改投入后重新判断建议。
-- [高校共享服务](examples/university-service/README.md)：从需求与服务范围组织分阶段试点，保留证据缺口和进入条件。
-
-示例均为合成事实，包含可重建的源JSON、逐页故事板和修改前后对照，用来解释页序、证据和视觉选择。它们不能证明真实项目效果，也不作为未见题目的盲测成绩。成品构建和视觉检查范围以各例记录为准。
-
-固定任务评测将执行者简报和评估者期望分开。可用以下命令准备一次可重现的基线/Skill对照：
-
-```sh
-node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" --seed "reliability-01"
-```
-
-随后由执行者实际完成任务，另一评估者核对完整产物和证据，再用评分器汇总。准备任务或运行单元测试不等于完成了Agent盲测；缺失的运行和人工判断保留 `not_run`。具体流程、报告格式与评分命令见[评测说明](references/evaluation.md)。
-
-[24次完成记录](evals/results/2026-11-07-complete/README.md)包含22份PPT（116页）与2份文本稿，保留首轮、补评和辅助修复结果；修复后通过率不等于未辅助的模型性能。
+README展示结构参考 [Awesome-PPT-Design-Skills](https://github.com/software-ai-life/Awesome-PPT-Design-Skills)。画廊使用本仓库实际成品预览。

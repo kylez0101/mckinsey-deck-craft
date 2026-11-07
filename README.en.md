@@ -1,16 +1,55 @@
 # mckinsey-deck-craft
 
-[中文](README.md) | **English**
+Turn a decision question and evidence into a consulting-style storyline and editable PowerPoint, drawing on independently studied McKinsey presentations.
 
-A reusable skill informed by studying real McKinsey case presentations. It helps AI agents build consulting-style arguments, storylines, and editable PowerPoint decks, with professional charts and tables, restrained custom themes, and updates driven by a shared data source.
+[中文](README.md) | **English** · [![Verify](https://github.com/kylez0101/mckinsey-deck-craft/actions/workflows/verify.yml/badge.svg)](https://github.com/kylez0101/mckinsey-deck-craft/actions/workflows/verify.yml)
 
-This is an independent research and reuse skill, not an official McKinsey product. It uses the open `SKILL.md` folder structure and provides installation routes for Claude Code, Codex, WorkBuddy, and other international and Chinese agents. **Skill discovery and PPT generation are separate capabilities. Installation routes are checked against official documentation; they have not all been tested in the respective clients.**
+[Examples](#gallery) · [Capabilities](#capabilities) · [Quick start](#quick-start) · [Prompts](#prompts) · [Workflow](#workflow) · [Customize](#customization) · [Verification](#verification) · [Install](#installation) · [Resources](#resources)
 
-## 1. Install from the GitHub link
+<a id="gallery"></a>
+## See the outputs
 
-### Quickest: ask your agent to install it
+Three English demo slides with clear typography and native charts. These previews come from the downloadable deck: text, charts and flows are native editable objects. All data is synthetic, not real business results or McKinsey deliverables.
 
-Send this to an agent with file and terminal tools:
+[Download the three-slide English PPTX](examples/english-showcase/report.pptx) · [Source data](examples/english-showcase/source.json) · [Check record](examples/english-showcase/checks.json)
+
+### Investment decisions
+
+[<img src="assets/readme/saas-decision.jpg" width="760" alt="English investment decision demo with support demand growth and native cost bars">](assets/readme/saas-decision.jpg)
+
+Compare investment options while keeping cost scope and unknown impact explicit.
+
+### Shared research service
+
+[<img src="assets/readme/university-service.jpg" width="760" alt="English research service demo with staffing, budget and governance gates and an editable pilot flow">](assets/readme/university-service.jpg)
+
+Connect demand to the people, budget and governance conditions required before a pilot.
+
+### Contribution bridge
+
+[<img src="assets/readme/professional-charts.jpg" width="760" alt="English financial contribution demo with an editable bridge from CNY 20160 to CNY 8320">](assets/readme/professional-charts.jpg)
+
+Make every deduction visible with a native chart and a traceable calculation.
+
+Full worked cases in Chinese: [SaaS decision (six slides)](examples/saas-budget/README.md) · [Shared service (six slides)](examples/university-service/README.md) · [Professional chart library](assets/templates/professional-chart-gallery.pptx)
+
+<a id="capabilities"></a>
+## What you can do
+
+| Task | Result |
+|---|---|
+| **Learn** | Explain a source slide's argument, layout, purpose, and limits. |
+| **Storyboard** | Plan each slide's role, title, evidence, visual relationship, and transition. |
+| **Create** | Build a complete editable deck using the host's available PPT tools. |
+| **Review** | Locate issues by slide and evidence, with their impact and suggested fixes. |
+| **Edit** | Change selected slides or objects and recheck dependent numbers and conclusions. |
+
+The library includes 18 layout archetypes, 10 base page types, 7 professional chart/table examples, and 6 data layouts. It applies to decision reports, proposals, operating guides, and other topics; manufacturing-specific frameworks are used only where relevant.
+
+<a id="quick-start"></a>
+## Quick start
+
+**1. Ask an agent with file and terminal tools to install the full skill:**
 
 ```text
 Install this skill: https://github.com/kylez0101/mckinsey-deck-craft
@@ -22,68 +61,36 @@ Then tell me how to invoke it in this agent and which PPT authoring tools are av
 Distinguish a successful download from verified PPT generation.
 ```
 
-The agent needs GitHub access and local file tools. Otherwise, use manual installation or package upload below.
-
-### Manual installation: Claude Code / Codex
-
-Run the appropriate block in your **system terminal**, using a destination that does not already exist:
-
-```sh
-# Claude Code: user-level installation
-mkdir -p ~/.claude/skills
-git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.claude/skills/mckinsey-deck-craft
-```
-
-```sh
-# Codex: current officially documented user-level discovery location
-mkdir -p ~/.agents/skills
-git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.agents/skills/mckinsey-deck-craft
-```
-
-Check that the skill appears, starting a new session if needed. Invoke `/mckinsey-deck-craft` in Claude Code or `$mckinsey-deck-craft` in Codex. These are **chat invocations**, not terminal commands. Codex does not need a second copy after installation under `~/.agents/skills`.
-
-### WorkBuddy: download and upload
-
-1. Download the [complete skill ZIP](https://github.com/kylez0101/mckinsey-deck-craft/releases/latest/download/mckinsey-deck-craft.zip). **Code → Download ZIP** on the repository also provides a source archive.
-2. Open **Experts · Skills · Connectors → Skills → Add Skill → Upload Skill** (Chinese UI: **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**) and import the full package. The official upload interface accepts folders and ZIP files containing `SKILL.md`. If the ZIP is rejected, extract it and upload the complete skill folder. Keep `SKILL.md` next to `references/`, `assets/`, `scripts/`, `schemas/`, `evals/`, and `examples/`.
-3. Confirm it appears under installed skills, then ask: `Use mckinsey-deck-craft to create a customer-service productivity proposal.`
-
-Custom WorkBuddy skills use its upload flow; pasting a GitHub link into a marketplace conversation is not a documented automatic installation route. The package structure is checked locally; WorkBuddy import has not been tested in its client. A standalone `.md` upload omits this skill’s templates and scripts, so use the full package. Open-platform marketplace metadata requirements are separate from local import requirements. [Upload formats](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [Official guide](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
-
-### Installation locations for other agents
-
-Place the **entire repository folder** under the appropriate skills directory, not just `SKILL.md`. These routes follow official documentation; interfaces and permissions can vary by version.
-
-| Agent | User-level / project-level location | Invoke or confirm | Official guide |
-|---|---|---|---|
-| Claude Code | `~/.claude/skills/` / `.claude/skills/` | `/mckinsey-deck-craft` | [Docs](https://code.claude.com/docs/en/skills) |
-| Codex | `~/.agents/skills/` / `.agents/skills/` | `$mckinsey-deck-craft` or the skill picker | [Docs](https://learn.chatgpt.com/docs/build-skills) |
-| Gemini CLI | `~/.gemini/skills/` or `~/.agents/skills/`; corresponding project directories | Confirm with `/skills list`, then ask by name | [Docs](https://geminicli.com/docs/cli/skills/) |
-| Cursor | `~/.cursor/skills/` / `.cursor/skills/`; also `.agents/skills/` | `/mckinsey-deck-craft` or the `@` picker | [Docs](https://cursor.com/help/customization/skills) |
-| GitHub Copilot | `~/.copilot/skills/` / `.github/skills/`; also `.agents/skills/` | Ask by name and description | [Docs](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) |
-| OpenCode | `~/.config/opencode/skills/` / `.opencode/skills/`; also `.agents/skills/` | Ask it to load the skill using its native skill tool | [Docs](https://opencode.ai/docs/skills) |
-| CodeBuddy Code | `~/.codebuddy/skills/` / `.codebuddy/skills/` | `/skills`, then `/mckinsey-deck-craft` | [Docs](https://www.codebuddy.cn/docs/cli/skills) |
-| TRAE China | `~/.trae-cn/skills/` / `.trae/skills/`; also project `.agents/skills/` | Check settings, then ask by name; copy the complete folder | [Docs](https://docs.trae.cn/ide_skills) |
-| Qoder international CLI | `~/.qoder/skills/` / `.qoder/skills/` | `/skills reload`, then `/mckinsey-deck-craft` | [Docs](https://docs.qoder.com/cli/Skills) |
-| Qoder CN IDE | `~/.lingma/skills/` / `.lingma/skills/` | Restart and select from the `/` menu | [Docs](https://docs.qoder.cn/user-guide/skills) |
-| Qwen Code | `~/.qwen/skills/` / `.qwen/skills/`; also `.agents/skills/` | `/skills`, then `/mckinsey-deck-craft` | [Docs](https://github.com/QwenLM/qwen-code/blob/main/docs/users/features/skills.md) |
-| Kimi Code CLI | `~/.kimi-code/skills/` / `.kimi-code/skills/`; also `.agents/skills/` | `/skill:mckinsey-deck-craft`; check discovery for your version | [Docs](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html) |
-
-For a project-only Claude Code installation, clone into `.claude/skills/mckinsey-deck-craft` from that project's root. On Windows, use Git Bash or download the ZIP and install with File Explorer; `~` means your user home, usually `C:\Users\your-name`.
-
-For another agent with custom skill support, use its documented import flow. If it can read workspace files but has no skill discovery, put the repository in the workspace and ask:
+**2. Try the bundled six-slide example:**
 
 ```text
-Read ./mckinsey-deck-craft/SKILL.md first. Load references/ only as needed,
-use the templates and assets, and follow the skill's workflow.
-Check your available PPT tools and use them to produce editable output.
+Use mckinsey-deck-craft. Read examples/saas-budget/source.json from the installed skill folder to recreate the
+six-slide SaaS budget decision example. Preserve the synthetic-data labels,
+unknown benefits, and conditional recommendation. Use the host's available
+PPT tools. Deliver an editable PPTX, the storyboard, source data, and a check
+record. If PPT authoring is unavailable, identify the missing tool and provide
+the storyboard and usable templates without claiming a completed PPT.
 ```
 
-A chat-only web interface without folder access or tools can help with writing and storyboards using supplied content, but cannot be assumed to produce an editable PPT. See [agent compatibility](references/agent-compatibility.md).
+Invoke `/mckinsey-deck-craft` in Claude Code or `$mckinsey-deck-craft` in Codex **chat**, then add your request. Other agents can ask by name. For manual setup, see [full installation](#installation).
 
-## 2. A complete example you can copy
+Loading the skill needs file access. Creating an editable PPT also needs a working PPT authoring toolchain. A successful install alone does not establish that capability.
 
-After confirming installation, send the following. Prefix it with `/mckinsey-deck-craft` in Claude Code or `$mckinsey-deck-craft` in Codex if you want explicit invocation; other agents can use the text directly:
+<a id="prompts"></a>
+## Prompts to adapt
+
+| Need | Copy and adapt |
+|---|---|
+| A new decision deck | “Use mckinsey-deck-craft. Audience: [who]. Decision: [choice]. Evidence: [files]. Create [N] slides including the cover. Mark unknowns and deliver editable output with a check record.” |
+| A single-slide change | “Edit only slide 4: simplify the option comparison and keep its conditions and sources. Preserve other slides. Recheck dependencies and export a new file.” |
+| A different theme | “Use a generic brand profile for live presentation, with primary color #8C1515. Use available fonts, then render and check readability.” |
+| Changed numbers | “Change Option A to CNY 260,000. Recheck the budget, chart/table values, narrative, and conditional recommendation. Keep the cover unchanged and export a new file.” |
+| Review or learning | “Review this deck for unsupported claims and title-to-evidence gaps. Locate each finding by slide.” / “Explain the argument and layout of this source page and when to use it.” |
+
+<details>
+<summary><strong>Complete example: an eight-slide customer-service decision report</strong></summary>
+
+After installation, send this prompt. It requests an eight-slide English report; the gallery above is a separate three-slide style showcase.
 
 ```text
 Use mckinsey-deck-craft to create “Improving B2B SaaS Customer-Service Productivity”.
@@ -116,51 +123,25 @@ Requirements:
 - If authoring tools are missing, explain the gap and provide the storyboard and usable templates without claiming a completed PPT.
 ```
 
-Expected output: an eight-slide report based on explicit demonstration inputs, traceable source data, a storyboard, and a check record. State the basis for any pilot threshold or expected effect; facts absent from this example remain unknown. Replace demonstration inputs with real evidence for an actual engagement.
+The expected result is an eight-slide report, traceable source data, a storyboard, and a check record. State the basis for proposed thresholds or effects. Replace demonstration inputs with real evidence for an actual engagement.
 
-**Follow-up edit:** `Change Option A to CNY 260,000. Recheck the budget, comparison table, narrative, and conditional recommendation. Keep the cover unchanged and export a new file.` Data-driven updates cover established bindings only; manually editing a PPT does not automatically synchronize the whole deck.
+</details>
 
-## 3. Capabilities and runtime requirements
+<a id="workflow"></a>
+## From question to checked deck
 
-| Usage level | Required capability | Result |
-|---|---|---|
-| Method, storyboarding, review | Agent can read Markdown and relevant resources | Structure, claims, evidence, and design guidance |
-| Existing templates | A tool that opens PowerPoint files | Direct editing of three native template libraries |
-| Cross-agent PPT authoring | An existing host PPT skill, presentation API, or usable script toolchain | Rebuild editable objects using this skill's method; validate the actual output |
-| Data compilation, themes, layout tests | Modern Node.js with ES modules and `node:test` | Calculations, themes, tests, and `--dry-run` |
-| Bundled full PPT builders | Codex Presentations runtime, Artifact Tool, Python + lxml | Generate and validate PPTs with `build-deck.mjs` / `build-data-deck.mjs` |
+1. **Define the decision.** Identify the audience, choice, scope, length, and available evidence.
+2. **Separate facts and hypotheses.** Keep sources, dates, units, assumptions, and unknowns explicit; do not transfer old case outcomes into new promises.
+3. **Write the storyboard.** Give each slide a job and an evidence-supported title. Read titles in sequence to check the argument.
+4. **Choose the visual relationship.** Use comparisons, trends, flows, or plans to fit the evidence. Rebuild editable objects with the host's tools.
+5. **Render and verify.** Inspect the exported file, check data and dependent recommendations, and test representative editing and reopening. Record unperformed checks.
 
-Claude Code, WorkBuddy, and other hosts without the Codex runtime should use their existing PPT tools. Reading the skill or editing templates does not require Codex. The bundled full builder is not a standalone generator enabled by `npm install` alone. See [compatibility](references/agent-compatibility.md) for environment variables and alternate routes. If fonts are unavailable, choose installed substitutes and recheck layout; rendering may differ across systems.
+Review-only requests return findings; requests that include changes proceed to editing. A single-slide task does not add a cover. See [task modes](references/task-modes.md) and [delivery checks](references/production-checks.md).
 
-## 4. Contents and verification
+<a id="customization"></a>
+## Customize the brand and reading context
 
-- [SKILL.md](SKILL.md): execution entry point and reference routing.
-- `references/`: storylines, 18 layout archetypes, charts, data binding, themes, and delivery checks.
-- `assets/templates/`: 10 base page types, 7 professional chart/table examples, and 6 data layouts, with JSON and overview images.
-- `assets/examples/`, `assets/icons/`, `assets/brand/`: reference pages, icons, and fixed cover artwork.
-- `scripts/`: data model, themes, page builders, preflight, scoped acceptance, and tests; `agents/openai.yaml` is optional Codex UI metadata.
-- `schemas/template-contract.json`: the canonical field and capacity definition used to generate the catalog and documented field table.
-- `evals/`: frozen task briefs and separate evaluator expectations for baseline/skill comparisons.
-- `examples/`: complete nonmanufacturing examples with raw facts, bound source data, storyboards, and design rationale.
-
-Run from the repository root:
-
-```sh
-node --test scripts/tests/*.test.mjs
-node scripts/sync-template-catalog.mjs --check
-node scripts/preflight.mjs --input examples/saas-budget/source.json
-```
-
-These tests and the default preflight do not need the full PPT runtime. Add `--full` to preflight to check the current runtime, fonts, and Python. These checks do not establish successful import or export in every agent. Validate final work using the [delivery checks](references/production-checks.md). Operational references are currently written in Chinese; ask the agent to explain them or produce your deliverables in English as needed.
-
-Original PPTs are not distributed. File identifiers, page maps, hashes, and inference boundaries remain in the [source map](references/corpus-map.md). Images and icons retain provenance; third-party materials remain the property of their respective rights holders, and the repository grants no additional rights to those materials.
-
-
-## 5. Route by task, accept with evidence
-
-The entry point distinguishes learning, storyboarding, creation, review, and local edits. Load only references needed by the current task. Review-only requests produce findings; requests that already include edits proceed to implementation. Local edits preserve unrelated content and recheck dependencies across charts, workbooks, narrative, and recommendations. Single-slide tasks do not add a cover: use `mode: "single-slide"` in page JSON. Complete decks default to `mode: "deck"`. See [task modes](references/task-modes.md).
-
-Configure brand and reading context through `style` in page JSON, or `presentation.style` in bound source data:
+Set top-level `style` in page JSON, or `presentation.style` in bound source data:
 
 ```json
 {
@@ -171,23 +152,108 @@ Configure brand and reading context through `style` in page JSON, or `presentati
 }
 ```
 
-The default `personal` / `reading` profile preserves the existing personal cover and reading layout. `generic` provides a neutral brand starting point; `presentation` targets live delivery. Explicit font, cover, and footer overrides still require font and layout verification. Body theme colors remain in the separate `theme` configuration. See [style profiles](references/style-profiles.md) for parameters and examples.
+- `personal` uses the bundled deep-blue cover artwork; `generic` starts with a neutral cover.
+- `reading` targets close reading; `presentation` uses larger type and tighter content capacity for live delivery. The default is `personal` / `reading`.
+- Fonts, cover, and footer accept explicit overrides. Body colors use the separate `theme` configuration. Check installed fonts and render after changes.
 
-Successful machine builds return `machine_checks_passed`. Acceptance records track structure/data, content, visual inspection, edit/reopen behavior, and the target application separately as `passed`, `failed`, or `not_run`, with evidence. Use `verified` only after all required checks pass. An unperformed PowerPoint check remains unperformed.
+Data-driven updates cover **established bindings only**. Changing bound source data can update calculations, charts, workbooks, tables, text, and recommendation conditions when those fields are connected. Manual PPT edits do not automatically synchronize all content. See [style profiles](references/style-profiles.md), [themes](references/theme-system.md), and [data binding](references/data-binding.md).
 
-## 6. Whole-deck examples and skill evaluation
+<a id="verification"></a>
+## Evidence and verification limits
 
-- [SaaS budget decision](examples/saas-budget/README.md): compare budget and pilot conditions while benefits remain unknown, then reconsider the recommendation when investment changes.
-- [University shared service](examples/university-service/README.md): connect demand and service scope to a phased pilot, retaining evidence gaps and entry conditions.
+The local suite has **88 tests**. The [completed evaluation record](evals/results/2026-11-07-complete/README.md) documents **24 executions** across 12 tasks: **22 editable decks / 116 slides**, plus **2 text-only handoffs** under constrained tooling.
 
-Both use synthetic facts and include rebuildable source JSON, storyboards, and before/after comparisons explaining narrative and visual choices. They do not establish business outcomes or count as unseen evaluation tasks. Each example records its actual build and visual verification scope.
+| Record | Result | What it establishes |
+|---|---|---|
+| Original judgments | 74 checks passed; 4 evidence/rubric gaps; 0 failed | All 24 executions were completed; the four gaps concerned font evidence and an unstated qualification requirement. |
+| After supplementary evidence, rubric clarification, and assisted repairs | 78 passed; 0 remaining gaps; 0 failed | Reassessment of the same runs, including an assisted baseline font repair; this is not a raw model win rate. |
 
-The frozen evaluation set separates performer briefs from evaluator expectations. Prepare a reproducible baseline/skill comparison with:
+Original judgments and subsequent corrections remain separate. The examples are worked demonstrations, not unseen evaluation tasks. PowerPoint desktop and Google Slides have not been tested; static renders and object checks do not replace target-application verification.
+
+Run portable checks from the repository root:
 
 ```sh
-node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" --seed "reliability-01"
+node --test scripts/tests/*.test.mjs
+node scripts/sync-template-catalog.mjs --check
+node scripts/preflight.mjs --input examples/saas-budget/source.json
 ```
 
-Performers then complete the tasks; an independent evaluator checks full artifacts and evidence before the scorer summarizes results. Preparing tasks or passing unit tests does not establish completed agent evaluations. Missing runs and manual judgments remain `not_run`. See [evaluation](references/evaluation.md) for the workflow, report schema, and scoring command.
+These checks do not require the full PPT runtime. Add `--full` to preflight for runtime, fonts, and Python checks. A build result of `machine_checks_passed` covers its listed machine checks; use `verified` only when all required acceptance checks have evidence. Unperformed checks remain `not_run`.
 
-The [completed 24-run record](evals/results/2026-11-07-complete/README.md) includes 22 editable decks (116 slides) and two text-only handoffs. Original judgments, rubric/evidence reassessment and assisted corrections remain separate; post-correction passes do not establish unassisted model performance.
+<a id="installation"></a>
+## Full installation and compatibility
+
+<details>
+<summary><strong>Manual setup, WorkBuddy upload, and all supported installation routes</strong></summary>
+
+Install the **entire repository**, preserving `SKILL.md`, `references/`, `assets/`, `scripts/`, `schemas/`, `evals/`, and `examples/`. Use a destination that does not already exist. Run the appropriate block in your **system terminal**:
+
+```sh
+# Claude Code: user-level installation
+mkdir -p ~/.claude/skills
+git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.claude/skills/mckinsey-deck-craft
+```
+
+```sh
+# Codex: user-level discovery location
+mkdir -p ~/.agents/skills
+git clone https://github.com/kylez0101/mckinsey-deck-craft.git ~/.agents/skills/mckinsey-deck-craft
+```
+
+Start a new session if needed and confirm discovery. Use `/mckinsey-deck-craft` in Claude Code or `$mckinsey-deck-craft` in Codex chat. Codex does not need a second copy after installation under `~/.agents/skills`. For project-only installation, use the corresponding directory below from the project root.
+
+**WorkBuddy:** Download the [source ZIP](https://github.com/kylez0101/mckinsey-deck-craft/archive/refs/heads/main.zip) using **Code → Download ZIP**, then extract it. In **Experts · Skills · Connectors → Skills → Add Skill → Upload Skill** (Chinese UI: **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**), upload the complete skill folder. The official interface also accepts ZIP packages containing `SKILL.md`; if a ZIP is rejected, use the extracted folder. Confirm discovery, then ask by name. A standalone Markdown upload omits the templates and scripts. Client import has not been tested. [Upload formats](https://main.qcloudimg.com/raw/document/product/pdf/862_129183_cn.pdf) · [Official guide](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+
+Routes below follow official documentation; version-specific interfaces and permissions can differ. Documentation review does not establish successful authoring in every client.
+
+| Agent | User-level / project-level location | Invoke or confirm | Official guide |
+|---|---|---|---|
+| Claude Code | `~/.claude/skills/` / `.claude/skills/` | `/mckinsey-deck-craft` | [Docs](https://code.claude.com/docs/en/skills) |
+| Codex | `~/.agents/skills/` / `.agents/skills/` | `$mckinsey-deck-craft` or the skill picker | [Docs](https://learn.chatgpt.com/docs/build-skills) |
+| Gemini CLI | `~/.gemini/skills/` or `~/.agents/skills/`; corresponding project directories | `/skills list`, then ask by name | [Docs](https://geminicli.com/docs/cli/skills/) |
+| Cursor | `~/.cursor/skills/` / `.cursor/skills/`; also `.agents/skills/` | `/mckinsey-deck-craft` or the `@` picker | [Docs](https://cursor.com/help/customization/skills) |
+| GitHub Copilot | `~/.copilot/skills/` / `.github/skills/`; also `.agents/skills/` | Ask by name and description | [Docs](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) |
+| OpenCode | `~/.config/opencode/skills/` / `.opencode/skills/`; also `.agents/skills/` | Load through its native skill tool | [Docs](https://opencode.ai/docs/skills) |
+| CodeBuddy Code | `~/.codebuddy/skills/` / `.codebuddy/skills/` | `/skills`, then `/mckinsey-deck-craft` | [Docs](https://www.codebuddy.cn/docs/cli/skills) |
+| TRAE China | `~/.trae-cn/skills/` / `.trae/skills/`; also project `.agents/skills/` | Check settings, then ask by name | [Docs](https://docs.trae.cn/ide_skills) |
+| Qoder international CLI | `~/.qoder/skills/` / `.qoder/skills/` | `/skills reload`, then `/mckinsey-deck-craft` | [Docs](https://docs.qoder.com/cli/Skills) |
+| Qoder CN IDE | `~/.lingma/skills/` / `.lingma/skills/` | Restart and select from the `/` menu | [Docs](https://docs.qoder.cn/user-guide/skills) |
+| Qwen Code | `~/.qwen/skills/` / `.qwen/skills/`; also `.agents/skills/` | `/skills`, then `/mckinsey-deck-craft` | [Docs](https://github.com/QwenLM/qwen-code/blob/main/docs/users/features/skills.md) |
+| Kimi Code CLI | `~/.kimi-code/skills/` / `.kimi-code/skills/`; also `.agents/skills/` | `/skill:mckinsey-deck-craft`; confirm discovery for your version | [Docs](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html) |
+
+On Windows, use Git Bash or download the ZIP and install with File Explorer; `~` means your user home, usually `C:\Users\your-name`.
+
+For another host, use its documented custom-skill import. If it has workspace file access but no skill discovery, put the full folder in the workspace and ask:
+
+```text
+Read ./mckinsey-deck-craft/SKILL.md first. Load references/ only as needed,
+use the templates and assets, and follow the skill's workflow.
+Check your available PPT tools and use them to produce editable output.
+```
+
+</details>
+
+### FAQ
+
+**Can every agent produce a PPT after installation?** No. Reading and storyboarding need file access; PPT authoring needs an existing presentation skill, API, or usable script toolchain. Chat-only interfaces cannot be assumed to produce an editable file.
+
+**Do I need the Codex runtime?** Only for the bundled full PPT builders, which require the Codex Presentations runtime, Artifact Tool, and Python with lxml. Other hosts should use their existing PPT tools. Modern Node.js can run portable data compilation, themes, tests, and `--dry-run`; installing packages alone does not enable the full builder. See [compatibility](references/agent-compatibility.md).
+
+**Can it write English slides?** Yes: request the output language. Most operational references are currently in Chinese; the agent can explain them while producing English deliverables.
+
+<a id="resources"></a>
+## Resources and attribution
+
+- **Updates and examples:** [Changelog](CHANGELOG.md) · [Example index](examples/README.md)
+
+- **Start:** [SKILL.md](SKILL.md) · [Learning guide](references/learning-guide.md) · [Task modes](references/task-modes.md)
+- **Build:** [Storylines](references/storyline-patterns.md) · [Layouts](references/layout-patterns.md) · [Editable templates](references/editable-templates.md) · [Professional charts](references/professional-chart-design.md)
+- **Adapt:** [Style profiles](references/style-profiles.md) · [Themes](references/theme-system.md) · [Data binding](references/data-binding.md) · [Cross-agent compatibility](references/agent-compatibility.md)
+- **Check:** [Quality rubric](references/quality-rubric.md) · [Delivery checks](references/production-checks.md) · [Evaluation method](references/evaluation.md) · [Completed run record](evals/results/2026-11-07-complete/README.md)
+- **Inspect:** [Template contract](schemas/template-contract.json) · [Source map](references/corpus-map.md) · [SaaS example](examples/saas-budget/README.md) · [University example](examples/university-service/README.md)
+
+This is an independent research and reuse skill, not an official McKinsey product or specification. Its observations come from the mapped presentations and do not establish McKinsey's complete internal methods. Original source PPTs are not distributed; file identifiers, page maps, hashes, and inference boundaries are recorded in the [source map](references/corpus-map.md).
+
+Images and icons retain their provenance. Third-party materials remain the property of their respective rights holders; this repository grants no additional rights to them.
+
+README presentation structure references [Awesome-PPT-Design-Skills](https://github.com/software-ai-life/Awesome-PPT-Design-Skills). Preview images come from this repository's actual worked examples.

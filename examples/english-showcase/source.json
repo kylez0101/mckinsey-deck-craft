@@ -1,0 +1,60 @@
+{
+  "kind": "synthetic",
+  "language": "en",
+  "support": {
+    "tickets": [
+      10000,
+      12000,
+      15000
+    ],
+    "months": [
+      "Jan",
+      "Feb",
+      "Mar"
+    ],
+    "options": [
+      {
+        "name": "Knowledge base",
+        "costThousands": 220
+      },
+      {
+        "name": "Process redesign",
+        "costThousands": 150
+      },
+      {
+        "name": "Add capacity",
+        "costThousands": 280
+      }
+    ],
+    "budgetCeilingThousands": 300,
+    "limitations": "Costs have different scopes. Impact and coverage require validation.",
+    "derivedFrom": "examples/saas-budget/source.json"
+  },
+  "research": {
+    "monthlyRequestComponents": [
+      12,
+      10,
+      8
+    ],
+    "departments": 2,
+    "availableStaff": 2,
+    "minimumStaff": 2,
+    "estimatedSpendCny": 90000,
+    "budgetCeilingCny": 100000,
+    "governance": [
+      "Access",
+      "Ownership",
+      "Approval"
+    ],
+    "derivedFrom": "examples/university-service/source.json"
+  },
+  "value": {
+    "grossContributionCny": 20160,
+    "peopleCny": 6480,
+    "securityCny": 3360,
+    "setupCny": 2000,
+    "netContributionCny": 8320,
+    "scenario": "six weekends",
+    "derivedFrom": "assets/templates/professional-chart-gallery.pptx, physical slide 3"
+  }
+}

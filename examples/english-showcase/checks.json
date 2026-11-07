@@ -1,0 +1,45 @@
+{
+  "status": "machine_checks_passed_and_visual_reviewed",
+  "presentation": "report.pptx",
+  "sha256": "17a723232bf323327b11b3b3ed481a8969d5036712e3cceea583983f5f83000f",
+  "slides": 3,
+  "language": "English",
+  "nativeCharts": 2,
+  "embeddedWorkbookSnapshots": 2,
+  "rasterIllustrations": 0,
+  "checks": {
+    "packageIntegrity": "passed",
+    "slideGeometry": "passed",
+    "fontPolicy": "passed",
+    "nativeChartsAndWorkbookCaches": "passed",
+    "reimportAndAllSlideRender": "passed",
+    "visibleLanguageAndArithmetic": "passed",
+    "powerPointDesktop": "not_run",
+    "googleSlides": "not_run",
+    "inconsistentContributionRejected": {
+      "status": "passed",
+      "changedNetByCny": 1,
+      "exitCode": 1,
+      "finalPptxCreated": false
+    },
+    "missingRuntimeGuard": "passed",
+    "visualReview": {
+      "status": "passed",
+      "scope": "All three finalized slides inspected after removing illustrations and centering metric blocks"
+    },
+    "pictureCount": {
+      "expected": 0,
+      "actual": 0
+    }
+  },
+  "limits": [
+    "Synthetic data only; no proven business outcomes.",
+    "Not part of the frozen 24-execution evaluation."
+  ],
+  "sourceSha256": "76f897e4879729e8dc92c27c0cacff11d45c4c7af4f6f525ffebd50c2102c1cd",
+  "existingSuite": {
+    "passed": 88,
+    "failed": 0,
+    "skipped": 0
+  }
+}
