@@ -1,0 +1,18 @@
+{
+  "type": "assisted_content_regression",
+  "originalRunId": "56dfb8ac2c07aeaf",
+  "beforeArtifactSha256": "c2cb5247bda92d11d3db39595e9b5742d62bd0da209f30391aadbe2099f17196",
+  "firstRoundReport": "review-02/assessment.json",
+  "affectedPages": [
+    14,
+    16
+  ],
+  "reason": "Clarify cumulative four-week average versus every-week threshold; preserve original artifact and first-round judgments.",
+  "afterArtifactSha256": "e58dc651fbcdf729dd8c975f0a3db959133d3f007891655d2b7f30a71871f3b1",
+  "changedNativeTextPages": [
+    14,
+    16
+  ],
+  "allOtherNativeTextPages": "unchanged",
+  "status": "exported_pending_independent_recheck"
+}

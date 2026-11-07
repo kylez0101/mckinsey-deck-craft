@@ -1,0 +1,22 @@
+{
+  "id": "font-fallback",
+  "title": "Missing requested fonts",
+  "tags": [
+    "font",
+    "environment"
+  ],
+  "brief": {
+    "request": "制作4页中文研究说明PPT。品牌字体为Example Serif与Example Sans；本次可用环境清单明确没有这两款字体。选择可用替代并记录变化。",
+    "facts": {
+      "studyParticipants": 48,
+      "measurementWeeks": 6,
+      "resultStatus": "仅有研究设计，尚无结果"
+    },
+    "status": "合成案例；字体缺失是本次模拟环境约束。",
+    "constraints": [
+      "先核实实际可用字体",
+      "不能把研究设计写成研究发现"
+    ]
+  },
+  "attachments": []
+}

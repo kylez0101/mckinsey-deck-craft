@@ -1,0 +1,557 @@
+{
+  "scope": "Evidence existence, path containment and exact file bytes; no automatic quality judgment.",
+  "artifacts": [
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/pptx.pptx",
+      "sha256": "a82cc460b406e03f3eb5156b67e031f41208ed83704d67347828825586b2c4ed",
+      "observedOriginalSha256": "e75f96bc4d8ec0fb994c3383cdd23ebb6dc80fd4d08411ba3528a34a11bf145c",
+      "publicationTransform": "workspace-path-redaction"
+    },
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/slide-1.png",
+      "sha256": "ec3e25531f4cf087b8f8dbbe866d916714e3929cc6b39972598c53da1da00779"
+    },
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/slide-2.png",
+      "sha256": "b80e9a1ef315be04b512263a6f17e88b5bda1b3553e0c5e805e463cd848fb8a8"
+    },
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/slide-3.png",
+      "sha256": "fafbf51cbe44cc02aa334b5c430e846e84b3f889eed9c2dae6cd5429adb1aaf4"
+    },
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/slide-4.png",
+      "sha256": "1534b64839f3f950eabfa2600d1ecff7ad120022689494f41c5c171924ee4a9c"
+    },
+    {
+      "path": "artifacts/b29a106d03faa3ce/first-pass/slide-5.png",
+      "sha256": "e84b6edfb44f788240e1c99d82d257fd6f38fb58a02077f54ccd5652bd8dca0f"
+    },
+    {
+      "path": "artifacts/6289820141b0e21f/first-pass/deck.pptx",
+      "sha256": "49a90e31643831da5078912f7e4f1c189ca7056b78d2a313aa1d58fbfc548c1a"
+    },
+    {
+      "path": "artifacts/6289820141b0e21f/first-pass/change-scope.md",
+      "sha256": "7eb7b414038ca2b59caf8db8a0cc0861566bfe33739301425aecd415bb419c7f"
+    },
+    {
+      "path": "artifacts/6289820141b0e21f/first-pass/updated-source.json",
+      "sha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10"
+    },
+    {
+      "path": "artifacts/6289820141b0e21f/first-pass/slide-1.jpg",
+      "sha256": "48fee80245d2af7eede0ffb09679e7987ddd63782d14ab4c38616dd6354b94fe"
+    },
+    {
+      "path": "artifacts/6289820141b0e21f/first-pass/slide-2.jpg",
+      "sha256": "68268b1a3b8efc91c2a2d792a3021e8f7a0cb4e4ee03fed14e114e99654b8285"
+    },
+    {
+      "path": "artifacts/8bcd3a4962099579/first-pass/deck.pptx",
+      "sha256": "3fad9f0ade2e9cda20809604518e4535c82f0c311169bf64a73b4e08cdccfdb5"
+    },
+    {
+      "path": "artifacts/8bcd3a4962099579/first-pass/slide-1.jpg",
+      "sha256": "3790e3c8e63b3473d1d3b9e30766d13deb8ada96533dfead578419e270dc3df1"
+    },
+    {
+      "path": "artifacts/8bcd3a4962099579/first-pass/slide-2.jpg",
+      "sha256": "4d404f5a4591157e10199de34ae77f21beec91e6c79a4004a735d4aa54d871e4"
+    },
+    {
+      "path": "artifacts/8bcd3a4962099579/first-pass/slide-3.jpg",
+      "sha256": "0aa2595fbb9488f3c284a6be982b831de33caa8cf107f2dff1d685adb79d3855"
+    },
+    {
+      "path": "artifacts/bee1620fbeea8da9/first-pass/pptx.pptx",
+      "sha256": "24ed2df87167f6dd42b661d46e0deb7f641a36b3632068dc751e4cc501179572"
+    },
+    {
+      "path": "artifacts/bee1620fbeea8da9/first-pass/slide-1.png",
+      "sha256": "5e3591e994b79a74c2c8cb0161071e90147bf39f889052668d495b4b7090ba0e"
+    },
+    {
+      "path": "artifacts/bee1620fbeea8da9/first-pass/slide-2.png",
+      "sha256": "800d8a9282a2ec487b3588f5fb8fba67f05b8c5d25b2ebc2ab2d3a4617463b76"
+    },
+    {
+      "path": "artifacts/bee1620fbeea8da9/first-pass/slide-3.png",
+      "sha256": "c490f697e2ca568c45dc70d48a8d0c77f1a21b28929f4154ba987e3fa33b7a1a"
+    },
+    {
+      "path": "artifacts/bee1620fbeea8da9/first-pass/slide-4.png",
+      "sha256": "67390c6e1cdd694589f63f180d7713b8aacb5a9b8e330beda6804c27306ab1cd"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/deck.pptx",
+      "sha256": "c2cb5247bda92d11d3db39595e9b5742d62bd0da209f30391aadbe2099f17196"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/storyboard.md",
+      "sha256": "684f7006aed1830de9210dcdc99a390cca6820095be76e95553a8b1e65e54363",
+      "observedOriginalSha256": "1833761a7cbcb400ea39adbbd4c797ed7f3f29dd4bf61a9f7ae42ff9d6ea440e",
+      "publicationTransform": "trailing-blank-line-normalization"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/slide-2.jpg",
+      "sha256": "329cb918c7261f0942b7772193a9f73957dec8651bfad5e0d31e3bc550444c65"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/slide-5.jpg",
+      "sha256": "80be9edca7cc0cf4086943871a61f7302a062e0fa989853c942a7e5b84ec644a"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/slide-13.jpg",
+      "sha256": "716bfd298b6960c76004f81635f4243532abc11fbd2be3a3fbc73c2b17da4e2f"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/slide-15.jpg",
+      "sha256": "d9e7bec45b126af1ec8c62dbab591afbd2e19195f01afc8797e12c15073f69f4"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/slide-18.jpg",
+      "sha256": "d607fda5e1718cf8f56af6a5a26f0c0ddd43ef4b8cf0609bfaee58b305af7dc4"
+    },
+    {
+      "path": "artifacts/c891cb054ce69640/first-pass/deck.pptx",
+      "sha256": "bcd0a115b2667abf355586c9100e0b215527b55c33a65fb84354ef3025bd1e15"
+    },
+    {
+      "path": "artifacts/c891cb054ce69640/first-pass/slide-2.jpg",
+      "sha256": "a010eeea1049a7266d74186966da66d65ffca951f388c33201b586aadd8bae55"
+    },
+    {
+      "path": "artifacts/c891cb054ce69640/first-pass/slide-3.jpg",
+      "sha256": "93008987fa2768f3dae48be48e1b5351b6844bcc389fcee0328369df3f74c3ad"
+    },
+    {
+      "path": "artifacts/8df5e1d3ac83b960/first-pass/deck.pptx",
+      "sha256": "00dbb32fcadcb993d5c09ad8d8b3110c4e66ec27f0e358003baf800f17153f56"
+    },
+    {
+      "path": "artifacts/8df5e1d3ac83b960/first-pass/slide-1.jpg",
+      "sha256": "b2f39f29545edfd9fc7d586a5cc06fba76ad6dcde0362b73cfcca7ac03978334"
+    },
+    {
+      "path": "artifacts/8df5e1d3ac83b960/first-pass/slide-2.jpg",
+      "sha256": "40206b644286b103f3b67d7c24e032fe9193133f627a134271b79a03a7b8f7ac"
+    },
+    {
+      "path": "artifacts/8df5e1d3ac83b960/first-pass/slide-3.jpg",
+      "sha256": "6d948a1f496302a1cf6d913364ada18e6b582ee158acaf6090748a74f5cef29d"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/deck.pptx",
+      "sha256": "6832dd2dc757d423a3fc0aee4fa6ffd9616c6e6b55226c13456ddd24890f0e6f"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/storyboard.md",
+      "sha256": "1ddcf2d07c5cd00248ffc974a820c37fb4d05d663aaf9d84596ebaa7ca6c4f61"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-1.jpg",
+      "sha256": "f4f5dd70193236c37cc143dc6d8f4d36d704a8561cc7928a275eab76cce75aa9"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-3.jpg",
+      "sha256": "8a3c56aa72d59d341f2428c2cb44218123bb96d19cec4707df48f6a8e1f45ef9"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-6.jpg",
+      "sha256": "f6468a31703be447c72188ce39fde23305e7fabf850f8e0977e82e2262f46c57"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-12.jpg",
+      "sha256": "158ef6627b2ac2e593571f5e0c79a51f54fbc3db1f0aa736b5ab13f032e4846e"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-15.jpg",
+      "sha256": "d7f07aacb677e3aa8536d8df01440ea8474f6ce5cee9952415764ecee3e1d4b1"
+    },
+    {
+      "path": "artifacts/3f802f8347eec222/first-pass/slide-17.jpg",
+      "sha256": "0808797386f891f86ec7dbb74abe6076cdc435ab7e2a81f4b7c0e50ddfc91916"
+    },
+    {
+      "path": "artifacts/313e2bbe0ac7773a/first-pass/deck.pptx",
+      "sha256": "55ae2d908cc395bcece62beda20d0069b0ecbc112c86963f14cdb6e103e3211e"
+    },
+    {
+      "path": "artifacts/313e2bbe0ac7773a/first-pass/slide-1.jpg",
+      "sha256": "f273f62313a5ba7e3384dd70e92b5f925b386cfc2bf3cddaaab46946428badd2"
+    },
+    {
+      "path": "artifacts/313e2bbe0ac7773a/first-pass/slide-2.jpg",
+      "sha256": "67803fba8953c84a3c309c784211d83a6829b99f999008c5bcb4da067818e8ab"
+    },
+    {
+      "path": "artifacts/313e2bbe0ac7773a/first-pass/slide-3.jpg",
+      "sha256": "48d3cc5a02a947bebcc90e58164473945955f46042a4fd44b38e2ab41485d744"
+    },
+    {
+      "path": "artifacts/ea644caf924bfc26/first-pass/deck.pptx",
+      "sha256": "9134b385c02579d41e8c6f9449c0f4918a0cad8e9558f08a92f230e5d75e4799"
+    },
+    {
+      "path": "artifacts/ea644caf924bfc26/first-pass/storyboard.md",
+      "sha256": "f5da00e438c319f4f7e5f92105473df94e20a4c2837f1f303096c65b1da775fb"
+    },
+    {
+      "path": "artifacts/ea644caf924bfc26/first-pass/slide-1.jpg",
+      "sha256": "e1d40b40d4e87424f70a4275c0b851e69a5f59ef6c292bf71eed064392b857bf"
+    },
+    {
+      "path": "artifacts/ea644caf924bfc26/first-pass/slide-2.jpg",
+      "sha256": "b7d44c9b2f7a1b59b193061e809b019b387ff73fa8adbe2dea6f96634e343fd5"
+    },
+    {
+      "path": "artifacts/ea644caf924bfc26/first-pass/slide-3.jpg",
+      "sha256": "b1df6bcbde1df8a24e6bd5c1ab9221f47d71455aa76b0a4e83b398386fe6c39f"
+    },
+    {
+      "path": "artifacts/587a12b058bb4c75/first-pass/deck.pptx",
+      "sha256": "b5d45c89baf44b3670c0c73acacb127bbf198036d823ea0490d8b6b6cb9012ea"
+    },
+    {
+      "path": "artifacts/587a12b058bb4c75/first-pass/change-scope.md",
+      "sha256": "ddf0befacf887ef4eeee76684d17c9305d30d25fe96630757b99207a9c04ab52"
+    },
+    {
+      "path": "artifacts/587a12b058bb4c75/first-pass/updated-source.json",
+      "sha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10"
+    },
+    {
+      "path": "artifacts/587a12b058bb4c75/first-pass/slide-2.jpg",
+      "sha256": "60b0f15229001348547317c1e32f3a88d3dd9184e444a55b77adc11248246c02"
+    },
+    {
+      "path": "artifacts/587a12b058bb4c75/first-pass/slide-3.jpg",
+      "sha256": "26ea5f00cffc06b91332dc23411e0c112967b7ca79d5e1e7320fd9d5a65e557c"
+    },
+    {
+      "path": "artifacts/d323d89cd692d682/first-pass/pptx.pptx",
+      "sha256": "07375a84a10701f0c4f23aef2abb0da48fcacdc1d59e3b1f6522493b2e4f215d"
+    },
+    {
+      "path": "artifacts/d323d89cd692d682/first-pass/slide-1.png",
+      "sha256": "176d0536d3543b69f12336f18a4c0c64e6f8c108a89e795134c9bcf97e712ca2"
+    },
+    {
+      "path": "artifacts/d323d89cd692d682/first-pass/slide-2.png",
+      "sha256": "639ce25647bf8098587b3bcd3b0faf5f3319e839416f9298e8edda5b8e252a37"
+    },
+    {
+      "path": "artifacts/d323d89cd692d682/first-pass/slide-3.png",
+      "sha256": "2ac6002a077a0d204b057ee45f7e2adf333fa6e88e1ddb92b48c411dbfb32f82"
+    },
+    {
+      "path": "artifacts/d323d89cd692d682/first-pass/slide-4.png",
+      "sha256": "cc960863b1aea3475db2144014daa7791dc2555d5c61bffbd87becd747b33a5d"
+    },
+    {
+      "path": "artifacts/1f0ef3bf577475d5/first-pass/deck.pptx",
+      "sha256": "80d59ac3317682d6382e3ef0428f0c99daf1c743c427a5ddd8ee4e549cfe8d7b"
+    },
+    {
+      "path": "artifacts/1f0ef3bf577475d5/first-pass/slide-1.jpg",
+      "sha256": "82bcc536dc288992a40f3f51bba3beb148a1df5ee18ec9c2585bd0204098bb48"
+    },
+    {
+      "path": "artifacts/1f0ef3bf577475d5/first-pass/slide-2.jpg",
+      "sha256": "432d0f1e0e17d9b904f086618c7ff5c825ba00b936b3789dae16466e408d40cf"
+    },
+    {
+      "path": "artifacts/1f0ef3bf577475d5/first-pass/slide-3.jpg",
+      "sha256": "10c7543777bd99a340630d45d209559eaa71dba936658b2aef34f8d1006805d5"
+    },
+    {
+      "path": "artifacts/6a287fe602569b4d/first-pass/deck.pptx",
+      "sha256": "2836d4f429bf42e62596251495c4adbd31c43d4b7472d0711def2b06b34133fa"
+    },
+    {
+      "path": "artifacts/6a287fe602569b4d/first-pass/slide-1.jpg",
+      "sha256": "c6b8f969a458e7e353c44b98f825dfe6ef23ee99aa7c59fc1ddfc512c09fed21"
+    },
+    {
+      "path": "artifacts/6a287fe602569b4d/first-pass/slide-2.jpg",
+      "sha256": "8ace0bae20bcda0c495ef14b618441d60f16fc214d3009d7cf21a3cf4cd037d5"
+    },
+    {
+      "path": "artifacts/6a287fe602569b4d/first-pass/slide-3.jpg",
+      "sha256": "d569e67fd70e1c8f88cae12a38cad19ef38f09af9c9284b8cd221419851e09de"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/deck.pptx",
+      "sha256": "71d980f0ab966ab60df66e8749ef90016586699e3e0e1e0eca804f71a802440c"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/font-changes.md",
+      "sha256": "300b36c7d919a36722baa6b65bcccfc0a20c4bbe5441925b0ded691242fbf881"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/slide-1.jpg",
+      "sha256": "789e017da631deef1dd863b6d43c9b28ac6d72155f5b85ac355d086a9d186d79"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/slide-2.jpg",
+      "sha256": "eed6569f1f90c48d3127c21074d89323072bfd70cf8a2175013b77af379530b5"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/slide-3.jpg",
+      "sha256": "2ba5182cfd1190fed34f991655e043fbeacc9b4beae64c2a1ed4a6ade4b1b9cc"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/first-pass/slide-4.jpg",
+      "sha256": "6835c296991ba03160fa2d27691296da396506712f85b49c85d6d87563ca7131"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/pptx.pptx",
+      "sha256": "0d600325a84f8c3313c9c1744ffe9bf8cf6378d01bfac4bd2950a64705d5b7ca"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/slide-1.png",
+      "sha256": "20e11db03099056ae5f7cbffa7d81b6aaa12289a7cae624b9f025e198ab78f70"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/slide-2.png",
+      "sha256": "8ac6f9763d684f3ac4c26138a8c1ac66e4891e6ff714d8cc2d18216d9df052bd"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/slide-3.png",
+      "sha256": "5bf151b18636bb2c079159be5383988b3135119cd563aa2fe5c20338ce87d870"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/slide-4.png",
+      "sha256": "6ba4372d557292a46757b330b62e6ea54539c13454235d989a328c5a0d89161b"
+    },
+    {
+      "path": "artifacts/106241c9a5028353/first-pass/slide-5.png",
+      "sha256": "0106764fb2f9207cdefad18be95aa2fa624847a78e1d2477bebdb3b449d12d42"
+    },
+    {
+      "path": "artifacts/5a804bf8a3ae50f9/first-pass/production-handoff.md",
+      "sha256": "c60d5b062dd2f7420e732b2cd88d5c860621fd6fe6eb3076538e5e2e22baaa29"
+    },
+    {
+      "path": "artifacts/5a804bf8a3ae50f9/first-pass/source-data.json",
+      "sha256": "2fd22f3e42ed23758aa860b3d884d47e3d59579e54e9e4a1e21658ba7f6a7757"
+    },
+    {
+      "path": "artifacts/5a804bf8a3ae50f9/first-pass/storyboard.md",
+      "sha256": "77ba0031f89b4d5762aca086e05238761d8bac0fcb4334cb33e6d8a3eb4a68cc"
+    },
+    {
+      "path": "artifacts/155bf882c453c974/first-pass/deck.pptx",
+      "sha256": "dabe02cca92486bba4499d9bab8cb43980119646ab59a14c55eee5622c03c5f6"
+    },
+    {
+      "path": "artifacts/155bf882c453c974/first-pass/slide-1.jpg",
+      "sha256": "50a129da0d61be8f934dddf29f70d6019b8eaa864bedd6120a108627745e76eb"
+    },
+    {
+      "path": "artifacts/155bf882c453c974/first-pass/slide-2.jpg",
+      "sha256": "cba73b3a104392297cb747716223ed699cfc5be2e62a62d61c7be863606ef9bb"
+    },
+    {
+      "path": "artifacts/155bf882c453c974/first-pass/slide-3.jpg",
+      "sha256": "4843caf8dee537e3363ce4e2dafa05472e22993e07893bc0bcd71c25c0f4bc23"
+    },
+    {
+      "path": "artifacts/155bf882c453c974/first-pass/slide-6.jpg",
+      "sha256": "5eaaae6bdce38a3e62a136c87f39eff31ce81f365dac4792d370818676c705b8"
+    },
+    {
+      "path": "artifacts/7081c51d8129cb3f/first-pass/deck.pptx",
+      "sha256": "3251aead049338c0c39b52a010f866197bef7234a64c833101b8ec8df76286d7"
+    },
+    {
+      "path": "artifacts/7081c51d8129cb3f/first-pass/storyboard.md",
+      "sha256": "3bb2da8e2cbe336c93082deecb79057ab56a613ebaa57a89e5c99aa1c9cd671a"
+    },
+    {
+      "path": "artifacts/7081c51d8129cb3f/first-pass/slide-1.jpg",
+      "sha256": "dcd4d8e17c8589e1fabdbd0dfe20dbacc2cb5ed9da2c001d18a6a3500bbb3cf3"
+    },
+    {
+      "path": "artifacts/7081c51d8129cb3f/first-pass/slide-2.jpg",
+      "sha256": "38cfa09d2f3aeac0fc912e4980ab1ef40f03f77ee781f5fde34b3e835edd6174"
+    },
+    {
+      "path": "artifacts/7081c51d8129cb3f/first-pass/slide-3.jpg",
+      "sha256": "ad59d33bbf750d2775c49f7c2dda03e311cd4fd8f2d34535ab79b794c3ba8000"
+    },
+    {
+      "path": "artifacts/a13b49ada415229f/first-pass/deck.pptx",
+      "sha256": "e46d329006b3e97bca0623f868f5d5f14617d0af4fccf5319dfaa4ce4b56aeca"
+    },
+    {
+      "path": "artifacts/a13b49ada415229f/first-pass/slide-1.jpg",
+      "sha256": "3bbdb34dace893e666de645fc3e6cb18f1b02d971fc402b4eb9fd942cb4e7bba"
+    },
+    {
+      "path": "artifacts/a13b49ada415229f/first-pass/slide-2.jpg",
+      "sha256": "14d999e175e68aec6c96bbdbb832469a08e8e55fadd837b08aab9328eafc68d7"
+    },
+    {
+      "path": "artifacts/a13b49ada415229f/first-pass/slide-3.jpg",
+      "sha256": "4da77be2568055fc7cc8697f8e28f3d6310ee7e689eb7646e7fd84a20fd9a6f4"
+    },
+    {
+      "path": "artifacts/a13b49ada415229f/first-pass/slide-4.jpg",
+      "sha256": "8940a83d26c3e4e65396a384a3f851ed2c914fc8d039eb7d3f1d021e2fc34616"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/deck.pptx",
+      "sha256": "b0d02b20a6fb7b93acdf6f965a37dcfcd32d7f95843839cf491b3f8d1a3b41b5"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/font-substitutions.md",
+      "sha256": "29b9ee37c7e61292915e44f1c5e2b2d47376bd0066d304b9eb8eb58e405a68ec"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/slide-1.jpg",
+      "sha256": "70be3c85860f56d86244b60b6844a293766b84accafc0baf4c0e2120091a4c6b"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/slide-2.jpg",
+      "sha256": "b633ed5099cbfcef0fb8f8a28f841c8aea49513b1cf9cead68969c0a7afb9c2a"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/slide-3.jpg",
+      "sha256": "2c0cd80f6f1487294af06d23c616af52a118314f0e69483cf36e2ca0f2036b65"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/first-pass/slide-4.jpg",
+      "sha256": "743c9c4b2711c94c9924e74db361715ae1da4a52100ef8684a039834bcdca158"
+    },
+    {
+      "path": "artifacts/11dec2d436096ab3/first-pass/deck.pptx",
+      "sha256": "36f1d5317ccac626e2cb15e47d2e6580169f1d7731df9977353f6bdeadb1ab70"
+    },
+    {
+      "path": "artifacts/11dec2d436096ab3/first-pass/slide-1.jpg",
+      "sha256": "ce983d2c93adef4b89392954e7c1480393b437e77d91e240dae3cfe4ad31a620"
+    },
+    {
+      "path": "artifacts/11dec2d436096ab3/first-pass/slide-2.jpg",
+      "sha256": "476346e4e02612ff043848f5625984c459823ce21023f3e51231ba67b0a409da"
+    },
+    {
+      "path": "artifacts/11dec2d436096ab3/first-pass/slide-3.jpg",
+      "sha256": "48a16d8c53040da73021f510f43565534974ba0a7e9fce95c1db6c603456feaa"
+    },
+    {
+      "path": "artifacts/11dec2d436096ab3/first-pass/slide-4.jpg",
+      "sha256": "edbec315f76cc0f92cf86149cf653939d17e4d3f72431363a29efc845e888010"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/deck.pptx",
+      "sha256": "19b536cd65d50aa7c005d4fe9860272610f45d3d17e106c00b0722a882a770e1"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/storyboard.md",
+      "sha256": "a8abc26a6dd26100a2ddd295e31ac78af973e948d33f47e13450772890db8ad5"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-1.jpg",
+      "sha256": "5853e8c0d792a651fd9e85b54b5338dfa42e01ee23f8b9a78720b4c81bc599b8"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-2.jpg",
+      "sha256": "b3789c854834c860b94bdb1978a75e7b3900bac0d56c49444f31f12dd12add91"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-3.jpg",
+      "sha256": "15ea15892dea7bf46f00d5d792028cb6adefc813f018b49d592ccb808f24af2b"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-4.jpg",
+      "sha256": "3a9ced27bbd6243edbb39873b1ded3de37036b1670a4496501ff5dcf3abfd80c"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-5.jpg",
+      "sha256": "2a1628b77c0ced8c6262f1b4427204b4dff5d4d2d654342366aa82fd0b44fe3e"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-6.jpg",
+      "sha256": "3ea7a901cde76f0e6d83b625b54e79fd2243a9e48c96d469d9740b8d4325deef"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-7.jpg",
+      "sha256": "900dbb4187269a1b33b06d059f0668123268843273e162634f94e8f7ab6f0788"
+    },
+    {
+      "path": "artifacts/a64a3e8add43335b/first-pass/slide-8.jpg",
+      "sha256": "4a023bc6499f632fdd012c5d881ee8d73a448d8c6a0159cf952bd9b04062b839"
+    },
+    {
+      "path": "artifacts/2f6540d5628960fa/first-pass/continuation.md",
+      "sha256": "f9512ff8586a65a9865ea0d3300091e91be5ab5f4cbe7d46a026cba4ccbdb9d5"
+    },
+    {
+      "path": "artifacts/2f6540d5628960fa/first-pass/storyboard.md",
+      "sha256": "5bd00dee1691bc4067f2242cbb06332694b1b6e6e3ed12cf57a4ef619b103aac"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/deck.pptx",
+      "sha256": "030bb19e86a56e77b304fd6f96f3ba45cb6e19a8c9a0b039f5d90d9007519f50"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/storyboard.md",
+      "sha256": "732e8e9332a53cf910e358f94bb4e49796a82f594c508536fa31c0ea7a4f95ff"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/font-changes.md",
+      "sha256": "aa75fe2a914a20e0c4722bb3e27ae23bba0e75ac21b31ef61bd74262ac1e130f"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/fonts.json",
+      "sha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/slide-1.jpg",
+      "sha256": "9b9ef3b8e337b3d40f3babc12dc6e57171ee1d8c9ac33f916d6cdce02c7c3c4f"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/slide-2.jpg",
+      "sha256": "26841a2cccce2556fd91981be0386b89b5950b089b470c09bcf91b98919a2670"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/slide-3.jpg",
+      "sha256": "3b32360cd0882dee08aa5e6afc1bf536c982e41caf1c9aa98aca1ecd71b61e89"
+    },
+    {
+      "path": "artifacts/8c8ab5b0e35a1aa1/reassessment/slide-4.jpg",
+      "sha256": "7f207a491d3b720c909cb7abb3181424043fb0de5d7668d03d790ce4985ed017"
+    },
+    {
+      "path": "artifacts/aeb9f8bb42819f34/reassessment/fonts.json",
+      "sha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-source.json",
+      "sha256": "f70d3ab4784b27890313b17ba11b2597489ce414ef72fe50fc1fa07fca9d4fcc"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-deck.pptx",
+      "sha256": "e58dc651fbcdf729dd8c975f0a3db959133d3f007891655d2b7f30a71871f3b1"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/repair-record.json",
+      "sha256": "685caaa35a5896b5067e142f486a0c3c250b557de96b2aec0c0a648e26585064"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-slide14.png",
+      "sha256": "8e47d7b2ae34460bbed058c9044074b52412ee51e77d64c63c1b3b331110bebb"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-slide16.png",
+      "sha256": "131391a79691b5ccc31ec4c45074fc4e33176832242f60ab62cca1dd8021ec4c"
+    },
+    {
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/original-other-run-slide15.jpg",
+      "sha256": "d7f07aacb677e3aa8536d8df01440ea8474f6ce5cee9952415764ecee3e1d4b1"
+    }
+  ]
+}

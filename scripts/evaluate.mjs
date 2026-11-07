@@ -113,7 +113,7 @@ export async function prepareEvaluation({outputDir, skillPath, seed, suiteRoot})
   return {status: 'prepared', suiteHash, skillHash, taskCount: assignments.length, evaluationStatus: 'not_run', directory: outputDir};
 }
 
-async function verifyArtifact(artifact, evidenceRoot) {
+export async function verifyArtifact(artifact, evidenceRoot) {
   if (!artifact || typeof artifact.id !== 'string' || !artifact.id.trim() || typeof artifact.path !== 'string' || !artifact.path || !/^[a-f0-9]{64}$/u.test(artifact.sha256 ?? '')) throw new Error('Each artifact needs id, path and a SHA-256.');
   const resolvedRoot = await fs.realpath(evidenceRoot);
   const candidate = path.resolve(resolvedRoot, artifact.path);
@@ -127,21 +127,14 @@ async function verifyArtifact(artifact, evidenceRoot) {
   return artifact.id;
 }
 
-/** Validate an independent assessment and aggregate it; this does not judge slide quality. */
-export async function scoreEvaluation({preparedDir, report, evidenceRoot}) {
+/** Read-only integrity check shared by scoring and anonymous review packaging. */
+export async function loadFrozenEvaluation(preparedDir) {
   const manifest = await json(path.join(preparedDir, 'assignments.private.json'));
   const expectations = await json(path.join(preparedDir, 'expectations.frozen.json'));
   const frozenCases = await json(path.join(preparedDir, 'cases.frozen.json'));
   const attachments = await json(path.join(preparedDir, 'attachments.frozen.json'));
   if (digest(JSON.stringify(frozenCases) + '\n' + JSON.stringify(expectations) + '\n' + JSON.stringify(attachments)) !== manifest.suiteHash) throw new Error('Frozen suite has changed since preparation.');
   if (digest(JSON.stringify(await skillFiles(path.join(preparedDir, 'skill.snapshot')))) !== manifest.skillHash) throw new Error('Frozen skill has changed since preparation.');
-  if (report.suiteHash !== manifest.suiteHash) throw new Error('Assessment belongs to a different frozen suite.');
-  if (report.skillHash !== manifest.skillHash) throw new Error('Assessment belongs to a different skill snapshot.');
-  if (typeof report.evaluator?.id !== 'string' || !report.evaluator.id.trim() || report.evaluator.independent !== true) throw new Error('An identified independent assessor must attest to this review.');
-  if (!Array.isArray(report.runs) || new Set(report.runs.map(run => run.runId)).size !== report.runs.length) throw new Error('Assessment runs must be a unique array.');
-  const known = new Set(manifest.assignments.map(run => run.runId));
-  if (report.runs.some(run => !known.has(run.runId))) throw new Error('Assessment contains an unknown run.');
-  const rows = [];
   for (const assignment of manifest.assignments) {
     const taskDir = path.join(preparedDir, 'tasks', assignment.runId);
     if (digest(await fs.readFile(path.join(taskDir, 'prompt.txt'))) !== assignment.promptHash) throw new Error('Frozen task prompt has changed since preparation.');
@@ -151,6 +144,21 @@ export async function scoreEvaluation({preparedDir, report, evidenceRoot}) {
       const source = path.join(preparedDir, 'tasks', assignment.runId, path.basename(attachment));
       if (digest(await fs.readFile(source)) !== attachments[attachment]) throw new Error('Frozen task attachment has changed since preparation.');
     }
+  }
+  return {manifest, expectations, frozenCases};
+}
+
+/** Validate an independent assessment and aggregate it; this does not judge slide quality. */
+export async function scoreEvaluation({preparedDir, report, evidenceRoot}) {
+  const {manifest, expectations, frozenCases} = await loadFrozenEvaluation(preparedDir);
+  if (report.suiteHash !== manifest.suiteHash) throw new Error('Assessment belongs to a different frozen suite.');
+  if (report.skillHash !== manifest.skillHash) throw new Error('Assessment belongs to a different skill snapshot.');
+  if (typeof report.evaluator?.id !== 'string' || !report.evaluator.id.trim() || report.evaluator.independent !== true) throw new Error('An identified independent assessor must attest to this review.');
+  if (!Array.isArray(report.runs) || new Set(report.runs.map(run => run.runId)).size !== report.runs.length) throw new Error('Assessment runs must be a unique array.');
+  const known = new Set(manifest.assignments.map(run => run.runId));
+  if (report.runs.some(run => !known.has(run.runId))) throw new Error('Assessment contains an unknown run.');
+  const rows = [];
+  for (const assignment of manifest.assignments) {
     const expected = expectations.cases[assignment.caseId].checks;
     const run = report.runs.find(item => item.runId === assignment.runId);
     const assessed = [];

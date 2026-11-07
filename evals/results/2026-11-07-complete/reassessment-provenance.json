@@ -1,0 +1,157 @@
+{
+  "kind": "rubric-and-evidence-reassessment",
+  "sourceSuiteHash": "42698e2a251e2fa2fadce47a3ab17aa64120397d229f73a79f09b9c42f6f8548",
+  "reassessmentSuiteHash": "f3fa1cfedfb92cc9a2a6067f1cfc966fb2b0f8d74011fabc61b1999a27d7c2a2",
+  "skillSnapshotUnchanged": true,
+  "newModelExecutions": 0,
+  "changedCriteria": [
+    "ranking-flip.conditional"
+  ],
+  "meaning": "Reassessment prompts are newly prepared scoring-container records. None were executed; all model outputs came from the original24 tasks.",
+  "runs": [
+    {
+      "runId": "b29a106d03faa3ce",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "6289820141b0e21f",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "8bcd3a4962099579",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "bee1620fbeea8da9",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "56dfb8ac2c07aeaf",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "c891cb054ce69640",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "8df5e1d3ac83b960",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "3f802f8347eec222",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "587a12b058bb4c75",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "d323d89cd692d682",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "6a287fe602569b4d",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "106241c9a5028353",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "5a804bf8a3ae50f9",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "155bf882c453c974",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "a64a3e8add43335b",
+      "originalExecutedPromptHash": "0d3c967b0a756e0aa2635c3fa6d9d7656bf5f8f7e0332e6aabe78221aae90416",
+      "scoringContainerPromptHash": "f292b7e9303acaafbecdbac25162af2f51a5b16a104399c1d382c6ed2917e80d",
+      "briefHashUnchanged": true
+    },
+    {
+      "runId": "2f6540d5628960fa",
+      "originalExecutedPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "scoringContainerPromptHash": "b2a204b9c087f5b05efd485f1bf4223c50ed1acbe1f987509d3367a3894734d1",
+      "briefHashUnchanged": true
+    }
+  ]
+}

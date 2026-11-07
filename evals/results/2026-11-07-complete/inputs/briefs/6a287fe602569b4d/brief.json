@@ -1,0 +1,24 @@
+{
+  "id": "zero-and-unknown",
+  "title": "Known zero and unknown are different",
+  "tags": [
+    "unknown",
+    "zero",
+    "three-page"
+  ],
+  "brief": {
+    "request": "制作3页医院预约流程试点评审PPT，包含封面。",
+    "facts": {
+      "baselineAppointments": 400,
+      "observedNoShows": 0,
+      "followupCost": null,
+      "pilotDays": 14
+    },
+    "status": "合成案例；0为核对后的观测值，null为尚未取得的费用。",
+    "constraints": [
+      "不能将未知费用画为零",
+      "不能以14天数据承诺长期收益"
+    ]
+  },
+  "attachments": []
+}

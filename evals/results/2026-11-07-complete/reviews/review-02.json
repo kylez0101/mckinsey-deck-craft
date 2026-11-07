@@ -1,0 +1,568 @@
+{
+  "evaluator": "assess_02",
+  "scope": "Independent anonymous packet review. Read only packet.json, criteria.json, assessment-template.json, both original brief.json files (no attachments), both selected storyboards/PPTX and all36 selected JPEG renders. Direct OOXML and embedded-workbook inspection; source arithmetic independently recalculated. No parent assignments, condition labels, prompts, logs, generators, skill snapshot, prior outcomes or other packet folders read; no delegation or artifact edits.",
+  "hashVerification": {
+    "status": "passed",
+    "verifiedCount": 40,
+    "artifacts": [
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "deck",
+        "sha256": "c2cb5247bda92d11d3db39595e9b5742d62bd0da209f30391aadbe2099f17196",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "storyboard",
+        "sha256": "1833761a7cbcb400ea39adbbd4c797ed7f3f29dd4bf61a9f7ae42ff9d6ea440e",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-1",
+        "sha256": "2f19dd838098cd6526188e9062ee85742997c16ddee2bad3f27030be9aee9bd4",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-2",
+        "sha256": "329cb918c7261f0942b7772193a9f73957dec8651bfad5e0d31e3bc550444c65",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-3",
+        "sha256": "3d121bfbd71558e67de87eaa4150ca11db4c18bcca27840cf5eaf72fe9026fe7",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-4",
+        "sha256": "a6d2eb36bb44acb1284892e5551eb61539bf3fc1d108c9b902c09074eaf4e534",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-5",
+        "sha256": "80be9edca7cc0cf4086943871a61f7302a062e0fa989853c942a7e5b84ec644a",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-6",
+        "sha256": "8206c475f3f875e1b301dc74b620ce1d617761e46426e3ffafbe2c1497c847ba",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-7",
+        "sha256": "8e8d8c6d3edb6617293edc266114062ab06e0e280cb81ba5d6cf4f6b5f40a02b",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-8",
+        "sha256": "15b37cc1f1b8fa6d7dc88daeb1999278743e7a4b5f8cb93e187e6091431111a9",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-9",
+        "sha256": "79add882658b3c3246b654b8135f1f901eb2073ae30c8fe8c3fb202efbeec22f",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-10",
+        "sha256": "e5f4a1df46033a522760ef25d2db3dacdf458b1c986d1f35058f859ab54b8732",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-11",
+        "sha256": "3c1629ed794b7067ad835ff4f7f9e982a1b27bd11d6a40a4f46fa04fa0eb25a0",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-12",
+        "sha256": "468ba7f9bd7a3fde3aa51e73e662413ab0a90b052156870da6f9fe433fde4fec",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-13",
+        "sha256": "716bfd298b6960c76004f81635f4243532abc11fbd2be3a3fbc73c2b17da4e2f",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-14",
+        "sha256": "40e4c5e9f18fb2e9693c1f5a89fef3b9c62ed5890c163c4d4c8b728c89e2fc97",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-15",
+        "sha256": "d9e7bec45b126af1ec8c62dbab591afbd2e19195f01afc8797e12c15073f69f4",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-16",
+        "sha256": "29b203dc72bc04d55da3a0403f0ea878fde74b5f16d48591aef7cbbb4b1e724c",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-17",
+        "sha256": "3c625711805bb38d576addcdb36a0571493f4a3b60c414cabff067e565b3a1fe",
+        "matched": true
+      },
+      {
+        "runId": "56dfb8ac2c07aeaf",
+        "artifactId": "slide-18",
+        "sha256": "d607fda5e1718cf8f56af6a5a26f0c0ddd43ef4b8cf0609bfaee58b305af7dc4",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "deck",
+        "sha256": "6832dd2dc757d423a3fc0aee4fa6ffd9616c6e6b55226c13456ddd24890f0e6f",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "storyboard",
+        "sha256": "1ddcf2d07c5cd00248ffc974a820c37fb4d05d663aaf9d84596ebaa7ca6c4f61",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-1",
+        "sha256": "f4f5dd70193236c37cc143dc6d8f4d36d704a8561cc7928a275eab76cce75aa9",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-2",
+        "sha256": "5b4ef4c1f9871ca1166e32d24d86634ca2f4e5a09120f26fd5bee56a6649471f",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-3",
+        "sha256": "8a3c56aa72d59d341f2428c2cb44218123bb96d19cec4707df48f6a8e1f45ef9",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-4",
+        "sha256": "a361ff78babe7aaf9ef72922fb930f71f49f2630acc25a4d7ab6ac75c9e03666",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-5",
+        "sha256": "eafef25805185b7cc8b2f125769bbd9a23a6fd789e9cb56fde87ceb80c30f9c9",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-6",
+        "sha256": "f6468a31703be447c72188ce39fde23305e7fabf850f8e0977e82e2262f46c57",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-7",
+        "sha256": "c6b670199abbdbbbf96371b6512a67a72150cd8af3de4598abbbed7ce2aab4a5",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-8",
+        "sha256": "e7a1111fcf44fd90bf4c21d9f2d01389d3d63731da0d1f495199e9f06c4912a4",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-9",
+        "sha256": "f1bbddad4cd4b867f380f0019b20be1bcc4487f443a91281ff039fc6332fe91f",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-10",
+        "sha256": "738aedcf778bf8d4168a43ce56b4bcaf40ca920e193e9f273ca79aa44dac6e83",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-11",
+        "sha256": "3828598578d9e784f72ff3c27907084910a19c1ab1e193c08ed5d8d13b70d75a",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-12",
+        "sha256": "158ef6627b2ac2e593571f5e0c79a51f54fbc3db1f0aa736b5ab13f032e4846e",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-13",
+        "sha256": "abc24e4a9d5ded0b0e0a97f2be0ccaabd86f467162937650dd1b1267e530d7f1",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-14",
+        "sha256": "b0c64b552d58be4afd716ea63fa08e2b509224e81fd00024a543797fc36c25c1",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-15",
+        "sha256": "d7f07aacb677e3aa8536d8df01440ea8474f6ce5cee9952415764ecee3e1d4b1",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-16",
+        "sha256": "c03d00ccc779ed7471983e7565c076fa57df88add00c08585befcd5e847d62f2",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-17",
+        "sha256": "0808797386f891f86ec7dbb74abe6076cdc435ab7e2a81f4b7c0e50ddfc91916",
+        "matched": true
+      },
+      {
+        "runId": "3f802f8347eec222",
+        "artifactId": "slide-18",
+        "sha256": "88b03e200e854ac9435ca43808264c3952c44298f68232eac75d53c0ca2a6db0",
+        "matched": true
+      }
+    ]
+  },
+  "runs": {
+    "56dfb8ac2c07aeaf": {
+      "pages": [
+        {
+          "page": 1,
+          "artifactId": "slide-1",
+          "fullSizeViewed": true,
+          "note": "Cover: clear title/status/date; abstract blue background; readable."
+        },
+        {
+          "page": 2,
+          "artifactId": "slide-2",
+          "fullSizeViewed": true,
+          "note": "Decision summary: 3 recommendation blocks plus input facts. 45% correct; 120 synthetic sample; 2h/week ×8-week design explicitly proposed."
+        },
+        {
+          "page": 3,
+          "artifactId": "slide-3",
+          "fullSizeViewed": true,
+          "note": "Navigation: explicit unnumbered cover, body pages1–17. Section labels/ranges agree with visible pages1–7 so far."
+        },
+        {
+          "page": 4,
+          "artifactId": "slide-4",
+          "fullSizeViewed": true,
+          "note": "Evidence boundary: native table distinguishes supplied vs missing, retains requestedHours unknown units; readable."
+        },
+        {
+          "page": 5,
+          "artifactId": "slide-5",
+          "fullSizeViewed": true,
+          "note": "Visits chart: six original values, zero baseline, total60000 and B+D45%, D/B1.25 correct. Period/unique-reader caveats visible."
+        },
+        {
+          "page": 6,
+          "artifactId": "slide-6",
+          "fullSizeViewed": true,
+          "note": "Intent chart: original10,25,15,35,5,10, no unit assumed; 120 and missing branch sample caveats; no flow/revenue extrapolation."
+        },
+        {
+          "page": 7,
+          "artifactId": "slide-7",
+          "fullSizeViewed": true,
+          "note": "Readiness gaps: demand slots, staffing/safety, cost, equity. Distinct actionable checks, light colored table readable."
+        },
+        {
+          "page": 8,
+          "artifactId": "slide-8",
+          "fullSizeViewed": true,
+          "note": "Evidence-to-action synthesis: revisits prior facts but maps each to next work; adds explicit E-branch accessibility safeguard. Some repetition of limitations, different synthesis role."
+        },
+        {
+          "page": 9,
+          "artifactId": "slide-9",
+          "fullSizeViewed": true,
+          "note": "Alternatives A/B/C: coverage, verification, cost conditions, tradeoffs. B recommendation and conditional fallback explicit; readable."
+        },
+        {
+          "page": 10,
+          "artifactId": "slide-10",
+          "fullSizeViewed": true,
+          "note": "Selection criteria: repeats verification/cost preparation from p9, adds reversibility and use conditions; moderate redundancy but distinct decision-rationale role."
+        },
+        {
+          "page": 11,
+          "artifactId": "slide-11",
+          "fullSizeViewed": true,
+          "note": "Budget: proposed4+12+2+2=20万; cost period/currency unknown and not quotations. Release conditions readable."
+        },
+        {
+          "page": 12,
+          "artifactId": "slide-12",
+          "fullSizeViewed": true,
+          "note": "Pilot scope:2 branches×2h/week×8weeks=32 branch-hours; controls descriptive not randomized; distinguishes employee hours."
+        },
+        {
+          "page": 13,
+          "artifactId": "slide-13",
+          "fullSizeViewed": true,
+          "note": "12-week schedule:4-week preparation then8-week run; baseline weeks3–4, gates4/8/12. Smaller table vs gate callouts provides rhythm."
+        },
+        {
+          "page": 14,
+          "artifactId": "slide-14",
+          "fullSizeViewed": true,
+          "note": "Metrics:32 proposed branch-hours, proposed5 visits/branch-hour,≤12万 running allocation; explicit no standard/validated demand claim. Notes define last4-week cumulative rate separately per branch."
+        },
+        {
+          "page": 15,
+          "artifactId": "slide-15",
+          "fullSizeViewed": true,
+          "note": "Responsibilities: native flow plus table; immediate safety stop exception, reporting rights clear. Footer/source remain legible."
+        },
+        {
+          "page": 16,
+          "artifactId": "slide-16",
+          "fullSizeViewed": true,
+          "note": "End decision: continue/adjust/stop/insufficient-data rules; all proposals. Wording “末4个完整周均达” could mean every week passes, whereas p14 notes define cumulative4-week rate; clarify. Otherwise readable."
+        },
+        {
+          "page": 17,
+          "artifactId": "slide-17",
+          "fullSizeViewed": true,
+          "note": "Raw-input appendix: exact6, visits, requestedHours,120,200000 retained; all caveats and array-to-A–F mapping visible."
+        },
+        {
+          "page": 18,
+          "artifactId": "slide-18",
+          "fullSizeViewed": true,
+          "note": "Calculation appendix:60000,45%,32 branch-hours,20万 proposed split all correct; missing-data priorities. Readable; no manufacturing topic."
+        }
+      ]
+    },
+    "3f802f8347eec222": {
+      "pages": [
+        {
+          "page": 1,
+          "artifactId": "slide-1",
+          "fullSizeViewed": true,
+          "note": "Cover: dark-green plain background, large clear title; synthetic small-sample/no realized-use-or-income caveat directly visible;1/18."
+        },
+        {
+          "page": 2,
+          "artifactId": "slide-2",
+          "fullSizeViewed": true,
+          "note": "Navigation: five numbered chapters and subsection labels with exact page ranges3–4/5–8/9–11/12–15/16–18; paths for rapid/evidence/action reading."
+        },
+        {
+          "page": 3,
+          "artifactId": "slide-3",
+          "fullSizeViewed": true,
+          "note": "Summary:27000/60000=45%,60/100=60% stated as raw field values;120 synthetic small sample, no new visits/beneficiaries/revenue inference; proposed budget ceiling."
+        },
+        {
+          "page": 4,
+          "artifactId": "slide-4",
+          "fullSizeViewed": true,
+          "note": "Decision boundary: candidate branches, resource approval,8weeks=2baseline+6extended, later expansion decision; distinct executive decisions table."
+        },
+        {
+          "page": 5,
+          "artifactId": "slide-5",
+          "fullSizeViewed": true,
+          "note": "Evidence scope: exact original inputs, unknown units/period/sample distribution, no generalization; appendix subsection references correct."
+        },
+        {
+          "page": 6,
+          "artifactId": "slide-6",
+          "fullSizeViewed": true,
+          "note": "Visit columns: all6 original counts, zero baseline, B/D highlighted;27000,25%,20% correct; source and duplicate-visit note readable."
+        },
+        {
+          "page": 7,
+          "artifactId": "slide-7",
+          "fullSizeViewed": true,
+          "note": "Intent columns: exact original values;60/100 explicitly conditional on common/additive measure and not60% respondents or actual usage. Source note readable."
+        },
+        {
+          "page": 8,
+          "artifactId": "slide-8",
+          "fullSizeViewed": true,
+          "note": "Candidate table: correct visit shares25/20/16.7/15/13.3/10=100%; original intent values retained; equity caveat plus provisional branch actions; readable."
+        },
+        {
+          "page": 9,
+          "artifactId": "slide-9",
+          "fullSizeViewed": true,
+          "note": "Options: clear A/B/C qualitative comparison, B highlighted; startup data verification prerequisite and no cost/benefit forecast."
+        },
+        {
+          "page": 10,
+          "artifactId": "slide-10",
+          "fullSizeViewed": true,
+          "note": "Budget proposal:110000+30000+15000+20000+25000=200000;55+15+7.5+10+12.5=100%;175000 regular commitment ceiling correct; all proposed/no quotations."
+        },
+        {
+          "page": 11,
+          "artifactId": "slide-11",
+          "fullSizeViewed": true,
+          "note": "Risk register: intent nonconversion, time shifting, staffing/safety, accessibility sampling; distinct mitigation role. No quantified risk claims."
+        },
+        {
+          "page": 12,
+          "artifactId": "slide-12",
+          "fullSizeViewed": true,
+          "note": "Pilot scope:8weeks includes2baseline+6extended;2branches×2times/week×2h×6weeks=48 branch-hours; descriptive references, no causal overstatement. Paragraph page breaks table sequence."
+        },
+        {
+          "page": 13,
+          "artifactId": "slide-13",
+          "fullSizeViewed": true,
+          "note": "Execution schedule: startup, baseline weeks1–2, extension weeks3–8 consistent; roles and stage checks, records adjustment effective dates."
+        },
+        {
+          "page": 14,
+          "artifactId": "slide-14",
+          "fullSizeViewed": true,
+          "note": "Measures: proposed5visits/branch-hour review trigger for2consecutive weeks; budget175000, causal and feedback limits explicit. Readable dense table."
+        },
+        {
+          "page": 15,
+          "artifactId": "slide-15",
+          "fullSizeViewed": true,
+          "note": "Decision table: expansion/adjustment/stop requires actual records and sustainable resources. Minor rendered header issue: 决定 and 所需证据 appear together toward left instead of second header aligning with second body column; native table has3 separate cells. Body remains readable."
+        },
+        {
+          "page": 16,
+          "artifactId": "slide-16",
+          "fullSizeViewed": true,
+          "note": "Raw appendix: exact original arrays, totals60000/100,120 respondents and200000 budget; original synthetic/no usage/revenue warning visible."
+        },
+        {
+          "page": 17,
+          "artifactId": "slide-17",
+          "fullSizeViewed": true,
+          "note": "Calculation appendix:45%,conditional60/100,48 branch-hours,175000 all correct; share rounding adds100.0%; requestedHours denominator explicitly not120."
+        },
+        {
+          "page": 18,
+          "artifactId": "slide-18",
+          "fullSizeViewed": true,
+          "note": "Data checklist: specific sources, purposes, responsible roles/time; distinct update role. Caption/conclusion readable. No manufacturing material."
+        }
+      ]
+    }
+  },
+  "limits": [
+    "No PowerPoint application open, edit, or reopen performed.",
+    "Visual review used supplied final JPEGs, each individually viewed full size with view_image; no independently regenerated render.",
+    "Direct native structure/data inspection verifies saved OOXML, charts and embedded source sheets; it does not establish interactive PowerPoint editing compatibility.",
+    "No external research was needed because facts derive only from the provided synthetic brief."
+  ],
+  "nativeInspection": {
+    "56dfb8ac2c07aeaf": {
+      "slides": 18,
+      "notesSlides": 18,
+      "nativeTables": 14,
+      "nativeCharts": 2,
+      "embeddedWorkbooks": 2,
+      "chartSlides": [
+        5,
+        6
+      ],
+      "chartValues": [
+        [
+          8000,
+          12000,
+          9000,
+          15000,
+          6000,
+          10000
+        ],
+        [
+          10,
+          25,
+          15,
+          35,
+          5,
+          10
+        ]
+      ],
+      "workbookRange": "Each ppt/embeddings/chart-data-snapshot-00{1,2}.xlsx: Chart Data!A1:B7; all cells inspected; only library branch data.",
+      "relationships": "All internal relationship targets resolve; chart formulas point to Chart Data!A2:A7/B2:B7 and externalData relationships resolve to the matching embedded workbook.",
+      "notes": "All18 note parts inspected; sample limitation preserved; no manufacturing remnants."
+    },
+    "3f802f8347eec222": {
+      "slides": 18,
+      "notesSlides": 18,
+      "nativeTables": 13,
+      "nativeCharts": 2,
+      "embeddedWorkbooks": 2,
+      "chartSlides": [
+        6,
+        7
+      ],
+      "chartValues": [
+        [
+          8000,
+          12000,
+          9000,
+          15000,
+          6000,
+          10000
+        ],
+        [
+          10,
+          25,
+          15,
+          35,
+          5,
+          10
+        ]
+      ],
+      "workbookRange": "Each ppt/embeddings/chart-data-snapshot-00{1,2}.xlsx: Chart Data!A1:B7; all cells inspected; only library branch data.",
+      "relationships": "All internal relationship targets resolve; chart formulas point to Chart Data!A2:A7/B2:B7 and externalData relationships resolve to the matching embedded workbook.",
+      "notes": "All18 note parts inspected; sample limitation preserved; no manufacturing remnants."
+    }
+  },
+  "nonblockingObservations": [
+    {
+      "runId": "56dfb8ac2c07aeaf",
+      "artifactId": "deck",
+      "locator": "ppt/slides/slide16.xml table row继续 / ppt/notesSlides/notesSlide14.xml",
+      "observation": "“各馆末4个完整周均达” could imply a weekly pass rule, while slide14 notes define cumulative last4-week visits/cumulative open hours≥5 separately per branch. Clarify the intended aggregation."
+    },
+    {
+      "runId": "56dfb8ac2c07aeaf",
+      "artifactId": "deck",
+      "locator": "slides9–10 alternative comparison tables",
+      "observation": "Verification and preparation/cost comparisons repeat substantially. Page10 still adds reversibility and conditions for applying each option, so judged distinct enough for frozen navigation check."
+    },
+    {
+      "runId": "3f802f8347eec222",
+      "artifactId": "slide-15",
+      "locator": "top table header, first and second columns",
+      "observation": "决定 and 所需证据 visually appear together toward the left while body evidence text starts in column2; native table has separate3cells. Small alignment blemish; content readable."
+    }
+  ]
+}

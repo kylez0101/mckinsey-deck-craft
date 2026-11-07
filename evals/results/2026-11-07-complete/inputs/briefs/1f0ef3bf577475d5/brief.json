@@ -1,0 +1,33 @@
+{
+  "id": "long-cjk",
+  "title": "Long Chinese labels keep their meaning",
+  "tags": [
+    "cjk",
+    "density",
+    "labels"
+  ],
+  "brief": {
+    "request": "制作3页研究服务比较PPT，保留以下完整方案含义；可使用清楚缩写并在同页解释。",
+    "facts": {
+      "options": [
+        {
+          "name": "跨院系科研资料访问权限与审计记录集中管理服务",
+          "cost": 80000
+        },
+        {
+          "name": "各院系自行维护研究数据访问权限及审计记录",
+          "cost": 50000
+        }
+      ],
+      "period": "首年",
+      "benefit": null
+    },
+    "status": "合成案例。",
+    "constraints": [
+      "不要裁切字符或把标题缩到难读",
+      "成本按首年同口径比较",
+      "收益未知"
+    ]
+  },
+  "attachments": []
+}

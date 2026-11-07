@@ -1,0 +1,398 @@
+{
+  "evaluator": {
+    "id": "independent-review-04-assess_04",
+    "independent": true
+  },
+  "packetRoot": "[workspace]/working/forward-eval/review-04",
+  "suiteHash": "42698e2a251e2fa2fadce47a3ab17aa64120397d229f73a79f09b9c42f6f8548",
+  "skillHash": "ec8b4b0bad471a39930d16a72ed65692542b98de9acd149b46c61637ac84a0fa",
+  "assessmentBasis": "Frozen criteria.json and original brief.json facts; selected final PPTX/storyboard/render artifacts only. No experimental-condition inference or author-approval reliance.",
+  "summary": {
+    "runs": 4,
+    "finalSlidesViewed": 12,
+    "checksPassed": 14,
+    "checksFailed": 0,
+    "checksNotRun": 0,
+    "artifactHashesMatched": 20,
+    "blockingIssues": []
+  },
+  "methods": [
+    "Read each of the four original briefs; all attachments arrays were empty.",
+    "Read each selected storyboard in full.",
+    "Viewed every selected slide image through view_image with detail=original: all 12 pages, individually, at the supplied 1280×720 or 1920×1080 resolution.",
+    "Opened each selected PPTX as an OOXML ZIP; verified ZIP CRCs, parsed its native presentation slide list, inspected every slide shape text and table cell plus every notes-slide text. Checked slide visibility, native table/text presence, chart/embedding/media entries and external relationships.",
+    "Recomputed SHA-256 for every selected artifact and compared with packet metadata. All 20 matched."
+  ],
+  "limits": [
+    "No PowerPoint desktop application was opened. No edit/save/reopen round trip was performed. Native editable XML structures were inspected, but application-level editing behavior, font substitution on another system, and re-render equivalence were not tested.",
+    "Visual judgments use supplied final images; no fresh presentation render was generated. Text/table correspondence was checked against the native file, but the original rendering pipeline was not inspected.",
+    "The suiteHash and skillHash were preserved as packet metadata; the excluded suite/skill snapshots were not read and those snapshot hashes were not independently recomputed.",
+    "The frozen scope criterion mentions 400 appointments; the original source names that value baselineAppointments. Assessment accepts correctly retained baseline context and does not require treating it as an unsupported pilot denominator."
+  ],
+  "nonblockingObservations": [
+    {
+      "runId": "8df5e1d3ac83b960",
+      "artifactId": "slide-3",
+      "locator": "bottom row of native budget table, corresponding to ppt/slides/slide3.xml table id=7 row 4",
+      "observation": "The first three cells visually read close together as “预算上限10 4万元 + 6万元”. Slightly more spacing would improve scanning. No critical amount is obscured: the headline, phase rows, slide 2 and stop rule repeat the 10/4/6 amounts clearly. Does not fail the frozen readability requirement."
+    },
+    {
+      "runId": "8df5e1d3ac83b960",
+      "artifactId": "deck",
+      "locator": "ppt/slides/slide2.xml and slide3.xml source/page footer text",
+      "observation": "Minimum native font size is 9.75 pt in secondary footers. Essential decision and gate conditions remain in larger visible body/table text."
+    }
+  ],
+  "runs": [
+    {
+      "runId": "8bcd3a4962099579",
+      "caseId": "board-brief",
+      "briefPath": "briefs/8bcd3a4962099579/brief.json",
+      "attachmentsCount": 0,
+      "checks": {
+        "three": "passed",
+        "decision": "passed",
+        "gate": "passed",
+        "density": "passed"
+      },
+      "artifacts": [
+        {
+          "id": "deck",
+          "role": "presentation",
+          "path": "artifacts/8bcd3a4962099579/deck.pptx",
+          "sha256": "3fad9f0ade2e9cda20809604518e4535c82f0c311169bf64a73b4e08cdccfdb5",
+          "actualSha256": "3fad9f0ade2e9cda20809604518e4535c82f0c311169bf64a73b4e08cdccfdb5",
+          "hashVerified": true,
+          "nativeInspection": {
+            "slideCount": 3,
+            "slidePartsRead": [
+              "ppt/slides/slide1.xml",
+              "ppt/slides/slide2.xml",
+              "ppt/slides/slide3.xml"
+            ],
+            "notesPartsRead": [
+              "ppt/notesSlides/notesSlide1.xml",
+              "ppt/notesSlides/notesSlide2.xml",
+              "ppt/notesSlides/notesSlide3.xml"
+            ],
+            "nativeTableCount": 2,
+            "chartCount": 0,
+            "embeddedWorkbookCount": 0,
+            "zipCrcPassed": true,
+            "powerPointOpenPerformed": false,
+            "editReopenPerformed": false
+          }
+        },
+        {
+          "id": "storyboard",
+          "role": "storyboard",
+          "path": "artifacts/8bcd3a4962099579/storyboard.md",
+          "sha256": "396e59268c2a7b3a8f57f27ce90070f4b6fc85870d21dc15a1ccabf243b08c53",
+          "actualSha256": "396e59268c2a7b3a8f57f27ce90070f4b6fc85870d21dc15a1ccabf243b08c53",
+          "hashVerified": true
+        },
+        {
+          "id": "slide-1",
+          "role": "render",
+          "path": "artifacts/8bcd3a4962099579/slide-1.jpg",
+          "sha256": "3790e3c8e63b3473d1d3b9e30766d13deb8ada96533dfead578419e270dc3df1",
+          "actualSha256": "3790e3c8e63b3473d1d3b9e30766d13deb8ada96533dfead578419e270dc3df1",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-2",
+          "role": "render",
+          "path": "artifacts/8bcd3a4962099579/slide-2.jpg",
+          "sha256": "4d404f5a4591157e10199de34ae77f21beec91e6c79a4004a735d4aa54d871e4",
+          "actualSha256": "4d404f5a4591157e10199de34ae77f21beec91e6c79a4004a735d4aa54d871e4",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-3",
+          "role": "render",
+          "path": "artifacts/8bcd3a4962099579/slide-3.jpg",
+          "sha256": "0aa2595fbb9488f3c284a6be982b831de33caa8cf107f2dff1d685adb79d3855",
+          "actualSha256": "0aa2595fbb9488f3c284a6be982b831de33caa8cf107f2dff1d685adb79d3855",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        }
+      ]
+    },
+    {
+      "runId": "8df5e1d3ac83b960",
+      "caseId": "board-brief",
+      "briefPath": "briefs/8df5e1d3ac83b960/brief.json",
+      "attachmentsCount": 0,
+      "checks": {
+        "three": "passed",
+        "decision": "passed",
+        "gate": "passed",
+        "density": "passed"
+      },
+      "artifacts": [
+        {
+          "id": "deck",
+          "role": "presentation",
+          "path": "artifacts/8df5e1d3ac83b960/deck.pptx",
+          "sha256": "00dbb32fcadcb993d5c09ad8d8b3110c4e66ec27f0e358003baf800f17153f56",
+          "actualSha256": "00dbb32fcadcb993d5c09ad8d8b3110c4e66ec27f0e358003baf800f17153f56",
+          "hashVerified": true,
+          "nativeInspection": {
+            "slideCount": 3,
+            "slidePartsRead": [
+              "ppt/slides/slide1.xml",
+              "ppt/slides/slide2.xml",
+              "ppt/slides/slide3.xml"
+            ],
+            "notesPartsRead": [
+              "ppt/notesSlides/notesSlide1.xml",
+              "ppt/notesSlides/notesSlide2.xml",
+              "ppt/notesSlides/notesSlide3.xml"
+            ],
+            "nativeTableCount": 2,
+            "chartCount": 0,
+            "embeddedWorkbookCount": 0,
+            "zipCrcPassed": true,
+            "powerPointOpenPerformed": false,
+            "editReopenPerformed": false
+          }
+        },
+        {
+          "id": "storyboard",
+          "role": "storyboard",
+          "path": "artifacts/8df5e1d3ac83b960/storyboard.md",
+          "sha256": "171b1be4a4762645cf120f7d8a40fe7b4a7ba564560a19bf76a46f2182832327",
+          "actualSha256": "171b1be4a4762645cf120f7d8a40fe7b4a7ba564560a19bf76a46f2182832327",
+          "hashVerified": true
+        },
+        {
+          "id": "slide-1",
+          "role": "render",
+          "path": "artifacts/8df5e1d3ac83b960/slide-1.jpg",
+          "sha256": "b2f39f29545edfd9fc7d586a5cc06fba76ad6dcde0362b73cfcca7ac03978334",
+          "actualSha256": "b2f39f29545edfd9fc7d586a5cc06fba76ad6dcde0362b73cfcca7ac03978334",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-2",
+          "role": "render",
+          "path": "artifacts/8df5e1d3ac83b960/slide-2.jpg",
+          "sha256": "40206b644286b103f3b67d7c24e032fe9193133f627a134271b79a03a7b8f7ac",
+          "actualSha256": "40206b644286b103f3b67d7c24e032fe9193133f627a134271b79a03a7b8f7ac",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-3",
+          "role": "render",
+          "path": "artifacts/8df5e1d3ac83b960/slide-3.jpg",
+          "sha256": "6d948a1f496302a1cf6d913364ada18e6b582ee158acaf6090748a74f5cef29d",
+          "actualSha256": "6d948a1f496302a1cf6d913364ada18e6b582ee158acaf6090748a74f5cef29d",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        }
+      ]
+    },
+    {
+      "runId": "c891cb054ce69640",
+      "caseId": "zero-and-unknown",
+      "briefPath": "briefs/c891cb054ce69640/brief.json",
+      "attachmentsCount": 0,
+      "checks": {
+        "zero": "passed",
+        "scope": "passed",
+        "count": "passed"
+      },
+      "artifacts": [
+        {
+          "id": "deck",
+          "role": "presentation",
+          "path": "artifacts/c891cb054ce69640/deck.pptx",
+          "sha256": "bcd0a115b2667abf355586c9100e0b215527b55c33a65fb84354ef3025bd1e15",
+          "actualSha256": "bcd0a115b2667abf355586c9100e0b215527b55c33a65fb84354ef3025bd1e15",
+          "hashVerified": true,
+          "nativeInspection": {
+            "slideCount": 3,
+            "slidePartsRead": [
+              "ppt/slides/slide1.xml",
+              "ppt/slides/slide2.xml",
+              "ppt/slides/slide3.xml"
+            ],
+            "notesPartsRead": [
+              "ppt/notesSlides/notesSlide1.xml",
+              "ppt/notesSlides/notesSlide2.xml",
+              "ppt/notesSlides/notesSlide3.xml"
+            ],
+            "nativeTableCount": 2,
+            "chartCount": 0,
+            "embeddedWorkbookCount": 0,
+            "zipCrcPassed": true,
+            "powerPointOpenPerformed": false,
+            "editReopenPerformed": false
+          }
+        },
+        {
+          "id": "storyboard",
+          "role": "storyboard",
+          "path": "artifacts/c891cb054ce69640/storyboard.md",
+          "sha256": "bb22eafcb73a4f0970bda2e0a53c1293666c4d5d5991aced12395b94e4d46d8c",
+          "actualSha256": "bb22eafcb73a4f0970bda2e0a53c1293666c4d5d5991aced12395b94e4d46d8c",
+          "hashVerified": true
+        },
+        {
+          "id": "slide-1",
+          "role": "render",
+          "path": "artifacts/c891cb054ce69640/slide-1.jpg",
+          "sha256": "879e58a9d3032baf99d5a5adcaf0aa72ebdaeb6c081b7c558205f1bfa39a8789",
+          "actualSha256": "879e58a9d3032baf99d5a5adcaf0aa72ebdaeb6c081b7c558205f1bfa39a8789",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-2",
+          "role": "render",
+          "path": "artifacts/c891cb054ce69640/slide-2.jpg",
+          "sha256": "a010eeea1049a7266d74186966da66d65ffca951f388c33201b586aadd8bae55",
+          "actualSha256": "a010eeea1049a7266d74186966da66d65ffca951f388c33201b586aadd8bae55",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-3",
+          "role": "render",
+          "path": "artifacts/c891cb054ce69640/slide-3.jpg",
+          "sha256": "93008987fa2768f3dae48be48e1b5351b6844bcc389fcee0328369df3f74c3ad",
+          "actualSha256": "93008987fa2768f3dae48be48e1b5351b6844bcc389fcee0328369df3f74c3ad",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        }
+      ]
+    },
+    {
+      "runId": "6a287fe602569b4d",
+      "caseId": "zero-and-unknown",
+      "briefPath": "briefs/6a287fe602569b4d/brief.json",
+      "attachmentsCount": 0,
+      "checks": {
+        "zero": "passed",
+        "scope": "passed",
+        "count": "passed"
+      },
+      "artifacts": [
+        {
+          "id": "deck",
+          "role": "presentation",
+          "path": "artifacts/6a287fe602569b4d/deck.pptx",
+          "sha256": "2836d4f429bf42e62596251495c4adbd31c43d4b7472d0711def2b06b34133fa",
+          "actualSha256": "2836d4f429bf42e62596251495c4adbd31c43d4b7472d0711def2b06b34133fa",
+          "hashVerified": true,
+          "nativeInspection": {
+            "slideCount": 3,
+            "slidePartsRead": [
+              "ppt/slides/slide1.xml",
+              "ppt/slides/slide2.xml",
+              "ppt/slides/slide3.xml"
+            ],
+            "notesPartsRead": [
+              "ppt/notesSlides/notesSlide1.xml",
+              "ppt/notesSlides/notesSlide2.xml",
+              "ppt/notesSlides/notesSlide3.xml"
+            ],
+            "nativeTableCount": 1,
+            "chartCount": 0,
+            "embeddedWorkbookCount": 0,
+            "zipCrcPassed": true,
+            "powerPointOpenPerformed": false,
+            "editReopenPerformed": false
+          }
+        },
+        {
+          "id": "storyboard",
+          "role": "storyboard",
+          "path": "artifacts/6a287fe602569b4d/storyboard.md",
+          "sha256": "2000e3ecc12024dd981293ec14590561d66acb37507ae2f286d6d1d987cbcaac",
+          "actualSha256": "2000e3ecc12024dd981293ec14590561d66acb37507ae2f286d6d1d987cbcaac",
+          "hashVerified": true
+        },
+        {
+          "id": "slide-1",
+          "role": "render",
+          "path": "artifacts/6a287fe602569b4d/slide-1.jpg",
+          "sha256": "c6b8f969a458e7e353c44b98f825dfe6ef23ee99aa7c59fc1ddfc512c09fed21",
+          "actualSha256": "c6b8f969a458e7e353c44b98f825dfe6ef23ee99aa7c59fc1ddfc512c09fed21",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-2",
+          "role": "render",
+          "path": "artifacts/6a287fe602569b4d/slide-2.jpg",
+          "sha256": "8ace0bae20bcda0c495ef14b618441d60f16fc214d3009d7cf21a3cf4cd037d5",
+          "actualSha256": "8ace0bae20bcda0c495ef14b618441d60f16fc214d3009d7cf21a3cf4cd037d5",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        },
+        {
+          "id": "slide-3",
+          "role": "render",
+          "path": "artifacts/6a287fe602569b4d/slide-3.jpg",
+          "sha256": "d569e67fd70e1c8f88cae12a38cad19ef38f09af9c9284b8cd221419851e09de",
+          "actualSha256": "d569e67fd70e1c8f88cae12a38cad19ef38f09af9c9284b8cd221419851e09de",
+          "hashVerified": true,
+          "visualInspection": {
+            "tool": "view_image",
+            "detail": "original",
+            "performed": true
+          }
+        }
+      ]
+    }
+  ]
+}

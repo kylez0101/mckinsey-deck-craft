@@ -1,0 +1,34 @@
+{
+  "scope": "Historical packet-local references; review note observations remain unchanged. Artifact paths/hashes currently published are listed per run in summary.json.",
+  "criteria": {
+    "review-01..06/criteria.json": "inputs/criteria-v1.json",
+    "review-05-reassessment/criteria.json": "inputs/criteria-v2.json",
+    "review-font-corrective/criteria.json": "inputs/criteria-v2.json"
+  },
+  "briefs": {
+    "briefs/b29a106d03faa3ce/brief.json": "inputs/briefs/b29a106d03faa3ce/brief.json",
+    "briefs/6289820141b0e21f/brief.json": "inputs/briefs/6289820141b0e21f/brief.json",
+    "briefs/8bcd3a4962099579/brief.json": "inputs/briefs/8bcd3a4962099579/brief.json",
+    "briefs/bee1620fbeea8da9/brief.json": "inputs/briefs/bee1620fbeea8da9/brief.json",
+    "briefs/56dfb8ac2c07aeaf/brief.json": "inputs/briefs/56dfb8ac2c07aeaf/brief.json",
+    "briefs/c891cb054ce69640/brief.json": "inputs/briefs/c891cb054ce69640/brief.json",
+    "briefs/8df5e1d3ac83b960/brief.json": "inputs/briefs/8df5e1d3ac83b960/brief.json",
+    "briefs/3f802f8347eec222/brief.json": "inputs/briefs/3f802f8347eec222/brief.json",
+    "briefs/313e2bbe0ac7773a/brief.json": "inputs/briefs/313e2bbe0ac7773a/brief.json",
+    "briefs/ea644caf924bfc26/brief.json": "inputs/briefs/ea644caf924bfc26/brief.json",
+    "briefs/587a12b058bb4c75/brief.json": "inputs/briefs/587a12b058bb4c75/brief.json",
+    "briefs/d323d89cd692d682/brief.json": "inputs/briefs/d323d89cd692d682/brief.json",
+    "briefs/1f0ef3bf577475d5/brief.json": "inputs/briefs/1f0ef3bf577475d5/brief.json",
+    "briefs/6a287fe602569b4d/brief.json": "inputs/briefs/6a287fe602569b4d/brief.json",
+    "briefs/8c8ab5b0e35a1aa1/brief.json": "inputs/briefs/8c8ab5b0e35a1aa1/brief.json",
+    "briefs/106241c9a5028353/brief.json": "inputs/briefs/106241c9a5028353/brief.json",
+    "briefs/5a804bf8a3ae50f9/brief.json": "inputs/briefs/5a804bf8a3ae50f9/brief.json",
+    "briefs/155bf882c453c974/brief.json": "inputs/briefs/155bf882c453c974/brief.json",
+    "briefs/7081c51d8129cb3f/brief.json": "inputs/briefs/7081c51d8129cb3f/brief.json",
+    "briefs/a13b49ada415229f/brief.json": "inputs/briefs/a13b49ada415229f/brief.json",
+    "briefs/aeb9f8bb42819f34/brief.json": "inputs/briefs/aeb9f8bb42819f34/brief.json",
+    "briefs/11dec2d436096ab3/brief.json": "inputs/briefs/11dec2d436096ab3/brief.json",
+    "briefs/a64a3e8add43335b/brief.json": "inputs/briefs/a64a3e8add43335b/brief.json",
+    "briefs/2f6540d5628960fa/brief.json": "inputs/briefs/2f6540d5628960fa/brief.json"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "data": {
+    "budget": 200000,
+    "spend": 220000
+  },
+  "calculated": {
+    "headroom": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.budget"
+        },
+        {
+          "ref": "data.spend"
+        }
+      ]
+    },
+    "decision": {
+      "op": "if",
+      "args": [
+        {
+          "op": "gte",
+          "args": [
+            {
+              "ref": "calc.headroom"
+            },
+            0
+          ]
+        },
+        "预算批准后可试点",
+        "超出预算，暂停试点"
+      ]
+    }
+  },
+  "presentation": {
+    "style": {
+      "profile": "generic",
+      "purpose": "reading"
+    },
+    "slides": [
+      {
+        "layout": "T01",
+        "title": "知识库试点评审",
+        "subtitle": "合成案例"
+      },
+      {
+        "layout": "T03",
+        "title": {
+          "ref": "calc.decision"
+        },
+        "chart": {
+          "heading": "试点投入与预算",
+          "categories": [
+            "试点投入",
+            "预算上限"
+          ],
+          "values": [
+            {
+              "ref": "data.spend"
+            },
+            {
+              "ref": "data.budget"
+            }
+          ],
+          "unit": "元"
+        },
+        "facts": [
+          {
+            "label": "余量",
+            "text": {
+              "text": [
+                {
+                  "ref": "calc.headroom",
+                  "format": "money"
+                },
+                "元"
+              ]
+            }
+          }
+        ],
+        "source": "合成训练数据"
+      },
+      {
+        "layout": "T07",
+        "title": "两阶段验证安排",
+        "stages": [
+          {
+            "name": "基线记录",
+            "deliverable": "工单基线表",
+            "criteria": "口径复核完成",
+            "owner": "客服负责人"
+          },
+          {
+            "name": "小范围试点",
+            "deliverable": "验证记录",
+            "criteria": "提交评审",
+            "owner": "知识库负责人"
+          }
+        ],
+        "source": "合成训练计划"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "mixed-units",
+  "title": "Costs require a common denominator",
+  "tags": [
+    "units",
+    "comparison"
+  ],
+  "brief": {
+    "request": "制作5页软件采购决策报告，比较三种收费方案。",
+    "facts": {
+      "seats": 40,
+      "months": 12,
+      "optionA": {
+        "price": 120,
+        "unit": "元/席位/月"
+      },
+      "optionB": {
+        "price": 50000,
+        "unit": "元/年"
+      },
+      "optionC": {
+        "price": 0.8,
+        "unit": "万元/月"
+      },
+      "migrationCost": null
+    },
+    "status": "全部为合成报价；未含税，迁移费用未知。"
+  },
+  "attachments": []
+}

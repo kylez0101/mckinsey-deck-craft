@@ -1,0 +1,190 @@
+{
+  "evaluator": {
+    "id": "codex-native-assess-05-font-corrective",
+    "independent": true
+  },
+  "assessmentKind": "Assisted corrective verification after prior evidence finding; not a new blind execution or control performance result",
+  "rubricVersion": "2026-11-07.2 (same corrected rubric supplied for this corrective packet)",
+  "scope": "Only this new packet, criteria, template, original brief and selected final artifacts were read. No earlier report or packet was reread or overwritten. Only this packet’s assessment.json and assessment-notes.json were written.",
+  "method": "SHA-256 verification of all eight selected files; direct original-resolution view_image inspection of all four NEW final JPEGs; actual PPTX native text/font/notes inspection; source-brief fact checking and neutral-font evidence assessment. No earlier render pass was reused. Native business strings were also compared against exact prior direct observations retained in this evaluator’s context.",
+  "summary": {
+    "runs": 1,
+    "newFinalSlidesDirectlyViewed": 4,
+    "nativeSlidesAndNotesInspected": 4,
+    "artifactHashesVerified": 8,
+    "allHashesMatch": true,
+    "checks": {
+      "passed": 3,
+      "failed": 0,
+      "not_run": 0
+    },
+    "observedNewLayoutIssues": 0,
+    "businessTextUnchangedFromPreviouslyObservedBaseline": true
+  },
+  "fontFinding": "All visible text now declares Songti SC or Arial Unicode MS. Both have system-file evidence and current renderer registration. The font handoff and notes agree with these declarations and explicitly retain non-fidelity, non-embedding and recipient limitations. No missing brand font is claimed installed. PingFang SC remains discussed only as the documented reason for the repair; it is no longer assigned to visible text.",
+  "fontEvidenceScope": "fonts.json is current same-host evidence, not a historical-resolution or PowerPoint guarantee. The evaluator verified the inventory artifact hash, not external system font-file contents. Registry presence and native font tags do not prove which face was selected for each rendered glyph.",
+  "unperformedChecks": [
+    {
+      "check": "Desktop PowerPoint availability and open/edit/save/reopen",
+      "status": "not_run",
+      "reason": "Not performed and not claimed; this is a limitation rather than a newly inferred blocking rubric requirement."
+    },
+    {
+      "check": "Independent PPTX rerender and exact glyph-by-glyph face selection trace",
+      "status": "not_run",
+      "reason": "The supplied new JPEGs were directly inspected, but no independent rendering or face-resolution trace was performed."
+    },
+    {
+      "check": "English prose line wrapping",
+      "status": "not_run",
+      "reason": "The four Chinese slide surfaces contain digits but no English prose; actual displayed text was examined, without adding invented test content."
+    }
+  ],
+  "resultUse": "This is a successful assisted repair verification within the three corrected-rubric checks. It does not retroactively change either earlier assessment and must not be counted as a fresh blind/control generation success.",
+  "nativeInspection": [
+    {
+      "slide": 1,
+      "nativeSlideTextRead": true,
+      "nativeNotesRead": true,
+      "visibleDeclaredTypefaces": [
+        "Arial Unicode MS",
+        "Songti SC"
+      ],
+      "nativeTableCount": 0,
+      "businessTextMatchesPreviouslyObservedBaselineText": true,
+      "notesFontDisclosureConsistent": true
+    },
+    {
+      "slide": 2,
+      "nativeSlideTextRead": true,
+      "nativeNotesRead": true,
+      "visibleDeclaredTypefaces": [
+        "Arial Unicode MS",
+        "Songti SC"
+      ],
+      "nativeTableCount": 0,
+      "businessTextMatchesPreviouslyObservedBaselineText": true,
+      "notesFontDisclosureConsistent": true
+    },
+    {
+      "slide": 3,
+      "nativeSlideTextRead": true,
+      "nativeNotesRead": true,
+      "visibleDeclaredTypefaces": [
+        "Arial Unicode MS",
+        "Songti SC"
+      ],
+      "nativeTableCount": 0,
+      "businessTextMatchesPreviouslyObservedBaselineText": true,
+      "notesFontDisclosureConsistent": true
+    },
+    {
+      "slide": 4,
+      "nativeSlideTextRead": true,
+      "nativeNotesRead": true,
+      "visibleDeclaredTypefaces": [
+        "Arial Unicode MS",
+        "Songti SC"
+      ],
+      "nativeTableCount": 0,
+      "businessTextMatchesPreviouslyObservedBaselineText": true,
+      "notesFontDisclosureConsistent": true
+    }
+  ],
+  "images": [
+    {
+      "artifactId": "slide-1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "viewedWith": "view_image(detail=original)",
+      "newCorrectiveImageDirectlyInspected": true,
+      "oldRenderPassReused": false,
+      "finding": "No material clipping, missing glyphs, overlap, unwanted line break or new layout defect observed."
+    },
+    {
+      "artifactId": "slide-2",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "viewedWith": "view_image(detail=original)",
+      "newCorrectiveImageDirectlyInspected": true,
+      "oldRenderPassReused": false,
+      "finding": "No material clipping, missing glyphs, overlap, unwanted line break or new layout defect observed."
+    },
+    {
+      "artifactId": "slide-3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "viewedWith": "view_image(detail=original)",
+      "newCorrectiveImageDirectlyInspected": true,
+      "oldRenderPassReused": false,
+      "finding": "No material clipping, missing glyphs, overlap, unwanted line break or new layout defect observed."
+    },
+    {
+      "artifactId": "slide-4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "viewedWith": "view_image(detail=original)",
+      "newCorrectiveImageDirectlyInspected": true,
+      "oldRenderPassReused": false,
+      "finding": "No material clipping, missing glyphs, overlap, unwanted line break or new layout defect observed."
+    }
+  ],
+  "integrity": [
+    {
+      "artifactId": "deck",
+      "expectedSha256": "030bb19e86a56e77b304fd6f96f3ba45cb6e19a8c9a0b039f5d90d9007519f50",
+      "actualSha256": "030bb19e86a56e77b304fd6f96f3ba45cb6e19a8c9a0b039f5d90d9007519f50",
+      "matches": true
+    },
+    {
+      "artifactId": "storyboard",
+      "expectedSha256": "732e8e9332a53cf910e358f94bb4e49796a82f594c508536fa31c0ea7a4f95ff",
+      "actualSha256": "732e8e9332a53cf910e358f94bb4e49796a82f594c508536fa31c0ea7a4f95ff",
+      "matches": true
+    },
+    {
+      "artifactId": "font-changes",
+      "expectedSha256": "aa75fe2a914a20e0c4722bb3e27ae23bba0e75ac21b31ef61bd74262ac1e130f",
+      "actualSha256": "aa75fe2a914a20e0c4722bb3e27ae23bba0e75ac21b31ef61bd74262ac1e130f",
+      "matches": true
+    },
+    {
+      "artifactId": "fonts",
+      "expectedSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "actualSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "matches": true
+    },
+    {
+      "artifactId": "slide-1",
+      "expectedSha256": "9b9ef3b8e337b3d40f3babc12dc6e57171ee1d8c9ac33f916d6cdce02c7c3c4f",
+      "actualSha256": "9b9ef3b8e337b3d40f3babc12dc6e57171ee1d8c9ac33f916d6cdce02c7c3c4f",
+      "matches": true
+    },
+    {
+      "artifactId": "slide-2",
+      "expectedSha256": "26841a2cccce2556fd91981be0386b89b5950b089b470c09bcf91b98919a2670",
+      "actualSha256": "26841a2cccce2556fd91981be0386b89b5950b089b470c09bcf91b98919a2670",
+      "matches": true
+    },
+    {
+      "artifactId": "slide-3",
+      "expectedSha256": "3b32360cd0882dee08aa5e6afc1bf536c982e41caf1c9aa98aca1ecd71b61e89",
+      "actualSha256": "3b32360cd0882dee08aa5e6afc1bf536c982e41caf1c9aa98aca1ecd71b61e89",
+      "matches": true
+    },
+    {
+      "artifactId": "slide-4",
+      "expectedSha256": "7f207a491d3b720c909cb7abb3181424043fb0de5d7668d03d790ce4985ed017",
+      "actualSha256": "7f207a491d3b720c909cb7abb3181424043fb0de5d7668d03d790ce4985ed017",
+      "matches": true
+    }
+  ]
+}

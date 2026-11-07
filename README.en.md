@@ -189,3 +189,5 @@ node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" -
 ```
 
 Performers then complete the tasks; an independent evaluator checks full artifacts and evidence before the scorer summarizes results. Preparing tasks or passing unit tests does not establish completed agent evaluations. Missing runs and manual judgments remain `not_run`. See [evaluation](references/evaluation.md) for the workflow, report schema, and scoring command.
+
+The [completed 24-run record](evals/results/2026-11-07-complete/README.md) includes 22 editable decks (116 slides) and two text-only handoffs. Original judgments, rubric/evidence reassessment and assisted corrections remain separate; post-correction passes do not establish unassisted model performance.
