@@ -1,0 +1,42 @@
+{
+  "id": "unknown-return",
+  "title": "Evidence-limited SaaS investment",
+  "tags": [
+    "nonmanufacturing",
+    "unknown"
+  ],
+  "brief": {
+    "request": "制作8页中文客服投入决策PPT，含封面。比较知识库、流程改造和新增人手，给出有条件建议。",
+    "audience": "CEO与客服负责人",
+    "facts": {
+      "ticketCounts": [
+        10000,
+        12000,
+        15000
+      ],
+      "months": [
+        "1月",
+        "2月",
+        "3月"
+      ],
+      "satisfaction": [
+        0.88,
+        0.85,
+        0.8
+      ],
+      "costs": {
+        "knowledgeBase": 220000,
+        "process": 150000,
+        "staffing": 280000
+      },
+      "budget": 300000,
+      "roi": null
+    },
+    "status": "全部为合成训练数据；三个费用覆盖范围不同，持续成本及效果未知。",
+    "constraints": [
+      "保留费用可比性限制",
+      "不得编造节省人数或回收期"
+    ]
+  },
+  "attachments": []
+}

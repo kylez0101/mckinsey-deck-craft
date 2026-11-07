@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-07.1",
+  "version": "2026-11-07.2",
   "method": "Independent evidence-backed judgments. No keyword scoring.",
   "cases": {
     "unknown-return": {
@@ -129,7 +129,7 @@
         {
           "id": "conditional",
           "dimension": "content",
-          "requirement": "B的建议保留效果待验证与岗位资格条件。",
+          "requirement": "B的建议保留效果待验证与已给定的最低人数约束；岗位资格等未提供条件不得写成已核实事实。",
           "blocking": true
         },
         {

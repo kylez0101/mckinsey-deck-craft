@@ -1,0 +1,40 @@
+{
+  "id": "reading-report",
+  "title": "Long reading report has navigation",
+  "tags": [
+    "long-deck",
+    "reading",
+    "nonmanufacturing"
+  ],
+  "brief": {
+    "request": "制作18页供近距离阅读的社区图书馆服务改进报告，含封面。需要摘要、证据、选择、试点和附录。",
+    "facts": {
+      "branches": 6,
+      "visits": [
+        8000,
+        12000,
+        9000,
+        15000,
+        6000,
+        10000
+      ],
+      "surveyRespondents": 120,
+      "requestedHours": [
+        10,
+        25,
+        15,
+        35,
+        5,
+        10
+      ],
+      "budget": 200000
+    },
+    "status": "合成小样本调查；意愿不能直接等于实际使用或收入。",
+    "constraints": [
+      "页数18页",
+      "总览与展开编号一致",
+      "不要套用工厂转型术语"
+    ]
+  },
+  "attachments": []
+}

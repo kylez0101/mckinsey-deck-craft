@@ -1,0 +1,351 @@
+{
+  "evaluator": {
+    "id": "independent-review-06",
+    "independent": true
+  },
+  "scope": "Only packet.json, criteria.json, assessment-template.json, the four original briefs, and the 22 selected artifacts were read. Brief attachments are empty. No generators, execution/acceptance logs, skill snapshot, prior outcomes, parent assignments, or other review folders were read.",
+  "method": "Independently judged the frozen criteria against original source facts. Inspected every one of the 14 supplied slide renders with view_image at original resolution, parsed actual PPTX text objects, tables, notes, slide relationships and counts, chart caches/formulas, embedded workbook cells and workbook/chart relationships. Storyboards were read as selected artifacts, not accepted as proof of the final deck.",
+  "summary": {
+    "runs": 4,
+    "checksPassed": 12,
+    "checksFailed": 0,
+    "checksNotRun": 0,
+    "artifactHashesVerified": 22,
+    "fullSizeRendersInspected": 14,
+    "issues": []
+  },
+  "hashVerification": [
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "deck",
+      "path": "artifacts/313e2bbe0ac7773a/deck.pptx",
+      "expectedSha256": "55ae2d908cc395bcece62beda20d0069b0ecbc112c86963f14cdb6e103e3211e",
+      "actualSha256": "55ae2d908cc395bcece62beda20d0069b0ecbc112c86963f14cdb6e103e3211e",
+      "status": "passed"
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "storyboard",
+      "path": "artifacts/313e2bbe0ac7773a/storyboard.md",
+      "expectedSha256": "6a0004cf8fb09989083cf1d2a935db487ab17616fc3dd9edf327d08614ac8835",
+      "actualSha256": "6a0004cf8fb09989083cf1d2a935db487ab17616fc3dd9edf327d08614ac8835",
+      "status": "passed"
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-1",
+      "path": "artifacts/313e2bbe0ac7773a/slide-1.jpg",
+      "expectedSha256": "f273f62313a5ba7e3384dd70e92b5f925b386cfc2bf3cddaaab46946428badd2",
+      "actualSha256": "f273f62313a5ba7e3384dd70e92b5f925b386cfc2bf3cddaaab46946428badd2",
+      "status": "passed"
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-2",
+      "path": "artifacts/313e2bbe0ac7773a/slide-2.jpg",
+      "expectedSha256": "67803fba8953c84a3c309c784211d83a6829b99f999008c5bcb4da067818e8ab",
+      "actualSha256": "67803fba8953c84a3c309c784211d83a6829b99f999008c5bcb4da067818e8ab",
+      "status": "passed"
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-3",
+      "path": "artifacts/313e2bbe0ac7773a/slide-3.jpg",
+      "expectedSha256": "48d3cc5a02a947bebcc90e58164473945955f46042a4fd44b38e2ab41485d744",
+      "actualSha256": "48d3cc5a02a947bebcc90e58164473945955f46042a4fd44b38e2ab41485d744",
+      "status": "passed"
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "deck",
+      "path": "artifacts/1f0ef3bf577475d5/deck.pptx",
+      "expectedSha256": "80d59ac3317682d6382e3ef0428f0c99daf1c743c427a5ddd8ee4e549cfe8d7b",
+      "actualSha256": "80d59ac3317682d6382e3ef0428f0c99daf1c743c427a5ddd8ee4e549cfe8d7b",
+      "status": "passed"
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "storyboard",
+      "path": "artifacts/1f0ef3bf577475d5/storyboard.md",
+      "expectedSha256": "a762989441b2986e606fe9f3620c54b629bbbc85933eae02ea332d72537c6a4e",
+      "actualSha256": "a762989441b2986e606fe9f3620c54b629bbbc85933eae02ea332d72537c6a4e",
+      "status": "passed"
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-1",
+      "path": "artifacts/1f0ef3bf577475d5/slide-1.jpg",
+      "expectedSha256": "82bcc536dc288992a40f3f51bba3beb148a1df5ee18ec9c2585bd0204098bb48",
+      "actualSha256": "82bcc536dc288992a40f3f51bba3beb148a1df5ee18ec9c2585bd0204098bb48",
+      "status": "passed"
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-2",
+      "path": "artifacts/1f0ef3bf577475d5/slide-2.jpg",
+      "expectedSha256": "432d0f1e0e17d9b904f086618c7ff5c825ba00b936b3789dae16466e408d40cf",
+      "actualSha256": "432d0f1e0e17d9b904f086618c7ff5c825ba00b936b3789dae16466e408d40cf",
+      "status": "passed"
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-3",
+      "path": "artifacts/1f0ef3bf577475d5/slide-3.jpg",
+      "expectedSha256": "10c7543777bd99a340630d45d209559eaa71dba936658b2aef34f8d1006805d5",
+      "actualSha256": "10c7543777bd99a340630d45d209559eaa71dba936658b2aef34f8d1006805d5",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "deck",
+      "path": "artifacts/a13b49ada415229f/deck.pptx",
+      "expectedSha256": "e46d329006b3e97bca0623f868f5d5f14617d0af4fccf5319dfaa4ce4b56aeca",
+      "actualSha256": "e46d329006b3e97bca0623f868f5d5f14617d0af4fccf5319dfaa4ce4b56aeca",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "storyboard",
+      "path": "artifacts/a13b49ada415229f/storyboard.md",
+      "expectedSha256": "b7347e8864ad8a88d43ff374959978d1d686b9c5018a7be54f487ce62c843e48",
+      "actualSha256": "b7347e8864ad8a88d43ff374959978d1d686b9c5018a7be54f487ce62c843e48",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-1",
+      "path": "artifacts/a13b49ada415229f/slide-1.jpg",
+      "expectedSha256": "3bbdb34dace893e666de645fc3e6cb18f1b02d971fc402b4eb9fd942cb4e7bba",
+      "actualSha256": "3bbdb34dace893e666de645fc3e6cb18f1b02d971fc402b4eb9fd942cb4e7bba",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-2",
+      "path": "artifacts/a13b49ada415229f/slide-2.jpg",
+      "expectedSha256": "14d999e175e68aec6c96bbdbb832469a08e8e55fadd837b08aab9328eafc68d7",
+      "actualSha256": "14d999e175e68aec6c96bbdbb832469a08e8e55fadd837b08aab9328eafc68d7",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-3",
+      "path": "artifacts/a13b49ada415229f/slide-3.jpg",
+      "expectedSha256": "4da77be2568055fc7cc8697f8e28f3d6310ee7e689eb7646e7fd84a20fd9a6f4",
+      "actualSha256": "4da77be2568055fc7cc8697f8e28f3d6310ee7e689eb7646e7fd84a20fd9a6f4",
+      "status": "passed"
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-4",
+      "path": "artifacts/a13b49ada415229f/slide-4.jpg",
+      "expectedSha256": "8940a83d26c3e4e65396a384a3f851ed2c914fc8d039eb7d3f1d021e2fc34616",
+      "actualSha256": "8940a83d26c3e4e65396a384a3f851ed2c914fc8d039eb7d3f1d021e2fc34616",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "deck",
+      "path": "artifacts/11dec2d436096ab3/deck.pptx",
+      "expectedSha256": "36f1d5317ccac626e2cb15e47d2e6580169f1d7731df9977353f6bdeadb1ab70",
+      "actualSha256": "36f1d5317ccac626e2cb15e47d2e6580169f1d7731df9977353f6bdeadb1ab70",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "storyboard",
+      "path": "artifacts/11dec2d436096ab3/storyboard.md",
+      "expectedSha256": "b5a9dd6878985131b19cb978904d4e2246a9bf12d16a255c686cb282b1d57c5f",
+      "actualSha256": "b5a9dd6878985131b19cb978904d4e2246a9bf12d16a255c686cb282b1d57c5f",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-1",
+      "path": "artifacts/11dec2d436096ab3/slide-1.jpg",
+      "expectedSha256": "ce983d2c93adef4b89392954e7c1480393b437e77d91e240dae3cfe4ad31a620",
+      "actualSha256": "ce983d2c93adef4b89392954e7c1480393b437e77d91e240dae3cfe4ad31a620",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-2",
+      "path": "artifacts/11dec2d436096ab3/slide-2.jpg",
+      "expectedSha256": "476346e4e02612ff043848f5625984c459823ce21023f3e51231ba67b0a409da",
+      "actualSha256": "476346e4e02612ff043848f5625984c459823ce21023f3e51231ba67b0a409da",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-3",
+      "path": "artifacts/11dec2d436096ab3/slide-3.jpg",
+      "expectedSha256": "48a16d8c53040da73021f510f43565534974ba0a7e9fce95c1db6c603456feaa",
+      "actualSha256": "48a16d8c53040da73021f510f43565534974ba0a7e9fce95c1db6c603456feaa",
+      "status": "passed"
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-4",
+      "path": "artifacts/11dec2d436096ab3/slide-4.jpg",
+      "expectedSha256": "edbec315f76cc0f92cf86149cf653939d17e4d3f72431363a29efc845e888010",
+      "actualSha256": "edbec315f76cc0f92cf86149cf653939d17e4d3f72431363a29efc845e888010",
+      "status": "passed"
+    }
+  ],
+  "metadataHashLimit": "suiteHash and skillHash are preserved exactly from packet/template. They were not recomputed because their underlying suite/skill sources are outside the permitted review scope; every selected artifact SHA-256 was independently recomputed and matched.",
+  "visualInspection": [
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-1",
+      "path": "artifacts/313e2bbe0ac7773a/slide-1.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-2",
+      "path": "artifacts/313e2bbe0ac7773a/slide-2.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "slide-3",
+      "path": "artifacts/313e2bbe0ac7773a/slide-3.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-1",
+      "path": "artifacts/1f0ef3bf577475d5/slide-1.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-2",
+      "path": "artifacts/1f0ef3bf577475d5/slide-2.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "slide-3",
+      "path": "artifacts/1f0ef3bf577475d5/slide-3.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-1",
+      "path": "artifacts/a13b49ada415229f/slide-1.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-2",
+      "path": "artifacts/a13b49ada415229f/slide-2.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-3",
+      "path": "artifacts/a13b49ada415229f/slide-3.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "slide-4",
+      "path": "artifacts/a13b49ada415229f/slide-4.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-1",
+      "path": "artifacts/11dec2d436096ab3/slide-1.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-2",
+      "path": "artifacts/11dec2d436096ab3/slide-2.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-3",
+      "path": "artifacts/11dec2d436096ab3/slide-3.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "slide-4",
+      "path": "artifacts/11dec2d436096ab3/slide-4.jpg",
+      "status": "passed",
+      "observation": "Full-size original-resolution supplied image inspected; no frozen-criterion visual defect found."
+    }
+  ],
+  "nativeInspection": [
+    {
+      "runId": "313e2bbe0ac7773a",
+      "artifactId": "deck",
+      "status": "passed",
+      "observation": "3 slides, full-name table, same-slide definitions, unknown-benefit text and notes inspected. Chart cache 80000/50000 matches embedded Chart Data A2:B3 and visible chart; package ZIP integrity passed."
+    },
+    {
+      "runId": "1f0ef3bf577475d5",
+      "artifactId": "deck",
+      "status": "passed",
+      "observation": "3 slides, complete names and definitions, unknown-benefit tables/text and notes inspected. Chart cache 80000/50000 matches embedded Chart Data A2:B3 and visible chart; package ZIP integrity passed."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "artifactId": "deck",
+      "status": "passed",
+      "observation": "4 slides; all native decision text, three native tables and four notes parts inspected. Table-only deck has no chart parts, chart relationships or workbook; no cache/workbook test is applicable. Package ZIP integrity passed."
+    },
+    {
+      "runId": "11dec2d436096ab3",
+      "artifactId": "deck",
+      "status": "passed",
+      "observation": "4 slides; native chart, three tables, decision text and notes inspected. Chart cache/formulas/relationship and embedded Chart Data A2:B4 all match 30/20/22; supplied render and native text agree. Package and workbook ZIP integrity passed."
+    }
+  ],
+  "checksNotRun": [
+    {
+      "check": "PowerPoint application open/render",
+      "status": "not_run",
+      "reason": "No PowerPoint launch performed. Visual judgment is limited to supplied renders plus native OOXML inspection."
+    },
+    {
+      "check": "Interactive native object or embedded workbook edit, save and reopen",
+      "status": "not_run",
+      "reason": "No native PowerPoint editing or edit/reopen cycle performed; no cross-application editability or refresh claim made."
+    },
+    {
+      "check": "Fresh rendering from assessed PPTX",
+      "status": "not_run",
+      "reason": "Supplied selected renders were inspected; no new render was generated and their rendering provenance was not independently executed."
+    }
+  ],
+  "interpretationNotes": [
+    {
+      "runId": "11dec2d436096ab3",
+      "checkId": "boundary",
+      "observation": "The deck states current deficit 2万元, not a literal signed −20,000元 remainder. These are arithmetically equivalent: current limit 200,000 minus demand 220,000 equals −20,000元. The wording clearly treats the original scheme as over budget."
+    },
+    {
+      "runId": "a13b49ada415229f",
+      "checkId": "consistency",
+      "observation": "No chart cache or embedded workbook exists in this table-based deck. This is absence of that object type, not evidence of stale data. Native tables/text/notes and all supplied renders agree; unperformed application checks are explicitly not_run."
+    }
+  ]
+}

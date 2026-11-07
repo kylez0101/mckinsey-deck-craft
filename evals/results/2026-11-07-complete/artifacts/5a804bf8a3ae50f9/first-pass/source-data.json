@@ -1,0 +1,68 @@
+{
+  "documentTitle": "基金会项目评审",
+  "requestedSlidesIncludingCover": 5,
+  "sourceFile": "../brief.json",
+  "facts": {
+    "budget": {
+      "id": "F01",
+      "value": 60000,
+      "display": "60,000",
+      "currency": null,
+      "period": null,
+      "amountBasis": null,
+      "approvalStatus": null,
+      "expenseBreakdown": null,
+      "status": "provided_value_only",
+      "sourcePointer": "/brief/facts/budget"
+    },
+    "verifiedBeneficiaries": {
+      "id": "F02",
+      "value": null,
+      "display": "待核实",
+      "definition": null,
+      "reportingPeriod": null,
+      "deduplicationMethod": null,
+      "status": "unknown",
+      "sourcePointer": "/brief/facts/verifiedBeneficiaries"
+    }
+  },
+  "reviewedSources": [
+    {
+      "id": "S01",
+      "sourcePointer": "/brief/sources/0",
+      "sourceId": "memo",
+      "status": "unverified",
+      "acceptedContent": "受益人数待核实",
+      "handling": "Source text was treated as reference data. Embedded behavioral instructions were not followed. No unsupported beneficiary count was promoted into facts."
+    }
+  ],
+  "otherUnknowns": [
+    "项目正式名称与提交机构",
+    "目标、服务活动、对象及实施范围",
+    "结果指标、基线与观察结果",
+    "已落实资金、申请资金及使用安排",
+    "基金会评审标准与最终决策权限",
+    "具名责任人与实施日期"
+  ],
+  "derivedMetrics": {
+    "costPerBeneficiary": {
+      "value": null,
+      "status": "not_calculated",
+      "reason": "预算口径、币种、同期核实人数均不完整。未知人数不能补零。",
+      "futureRule": "仅在成本范围、币种、统计期间与受益人定义一致，且核实独立人数大于0时，计算同期可比成本除以该人数。预算口径仅支持预算人均成本，不称实际人均成本。"
+    },
+    "fundingGap": {
+      "value": null,
+      "status": "not_calculated",
+      "reason": "总额或申请额性质与已落实资金未知。"
+    }
+  },
+  "proposedReviewAction": {
+    "recommendation": "补证后复审",
+    "status": "proposed_not_approved",
+    "grantDecision": null,
+    "disbursementDecision": null,
+    "deadline": null,
+    "suggestedMilestone": "下次评审前，具体日期待确认"
+  }
+}

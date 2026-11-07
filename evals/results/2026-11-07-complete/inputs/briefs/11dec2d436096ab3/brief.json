@@ -1,0 +1,19 @@
+{
+  "id": "budget-flip",
+  "title": "Budget update changes the decision",
+  "tags": [
+    "update",
+    "budget-boundary"
+  ],
+  "brief": {
+    "request": "更新一份4页试点决策：预算上限从30万元改为20万元；知识库试点需22万元。其他方案效果尚未知。重新生成比较与建议。",
+    "facts": {
+      "previousBudget": 300000,
+      "currentBudget": 200000,
+      "pilotSpend": 220000,
+      "otherBenefits": null
+    },
+    "status": "合成修改任务；原建议为预算批准后可试点。"
+  },
+  "attachments": []
+}

@@ -1,0 +1,643 @@
+{
+  "evaluator": {
+    "id": "codex-native-assess-05-reassessment",
+    "independent": true
+  },
+  "assessmentKind": "Explicit supplementary rubric/evidence reassessment, not a new blind execution",
+  "rubricVersion": "2026-11-07.2 (task-supplied version label; actual criteria.json read directly)",
+  "suiteHash": "f3fa1cfedfb92cc9a2a6067f1cfc966fb2b0f8d74011fabc61b1999a27d7c2a2",
+  "scope": "Read only the new packet, criteria, template, original briefs and listed artifacts in review-05-reassessment. Reused this evaluator’s prior direct inspection in conversation context only after checking the unchanged 24 artifact hashes. Did not read or write the original report, other task folders, generators, skill snapshot, execution logs or acceptance labels. Wrote only this packet’s assessment.json and assessment-notes.json.",
+  "method": "Verified SHA-256 of all 26 selected files; directly read four original briefs, corrected criteria, font handoffs and new neutral font evidence. Reused all 14 prior original-resolution view_image observations and native-content inspection because hashes are unchanged; reparsed new copies of actual slide/notes XML and table/font metadata. Fonts evidence was evaluated separately from author claims.",
+  "summary": {
+    "runs": 4,
+    "slidesWithPriorOriginalResolutionInspectionReused": 14,
+    "slidesNativeXmlReparsed": 14,
+    "currentArtifactHashesVerified": 26,
+    "unchangedPriorArtifactHashes": 24,
+    "allHashesMatch": true,
+    "checkCounts": {
+      "not_run": 1,
+      "passed": 11
+    },
+    "observedMaterialArtifactFailures": 0,
+    "fullUnqualifiedPassClaimed": false
+  },
+  "decisionChanges": [
+    {
+      "runs": [
+        "ea644caf924bfc26",
+        "7081c51d8129cb3f"
+      ],
+      "check": "conditional",
+      "status": "passed",
+      "basis": "Corrected criterion requires only provided minimum headcounts and effect uncertainty, and prohibits inventing unprovided qualifications. Both actual decks preserve headcount/effect limits and assert no missing qualification as checked. No missing input was fabricated."
+    },
+    {
+      "run": "aeb9f8bb42819f34",
+      "check": "fonts",
+      "status": "passed",
+      "basis": "New evidence supports both declared substitutes as system-installed and currently renderer-registered; handoff records non-fidelity and recipient limits without claiming brand installation. Pass is scoped to the supplied current-environment evidence and documentation, not desktop PowerPoint or historical face resolution."
+    },
+    {
+      "run": "8c8ab5b0e35a1aa1",
+      "check": "fonts",
+      "status": "not_run",
+      "basis": "New evidence corroborates system-installed PingFang SC but reports it absent from the current renderer registry. Native tags do not prove actual face selection, and historical availability cannot be inferred from the supplementary measurement. That specific availability scope remains unresolved."
+    }
+  ],
+  "fontEvidenceInterpretation": {
+    "sourceArtifactId": "fonts",
+    "sourceSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+    "Songti SC": {
+      "systemInstalledReported": true,
+      "currentRendererRegisteredReported": true,
+      "recordedFileSha256": "6873ac2ccab5c2e74d87d6b690f3773098dd6a6238805363a3b3567f2caf6f47"
+    },
+    "PingFang SC": {
+      "systemInstalledReported": true,
+      "currentRendererRegisteredReported": false,
+      "recordedFileSha256": "9ff3ce9439fe285cdabb46f9ceb46b1ac58f1ca07e6f4a764e8286db621a0af9"
+    },
+    "Arial Unicode MS": {
+      "systemInstalledReported": true,
+      "currentRendererRegisteredReported": true,
+      "recordedFileSha256": "876af2cd4854644e7f3e7feb2f688997fdb3343c6df6693611209c9dfb47ccec"
+    },
+    "limits": "Font-file records are supplied neutral source evidence; this evaluator hashed fonts.json, not external system font files. System installation, registry presence and actual selected glyph face are distinct. No PowerPoint availability or original-time selection claim follows."
+  },
+  "unperformedChecks": [
+    {
+      "check": "Desktop PowerPoint/Keynote/LibreOffice availability, independent PPTX re-render and edit/save/reopen",
+      "status": "not_run",
+      "reason": "Not performed; this is a separate limitation, not an extra blocking criterion inserted into the corrected rubric."
+    },
+    {
+      "check": "Historical glyph-face resolution of original previews",
+      "status": "not_run",
+      "reason": "No original-time resolution trace supplied; current inventory expressly cannot establish it."
+    },
+    {
+      "check": "English prose line wrapping in font-fallback decks",
+      "status": "not_run",
+      "reason": "Slide surfaces have Chinese and digits but no English prose. Actual displayed content was inspected; no artificial English input was invented."
+    }
+  ],
+  "remainingEvidenceGaps": [
+    "PingFang SC use by the authoring renderer is unverified despite corroborated OS installation. Current registry absence alone does not prove historical nonavailability or a visible defect.",
+    "Supplied JPEG readability does not establish how another application resolves declared fonts.",
+    "No desktop or historical face-resolution verification is claimed for any run."
+  ],
+  "minorObservations": [
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "font-substitutions",
+      "locator": "line 12",
+      "observation": "Handoff calls previews PNG, while selected actual previews are JPEG. Minor naming mismatch; does not fail a corrected frozen criterion."
+    }
+  ],
+  "runs": [
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-4",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 7,
+          "notesTextNodes": 1,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 11,
+          "notesTextNodes": 1,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 16,
+          "notesTextNodes": 2,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 4,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 7,
+          "notesTextNodes": 2,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-4",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 4,
+          "notesTextNodes": 1,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 16,
+          "notesTextNodes": 1,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 23,
+          "notesTextNodes": 1,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 4,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 15,
+          "notesTextNodes": 1,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 8,
+          "notesTextNodes": 2,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 23,
+          "notesTextNodes": 2,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 9,
+          "notesTextNodes": 2,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "PingFang SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "priorViewImageOriginalInspectionReused": true,
+          "hashIdentityConfirmed": true,
+          "finding": "No material clipping, missing glyphs, text collision or unreadable required content in the previously examined full image. No new image view claimed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 4,
+          "notesTextNodes": 3,
+          "nativeTableCount": 0,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 25,
+          "notesTextNodes": 3,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "priorNativeInspectionReused": true,
+          "nativeXmlReparsed": true,
+          "slideTextNodes": 17,
+          "notesTextNodes": 3,
+          "nativeTableCount": 1,
+          "visibleDeclaredTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        }
+      ]
+    }
+  ],
+  "integrity": [
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "deck",
+      "expectedSha256": "71d980f0ab966ab60df66e8749ef90016586699e3e0e1e0eca804f71a802440c",
+      "actualSha256": "71d980f0ab966ab60df66e8749ef90016586699e3e0e1e0eca804f71a802440c",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "font-changes",
+      "expectedSha256": "300b36c7d919a36722baa6b65bcccfc0a20c4bbe5441925b0ded691242fbf881",
+      "actualSha256": "300b36c7d919a36722baa6b65bcccfc0a20c4bbe5441925b0ded691242fbf881",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "storyboard",
+      "expectedSha256": "06fed1d2536104e7f2fddb1adf812c8a97ef109092e8a3b419185f39caa93d8d",
+      "actualSha256": "06fed1d2536104e7f2fddb1adf812c8a97ef109092e8a3b419185f39caa93d8d",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-1",
+      "expectedSha256": "789e017da631deef1dd863b6d43c9b28ac6d72155f5b85ac355d086a9d186d79",
+      "actualSha256": "789e017da631deef1dd863b6d43c9b28ac6d72155f5b85ac355d086a9d186d79",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-2",
+      "expectedSha256": "eed6569f1f90c48d3127c21074d89323072bfd70cf8a2175013b77af379530b5",
+      "actualSha256": "eed6569f1f90c48d3127c21074d89323072bfd70cf8a2175013b77af379530b5",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-3",
+      "expectedSha256": "2ba5182cfd1190fed34f991655e043fbeacc9b4beae64c2a1ed4a6ade4b1b9cc",
+      "actualSha256": "2ba5182cfd1190fed34f991655e043fbeacc9b4beae64c2a1ed4a6ade4b1b9cc",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-4",
+      "expectedSha256": "6835c296991ba03160fa2d27691296da396506712f85b49c85d6d87563ca7131",
+      "actualSha256": "6835c296991ba03160fa2d27691296da396506712f85b49c85d6d87563ca7131",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "fonts",
+      "expectedSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "actualSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "matches": true,
+      "sameAsPriorInspection": false
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "deck",
+      "expectedSha256": "b0d02b20a6fb7b93acdf6f965a37dcfcd32d7f95843839cf491b3f8d1a3b41b5",
+      "actualSha256": "b0d02b20a6fb7b93acdf6f965a37dcfcd32d7f95843839cf491b3f8d1a3b41b5",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "font-substitutions",
+      "expectedSha256": "29b9ee37c7e61292915e44f1c5e2b2d47376bd0066d304b9eb8eb58e405a68ec",
+      "actualSha256": "29b9ee37c7e61292915e44f1c5e2b2d47376bd0066d304b9eb8eb58e405a68ec",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "storyboard",
+      "expectedSha256": "667845f427720c73b986704afcaa016e47190f471fd213e09d61c70a47646562",
+      "actualSha256": "667845f427720c73b986704afcaa016e47190f471fd213e09d61c70a47646562",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-1",
+      "expectedSha256": "70be3c85860f56d86244b60b6844a293766b84accafc0baf4c0e2120091a4c6b",
+      "actualSha256": "70be3c85860f56d86244b60b6844a293766b84accafc0baf4c0e2120091a4c6b",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-2",
+      "expectedSha256": "b633ed5099cbfcef0fb8f8a28f841c8aea49513b1cf9cead68969c0a7afb9c2a",
+      "actualSha256": "b633ed5099cbfcef0fb8f8a28f841c8aea49513b1cf9cead68969c0a7afb9c2a",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-3",
+      "expectedSha256": "2c0cd80f6f1487294af06d23c616af52a118314f0e69483cf36e2ca0f2036b65",
+      "actualSha256": "2c0cd80f6f1487294af06d23c616af52a118314f0e69483cf36e2ca0f2036b65",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-4",
+      "expectedSha256": "743c9c4b2711c94c9924e74db361715ae1da4a52100ef8684a039834bcdca158",
+      "actualSha256": "743c9c4b2711c94c9924e74db361715ae1da4a52100ef8684a039834bcdca158",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "fonts",
+      "expectedSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "actualSha256": "02eea8a30ba1572ac5db221021e295df0c8ef5b212582b4e424461a2380afa73",
+      "matches": true,
+      "sameAsPriorInspection": false
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "deck",
+      "expectedSha256": "9134b385c02579d41e8c6f9449c0f4918a0cad8e9558f08a92f230e5d75e4799",
+      "actualSha256": "9134b385c02579d41e8c6f9449c0f4918a0cad8e9558f08a92f230e5d75e4799",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "storyboard",
+      "expectedSha256": "f5da00e438c319f4f7e5f92105473df94e20a4c2837f1f303096c65b1da775fb",
+      "actualSha256": "f5da00e438c319f4f7e5f92105473df94e20a4c2837f1f303096c65b1da775fb",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-1",
+      "expectedSha256": "e1d40b40d4e87424f70a4275c0b851e69a5f59ef6c292bf71eed064392b857bf",
+      "actualSha256": "e1d40b40d4e87424f70a4275c0b851e69a5f59ef6c292bf71eed064392b857bf",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-2",
+      "expectedSha256": "b7d44c9b2f7a1b59b193061e809b019b387ff73fa8adbe2dea6f96634e343fd5",
+      "actualSha256": "b7d44c9b2f7a1b59b193061e809b019b387ff73fa8adbe2dea6f96634e343fd5",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-3",
+      "expectedSha256": "b1df6bcbde1df8a24e6bd5c1ab9221f47d71455aa76b0a4e83b398386fe6c39f",
+      "actualSha256": "b1df6bcbde1df8a24e6bd5c1ab9221f47d71455aa76b0a4e83b398386fe6c39f",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "deck",
+      "expectedSha256": "3251aead049338c0c39b52a010f866197bef7234a64c833101b8ec8df76286d7",
+      "actualSha256": "3251aead049338c0c39b52a010f866197bef7234a64c833101b8ec8df76286d7",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "storyboard",
+      "expectedSha256": "3bb2da8e2cbe336c93082deecb79057ab56a613ebaa57a89e5c99aa1c9cd671a",
+      "actualSha256": "3bb2da8e2cbe336c93082deecb79057ab56a613ebaa57a89e5c99aa1c9cd671a",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-1",
+      "expectedSha256": "dcd4d8e17c8589e1fabdbd0dfe20dbacc2cb5ed9da2c001d18a6a3500bbb3cf3",
+      "actualSha256": "dcd4d8e17c8589e1fabdbd0dfe20dbacc2cb5ed9da2c001d18a6a3500bbb3cf3",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-2",
+      "expectedSha256": "38cfa09d2f3aeac0fc912e4980ab1ef40f03f77ee781f5fde34b3e835edd6174",
+      "actualSha256": "38cfa09d2f3aeac0fc912e4980ab1ef40f03f77ee781f5fde34b3e835edd6174",
+      "matches": true,
+      "sameAsPriorInspection": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-3",
+      "expectedSha256": "ad59d33bbf750d2775c49f7c2dda03e311cd4fd8f2d34535ab79b794c3ba8000",
+      "actualSha256": "ad59d33bbf750d2775c49f7c2dda03e311cd4fd8f2d34535ab79b794c3ba8000",
+      "matches": true,
+      "sameAsPriorInspection": true
+    }
+  ]
+}

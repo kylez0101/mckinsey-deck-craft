@@ -26,3 +26,14 @@ jobs:
           node scripts/preflight.mjs --input examples/university-service/source.json
       - name: Compile without the private presentation runtime
         run: node scripts/build-data-deck.mjs --input examples/saas-budget/source.json --workspace "$PWD" --work "$PWD/working/ci" --out "$PWD/output/ci.pptx" --dry-run
+      - name: Verify published evaluation evidence
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs/promises';
+          import path from 'node:path';
+          import {verifyArtifact} from './scripts/evaluate.mjs';
+          const root=path.resolve('evals/results/2026-11-07-complete');
+          const manifest=JSON.parse(await fs.readFile(path.join(root,'artifact-manifest.json'),'utf8'));
+          for(const artifact of manifest.artifacts)await verifyArtifact({...artifact,id:artifact.path},root);
+          console.log(JSON.stringify({status:'evidence_bytes_verified',files:manifest.artifacts.length}));
+          JS

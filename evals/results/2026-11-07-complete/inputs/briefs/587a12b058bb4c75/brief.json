@@ -1,0 +1,15 @@
+{
+  "id": "single-slide-edit",
+  "title": "Preserve unmodified slides",
+  "tags": [
+    "single-slide",
+    "edit"
+  ],
+  "brief": {
+    "request": "附件是3页源数据演示稿。仅将第2页的预算上限从30万元改为20万元，并同步该页建议。保留第1、3页内容与顺序，不新增封面。用可用工具输出完整更新稿及变更范围。",
+    "status": "合成源数据；可直接修改JSON重建，缺PPT工具时交付更新源数据并声明限制。"
+  },
+  "attachments": [
+    "single-slide-source.json"
+  ]
+}

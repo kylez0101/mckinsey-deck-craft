@@ -1,0 +1,25 @@
+{
+  "id": "ranking-flip",
+  "title": "Feasibility outranks an infeasible score",
+  "tags": [
+    "update",
+    "ranking",
+    "constraints"
+  ],
+  "brief": {
+    "request": "为大学服务台制作3页资源决策。方案A需求覆盖高，但更新后只有1名可用值班员；A最低需2人。方案B需1人。比较新的可执行选择。",
+    "facts": {
+      "availableStaff": 1,
+      "optionA": {
+        "minimumStaff": 2,
+        "coverage": 0.9
+      },
+      "optionB": {
+        "minimumStaff": 1,
+        "coverage": 0.65
+      }
+    },
+    "status": "合成案例；覆盖率为测算，服务效果待验证。"
+  },
+  "attachments": []
+}

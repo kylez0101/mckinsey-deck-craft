@@ -1,0 +1,24 @@
+{
+  "id": "board-brief",
+  "title": "Three-page board brief",
+  "tags": [
+    "short-deck",
+    "decision"
+  ],
+  "brief": {
+    "request": "制作3页中文董事会简报，合计包含封面。决定是否批准10万元研究验证预算。",
+    "audience": "董事会",
+    "facts": {
+      "requestedBudget": 100000,
+      "phaseOne": 40000,
+      "phaseTwo": 60000,
+      "expectedBenefit": null
+    },
+    "constraints": [
+      "第2页交代决定与依据",
+      "第3页交代分阶段拨款和停止条件"
+    ],
+    "status": "合成案例；目前只有研究问题与支出估算。"
+  },
+  "attachments": []
+}

@@ -1,0 +1,175 @@
+{
+  "type": "independent_corrective_regression_review",
+  "evaluator": {
+    "id": "assess_02",
+    "independent": true,
+    "blindRun": false
+  },
+  "originalRunId": "56dfb8ac2c07aeaf",
+  "status": "passed",
+  "scope": "Targeted assisted-content regression verification of corrected slides14/16 and their notes against the stated cumulative final-four-complete-running-week definition. This is not a new blind run and does not replace the original first-round scores. Original report and assessment files were not edited.",
+  "intendedDefinition": "For each branch separately: cumulative visits during extended hours divided by cumulative actual open branch-hours over that branch's final four complete running weeks. A rate of at least5visits/branch-hour is proposed; each week does not separately need to pass.",
+  "artifacts": [
+    {
+      "id": "original-deck",
+      "path": "artifacts/56dfb8ac2c07aeaf/first-pass/deck.pptx",
+      "sha256": "c2cb5247bda92d11d3db39595e9b5742d62bd0da209f30391aadbe2099f17196"
+    },
+    {
+      "id": "corrected-source",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-source.json",
+      "sha256": "f70d3ab4784b27890313b17ba11b2597489ce414ef72fe50fc1fa07fca9d4fcc"
+    },
+    {
+      "id": "corrected-deck",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-deck.pptx",
+      "sha256": "e58dc651fbcdf729dd8c975f0a3db959133d3f007891655d2b7f30a71871f3b1"
+    },
+    {
+      "id": "repair-record",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/repair-record.json",
+      "sha256": "685caaa35a5896b5067e142f486a0c3c250b557de96b2aec0c0a648e26585064"
+    },
+    {
+      "id": "corrected-slide14",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-slide14.png",
+      "sha256": "8e47d7b2ae34460bbed058c9044074b52412ee51e77d64c63c1b3b331110bebb"
+    },
+    {
+      "id": "corrected-slide16",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/corrected-slide16.png",
+      "sha256": "131391a79691b5ccc31ec4c45074fc4e33176832242f60ab62cca1dd8021ec4c"
+    },
+    {
+      "id": "original-other-run-slide15",
+      "path": "artifacts/56dfb8ac2c07aeaf/threshold-correction/original-other-run-slide15.jpg",
+      "sha256": "d7f07aacb677e3aa8536d8df01440ea8474f6ce5cee9952415764ecee3e1d4b1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "artifact_identity",
+      "status": "passed",
+      "evidence": [
+        {
+          "artifactId": "original-deck",
+          "locator": "entire file SHA-256",
+          "observation": "c2cb5247bda92d11d3db39595e9b5742d62bd0da209f30391aadbe2099f17196 matches original selected artifact and repair.beforeArtifactSha256."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "entire file SHA-256",
+          "observation": "e58dc651fbcdf729dd8c975f0a3db959133d3f007891655d2b7f30a71871f3b1 matches repair.afterArtifactSha256."
+        }
+      ]
+    },
+    {
+      "id": "cumulative_definition_agrees",
+      "status": "passed",
+      "evidence": [
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/slides/slide14.xml native table id13, row新时段使用, calculation/check columns",
+          "observation": "Visible formula is 末4周访问总次数÷同期开放馆小时; check is 逐馆累计末4个完整运行周. Together the row heading新时段使用 and note identify extended-hour usage, separately accumulated per branch."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/notesSlides/notesSlide14.xml",
+          "observation": "Explicit formula is 每馆末4个完整运行周的延时时段累计访问次数/累计实际开放馆小时≥5; two branches cannot be pooled to hide one branch falling short."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/slides/slide16.xml native table id7, rows继续/暂停或结束/资料不足",
+          "observation": "Continuation now uses 各馆末4个完整周累计均值≥5次／馆小时; stop row also uses cumulative final-four-week rate, and insufficient-data row requires a cumulative indicator over4complete running weeks. Previous wording implying weekly separate passes is removed."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/notesSlides/notesSlide16.xml",
+          "observation": "Defines cumulative extended-hour visits÷cumulative actual open branch-hours for each branch and explicitly states 不要求每周分别达到5次. Consistent with slide14 and intended definition."
+        },
+        {
+          "artifactId": "corrected-source",
+          "locator": "slides[13] and slides[15], rows and notes",
+          "observation": "Saved source wording agrees with the actual PPTX visible text and notes."
+        }
+      ]
+    },
+    {
+      "id": "no_new_clipping",
+      "status": "passed",
+      "evidence": [
+        {
+          "artifactId": "corrected-slide14",
+          "locator": "entire full-size page; new usage-rate row",
+          "observation": "Individually inspected via view_image at original size. Formula and per-branch cumulative-period explanation fit their cells; no clipping or overlap observed."
+        },
+        {
+          "artifactId": "corrected-slide16",
+          "locator": "entire full-size page; continue/stop/insufficient-data rows",
+          "observation": "Individually inspected via view_image at original size. Longer revised wording wraps within row boundaries; punctuation, safety condition and management actions remain visible. No new clipping observed."
+        }
+      ]
+    },
+    {
+      "id": "proposed_rule_status_retained",
+      "status": "passed",
+      "evidence": [
+        {
+          "artifactId": "corrected-deck",
+          "locator": "slide14 slide-subtitle, metric-label-1, takeaway; notesSlide14.xml",
+          "observation": "Still labels thresholds as suggestions requiring management confirmation before use; not an industry standard or validated demand floor."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "slide16 slide-subtitle, takeaway; notesSlide16.xml",
+          "observation": "Still a 待批准的试点设计; added note says confirm the suggested rule before implementation. No realized-use/revenue claim added; income growth remains excluded from success criteria."
+        }
+      ]
+    },
+    {
+      "id": "unintended_change_scope",
+      "status": "passed",
+      "evidence": [
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/presentation.xml and slides1–18 vs original-deck",
+          "observation": "Exactly18slides retained. Independently compared every slide's native text: changed pages are14/16only. Notes text changes on16only; note14 retains its original already-explicit cumulative formula."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "all18slide XML trees; normalized creationId and relationship IDs to relationship targets",
+          "observation": "Normalized complete slide trees differ only on14/16. With text nodes excluded, no slide trees differ: geometry, formatting, layout and objects remain unchanged. Package byte differences on other slides are regenerated identifiers, not native-content changes."
+        },
+        {
+          "artifactId": "corrected-deck",
+          "locator": "ppt/slides/charts/chart1.xml, chart2.xml and their relationship parts; both embedded chart-data-snapshot workbooks",
+          "observation": "Native chart XML and chart relationship parts are byte-identical. Embedded XLSX archive bytes differ, but every inner part name and inner part byte is identical, including source sheet data; no source-data regression found."
+        }
+      ]
+    },
+    {
+      "id": "reconsider_original_other_run_header",
+      "status": "passed",
+      "repairWarranted": false,
+      "evidence": [
+        {
+          "artifactId": "original-other-run-slide15",
+          "locator": "table header决定/所需证据/下一步",
+          "observation": "Critical full-size re-view shows 所需证据 correctly aligned with second body column at approximatelyx289pixels. My earlier first-round header-alignment observation was a visual misread and is withdrawn as an actionable finding; no repair is warranted. Original JPEG SHA-256d7f07aacb677e3aa8536d8df01440ea8474f6ce5cee9952415764ecee3e1d4b1 matches packet, so this is a correction of my interpretation, not a changed artifact."
+        },
+        {
+          "artifactId": "original-other-run-slide15",
+          "locator": "corroborating original3f802f8347eec222/deck.pptx slide15 native table geometry",
+          "observation": "Native table beginsx609600EMU=64pixels at1280px slide width; first column is2047875EMU=215pixels, placing second-column boundary atx279and content inset nearx289. Header cells are separately决定/所需证据/下一步 and align with the body grid."
+        }
+      ]
+    }
+  ],
+  "remainingIssues": [],
+  "limits": [
+    "Used supplied corrected PNG renders for visual verification; no independent render generation was performed.",
+    "No PowerPoint application open, edit, or reopen verification performed.",
+    "Did not repeat full-size visual review of the16unchanged corrected pages; all18original pages were reviewed in the original assessment, and every native slide tree was independently compared for unintended changes.",
+    "Original first-round assessment remains unchanged as requested; this report records the withdrawn other-run alignment observation separately."
+  ]
+}

@@ -175,7 +175,9 @@
         {
           "id": "pptx",
           "path": "artifacts/b29a106d03faa3ce/pptx.pptx",
-          "sha256": "e75f96bc4d8ec0fb994c3383cdd23ebb6dc80fd4d08411ba3528a34a11bf145c"
+          "sha256": "a82cc460b406e03f3eb5156b67e031f41208ed83704d67347828825586b2c4ed",
+          "observedOriginalSha256": "e75f96bc4d8ec0fb994c3383cdd23ebb6dc80fd4d08411ba3528a34a11bf145c",
+          "publicationTransform": "workspace-path-redaction"
         },
         {
           "id": "slide-1",
@@ -1313,5 +1315,19 @@
     "Used supplied final-file renders, cross-checked against final package text/object/data and execution-designated paths; did not generate new renders. d323 records a font-configuration recovery and its corrected render was readable. Cross-system font substitution is untested.",
     "Sources and quotes are expressly synthetic. No external authenticity or actual staffing/procurement outcome was assessed.",
     "Condition-blinding was compromised by the permitted execution evidence: execution.json files contain method/skillPath descriptions encountered during evidence inspection. assignments.private.json, task prompt.txt, authoring scripts and the skill snapshot were not opened. Judgments use anonymous run IDs, frozen criteria and concrete artifact evidence without method attribution. Future blinded evaluation should redact method-identifying execution fields before assessor access."
-  ]
+  ],
+  "publicationRedactions": {
+    "artifacts/b29a106d03faa3ce/pptx.pptx": {
+      "originalSha256": "e75f96bc4d8ec0fb994c3383cdd23ebb6dc80fd4d08411ba3528a34a11bf145c",
+      "publicationSha256": "a82cc460b406e03f3eb5156b67e031f41208ed83704d67347828825586b2c4ed",
+      "parts": [
+        "ppt/notesSlides/notesSlide1.xml",
+        "ppt/notesSlides/notesSlide2.xml",
+        "ppt/notesSlides/notesSlide3.xml",
+        "ppt/notesSlides/notesSlide4.xml",
+        "ppt/notesSlides/notesSlide5.xml"
+      ],
+      "transform": "Only source-citation private workspace paths removed; task data, shapes, charts, workbook and original local evidence unchanged."
+    }
+  }
 }

@@ -188,3 +188,5 @@ node scripts/evaluate.mjs prepare --out "$PWD/working/eval-run" --skill "$PWD" -
 ```
 
 随后由执行者实际完成任务，另一评估者核对完整产物和证据，再用评分器汇总。准备任务或运行单元测试不等于完成了Agent盲测；缺失的运行和人工判断保留 `not_run`。具体流程、报告格式与评分命令见[评测说明](references/evaluation.md)。
+
+[24次完成记录](evals/results/2026-11-07-complete/README.md)包含22份PPT（116页）与2份文本稿，保留首轮、补评和辅助修复结果；修复后通过率不等于未辅助的模型性能。

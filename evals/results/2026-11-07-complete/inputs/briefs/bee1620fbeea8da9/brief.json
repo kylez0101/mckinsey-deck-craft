@@ -1,0 +1,33 @@
+{
+  "id": "source-conflict",
+  "title": "Enrollment sources disagree",
+  "tags": [
+    "conflicting-sources",
+    "provenance"
+  ],
+  "brief": {
+    "request": "制作4页大学服务配置建议，说明是否可据数据决定扩编。",
+    "sources": [
+      {
+        "id": "S1",
+        "date": "2026-09-01",
+        "metric": "秋季注册人数",
+        "value": 1200,
+        "scope": "正式注册学生"
+      },
+      {
+        "id": "S2",
+        "date": "2026-09-03",
+        "metric": "服务申请人数",
+        "value": 1500,
+        "scope": "包括候补与校外申请者"
+      }
+    ],
+    "status": "合成来源记录；两者对象不同，不可直接互证增长。",
+    "constraints": [
+      "保留来源日期和口径",
+      "人数冲突未核对前不得写成增长25%"
+    ]
+  },
+  "attachments": []
+}

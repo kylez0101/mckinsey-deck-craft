@@ -1,0 +1,524 @@
+{
+  "evaluator": {
+    "id": "codex-native-assess-05",
+    "independent": true
+  },
+  "scope": "Only packet.json, criteria.json, assessment-template.json, each listed original brief, and the selected artifacts were read. No other task folders, execution/acceptance logs, generators, skill snapshot, assignments, or prior outcomes were consulted. Only assessment.json and assessment-notes.json were written.",
+  "method": "Independent reading of original brief facts and frozen criteria; SHA-256 verification of every selected artifact; original-resolution view_image inspection of all 14 JPEGs; direct OOXML inspection of actual PPTX slide text, notes, native tables and font declarations. Author handoff claims were not used as proof of application behavior.",
+  "summary": {
+    "runs": 4,
+    "slidesVisuallyInspected": 14,
+    "artifactHashesVerified": 24,
+    "allHashesMatch": true,
+    "checkCounts": {
+      "not_run": 4,
+      "passed": 8
+    },
+    "observedMaterialArtifactFailures": 0,
+    "fullUnqualifiedPassClaimed": false
+  },
+  "limitations": [
+    "No PowerPoint/Keynote/LibreOffice desktop opening, edit/save/reopen, independent PPTX rendering, receiving-computer installation check, or font-resolution trace was performed. Native XML text/table structure was inspected without claiming interactive editability was exercised.",
+    "Both font-substitution handoffs document mappings and non-embedding. Neither selected packet provides independent font inventory/coverage/font-resolution evidence. Font tags and JPEG appearance do not establish that those typefaces resolved in another application; fonts checks are not_run for that unverified portion.",
+    "The font-fallback slide surfaces contain Chinese and digits but no English prose. Actual displayed text was checked; English prose line wrapping was not exercised and no artificial source content was added.",
+    "Both ranking-flip source briefs provide headcounts and estimated coverage, not job qualifications. The staffing-gate and pending-effect portions pass, while conditional checks are not_run for the undefined 岗位资格条件 component. No hidden eligibility conditions were guessed.",
+    "The selected static JPEGs can establish their own visual readability but cannot establish how the current PPTX will render after another application resolves fonts."
+  ],
+  "minorObservations": [
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "font-substitutions",
+      "locator": "line 12",
+      "observation": "The handoff calls the supplied previews PNG, whereas packet.json selects slide-1.jpg through slide-4.jpg, whose actual images are JPEG. This naming mismatch does not invalidate the observed previews or fail a frozen criterion."
+    }
+  ],
+  "runs": [
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-4",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 4,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC",
+            "Songti SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-4",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 4,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "PingFang SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "PingFang SC"
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "images": [
+        {
+          "artifactId": "slide-1",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-2",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        },
+        {
+          "artifactId": "slide-3",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "viewedWith": "view_image(detail=original)",
+          "coverage": "Entire image, including title, body/table, source/footer and page marker where present",
+          "finding": "No material clipping, missing glyphs, overlap or unreadable required content observed."
+        }
+      ],
+      "nativeInspection": [
+        {
+          "slide": 1,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 0,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 2,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        },
+        {
+          "slide": 3,
+          "textAndTablesRead": true,
+          "notesRead": true,
+          "nativeTableCount": 1,
+          "declaredVisibleTypefaces": [
+            "Arial Unicode MS",
+            "Songti SC"
+          ]
+        }
+      ]
+    }
+  ],
+  "integrity": [
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "deck",
+      "expectedSha256": "71d980f0ab966ab60df66e8749ef90016586699e3e0e1e0eca804f71a802440c",
+      "actualSha256": "71d980f0ab966ab60df66e8749ef90016586699e3e0e1e0eca804f71a802440c",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "font-changes",
+      "expectedSha256": "300b36c7d919a36722baa6b65bcccfc0a20c4bbe5441925b0ded691242fbf881",
+      "actualSha256": "300b36c7d919a36722baa6b65bcccfc0a20c4bbe5441925b0ded691242fbf881",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "storyboard",
+      "expectedSha256": "06fed1d2536104e7f2fddb1adf812c8a97ef109092e8a3b419185f39caa93d8d",
+      "actualSha256": "06fed1d2536104e7f2fddb1adf812c8a97ef109092e8a3b419185f39caa93d8d",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-1",
+      "expectedSha256": "789e017da631deef1dd863b6d43c9b28ac6d72155f5b85ac355d086a9d186d79",
+      "actualSha256": "789e017da631deef1dd863b6d43c9b28ac6d72155f5b85ac355d086a9d186d79",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-2",
+      "expectedSha256": "eed6569f1f90c48d3127c21074d89323072bfd70cf8a2175013b77af379530b5",
+      "actualSha256": "eed6569f1f90c48d3127c21074d89323072bfd70cf8a2175013b77af379530b5",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-3",
+      "expectedSha256": "2ba5182cfd1190fed34f991655e043fbeacc9b4beae64c2a1ed4a6ade4b1b9cc",
+      "actualSha256": "2ba5182cfd1190fed34f991655e043fbeacc9b4beae64c2a1ed4a6ade4b1b9cc",
+      "matches": true
+    },
+    {
+      "runId": "8c8ab5b0e35a1aa1",
+      "artifactId": "slide-4",
+      "expectedSha256": "6835c296991ba03160fa2d27691296da396506712f85b49c85d6d87563ca7131",
+      "actualSha256": "6835c296991ba03160fa2d27691296da396506712f85b49c85d6d87563ca7131",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "deck",
+      "expectedSha256": "b0d02b20a6fb7b93acdf6f965a37dcfcd32d7f95843839cf491b3f8d1a3b41b5",
+      "actualSha256": "b0d02b20a6fb7b93acdf6f965a37dcfcd32d7f95843839cf491b3f8d1a3b41b5",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "font-substitutions",
+      "expectedSha256": "29b9ee37c7e61292915e44f1c5e2b2d47376bd0066d304b9eb8eb58e405a68ec",
+      "actualSha256": "29b9ee37c7e61292915e44f1c5e2b2d47376bd0066d304b9eb8eb58e405a68ec",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "storyboard",
+      "expectedSha256": "667845f427720c73b986704afcaa016e47190f471fd213e09d61c70a47646562",
+      "actualSha256": "667845f427720c73b986704afcaa016e47190f471fd213e09d61c70a47646562",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-1",
+      "expectedSha256": "70be3c85860f56d86244b60b6844a293766b84accafc0baf4c0e2120091a4c6b",
+      "actualSha256": "70be3c85860f56d86244b60b6844a293766b84accafc0baf4c0e2120091a4c6b",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-2",
+      "expectedSha256": "b633ed5099cbfcef0fb8f8a28f841c8aea49513b1cf9cead68969c0a7afb9c2a",
+      "actualSha256": "b633ed5099cbfcef0fb8f8a28f841c8aea49513b1cf9cead68969c0a7afb9c2a",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-3",
+      "expectedSha256": "2c0cd80f6f1487294af06d23c616af52a118314f0e69483cf36e2ca0f2036b65",
+      "actualSha256": "2c0cd80f6f1487294af06d23c616af52a118314f0e69483cf36e2ca0f2036b65",
+      "matches": true
+    },
+    {
+      "runId": "aeb9f8bb42819f34",
+      "artifactId": "slide-4",
+      "expectedSha256": "743c9c4b2711c94c9924e74db361715ae1da4a52100ef8684a039834bcdca158",
+      "actualSha256": "743c9c4b2711c94c9924e74db361715ae1da4a52100ef8684a039834bcdca158",
+      "matches": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "deck",
+      "expectedSha256": "9134b385c02579d41e8c6f9449c0f4918a0cad8e9558f08a92f230e5d75e4799",
+      "actualSha256": "9134b385c02579d41e8c6f9449c0f4918a0cad8e9558f08a92f230e5d75e4799",
+      "matches": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "storyboard",
+      "expectedSha256": "f5da00e438c319f4f7e5f92105473df94e20a4c2837f1f303096c65b1da775fb",
+      "actualSha256": "f5da00e438c319f4f7e5f92105473df94e20a4c2837f1f303096c65b1da775fb",
+      "matches": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-1",
+      "expectedSha256": "e1d40b40d4e87424f70a4275c0b851e69a5f59ef6c292bf71eed064392b857bf",
+      "actualSha256": "e1d40b40d4e87424f70a4275c0b851e69a5f59ef6c292bf71eed064392b857bf",
+      "matches": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-2",
+      "expectedSha256": "b7d44c9b2f7a1b59b193061e809b019b387ff73fa8adbe2dea6f96634e343fd5",
+      "actualSha256": "b7d44c9b2f7a1b59b193061e809b019b387ff73fa8adbe2dea6f96634e343fd5",
+      "matches": true
+    },
+    {
+      "runId": "ea644caf924bfc26",
+      "artifactId": "slide-3",
+      "expectedSha256": "b1df6bcbde1df8a24e6bd5c1ab9221f47d71455aa76b0a4e83b398386fe6c39f",
+      "actualSha256": "b1df6bcbde1df8a24e6bd5c1ab9221f47d71455aa76b0a4e83b398386fe6c39f",
+      "matches": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "deck",
+      "expectedSha256": "3251aead049338c0c39b52a010f866197bef7234a64c833101b8ec8df76286d7",
+      "actualSha256": "3251aead049338c0c39b52a010f866197bef7234a64c833101b8ec8df76286d7",
+      "matches": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "storyboard",
+      "expectedSha256": "3bb2da8e2cbe336c93082deecb79057ab56a613ebaa57a89e5c99aa1c9cd671a",
+      "actualSha256": "3bb2da8e2cbe336c93082deecb79057ab56a613ebaa57a89e5c99aa1c9cd671a",
+      "matches": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-1",
+      "expectedSha256": "dcd4d8e17c8589e1fabdbd0dfe20dbacc2cb5ed9da2c001d18a6a3500bbb3cf3",
+      "actualSha256": "dcd4d8e17c8589e1fabdbd0dfe20dbacc2cb5ed9da2c001d18a6a3500bbb3cf3",
+      "matches": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-2",
+      "expectedSha256": "38cfa09d2f3aeac0fc912e4980ab1ef40f03f77ee781f5fde34b3e835edd6174",
+      "actualSha256": "38cfa09d2f3aeac0fc912e4980ab1ef40f03f77ee781f5fde34b3e835edd6174",
+      "matches": true
+    },
+    {
+      "runId": "7081c51d8129cb3f",
+      "artifactId": "slide-3",
+      "expectedSha256": "ad59d33bbf750d2775c49f7c2dda03e311cd4fd8f2d34535ab79b794c3ba8000",
+      "actualSha256": "ad59d33bbf750d2775c49f7c2dda03e311cd4fd8f2d34535ab79b794c3ba8000",
+      "matches": true
+    }
+  ],
+  "unperformedChecks": [
+    {
+      "check": "Target application font resolution, independent PPTX rendering, and desktop edit/save/reopen",
+      "status": "not_run",
+      "reason": "No target application verification was performed; supplied previews and business handoff records do not establish that behavior."
+    },
+    {
+      "check": "Job qualification condition in ranking-flip conditional criteria",
+      "status": "not_run",
+      "reason": "Both source briefs omit any job eligibility/qualification rule or status; only headcount thresholds are provided."
+    }
+  ]
+}

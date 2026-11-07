@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "evaluator": {
+    "id": "independent-assessor-assess_01",
+    "independent": true,
+    "role": "Independent assessor of the anonymous packet; no author execution or acceptance logs used."
+  },
+  "packet": "review-01",
+  "criteriaBasis": "Only criteria.json frozen requirements and included original briefs/attachments were used for pass/fail decisions. Author statements of successful checks were not accepted as evidence of those checks.",
+  "resultSummary": {
+    "runsAssessed": 3,
+    "checksAssessed": 10,
+    "passed": 10,
+    "failed": 0,
+    "notRun": 0,
+    "blockingProblemsObserved": []
+  },
+  "visualInspection": {
+    "method": "Each supplied JPEG was opened individually with view_image detail=original, never a montage-only inspection. Observations cover full slide edges, titles, charts, tables and footnotes.",
+    "imageCount": 14,
+    "pages": [
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-1",
+        "path": "artifacts/6289820141b0e21f/slide-1.jpg",
+        "page": 1,
+        "observation": "Title and synthetic-case subtitle are complete and legible."
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-2",
+        "path": "artifacts/6289820141b0e21f/slide-2.jpg",
+        "page": 2,
+        "observation": "Budget 200,000, spend 220,000, negative headroom and pause recommendation are mutually consistent and legible."
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-3",
+        "path": "artifacts/6289820141b0e21f/slide-3.jpg",
+        "page": 3,
+        "observation": "Both original stages, deliverables, conditions, owners and source are complete and in order."
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-1",
+        "path": "artifacts/587a12b058bb4c75/slide-1.jpg",
+        "page": 1,
+        "observation": "Title and synthetic-case subtitle are complete and legible."
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-2",
+        "path": "artifacts/587a12b058bb4c75/slide-2.jpg",
+        "page": 2,
+        "observation": "Native chart labels retain 元, revised budget is 200000, spend is 220000, and the table shows -20,000元 with pause title."
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-3",
+        "path": "artifacts/587a12b058bb4c75/slide-3.jpg",
+        "page": 3,
+        "observation": "Two original stage headings are in order and the table retains every original deliverable, condition and owner."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-1",
+        "path": "artifacts/155bf882c453c974/slide-1.jpg",
+        "page": 1,
+        "observation": "Single cover names audience and three options; synthetic-data status and unspecified currency are visible."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-2",
+        "path": "artifacts/155bf882c453c974/slide-2.jpg",
+        "page": 2,
+        "observation": "Both monthly plots, data labels and the causal/survey limitations are legible and agree with the brief."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-3",
+        "path": "artifacts/155bf882c453c974/slide-3.jpg",
+        "page": 3,
+        "observation": "Four-column cost table, budget, unknown-currency disclosure and cost-comparability limitation are legible."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-4",
+        "path": "artifacts/155bf882c453c974/slide-4.jpg",
+        "page": 4,
+        "observation": "Mechanism comparison is labeled unvalidated hypotheses; every table row fits."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-5",
+        "path": "artifacts/155bf882c453c974/slide-5.jpg",
+        "page": 5,
+        "observation": "Conditional recommendation and diagnosis-to-option table fit; more evidence and deferral condition remain visible."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-6",
+        "path": "artifacts/155bf882c453c974/slide-6.jpg",
+        "page": 6,
+        "observation": "ROI remains unmeasured; approval conditions and budget/period uncertainty remain visible."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-7",
+        "path": "artifacts/155bf882c453c974/slide-7.jpg",
+        "page": 7,
+        "observation": "Suggested six-week schedule has complete rows, decision gates and survey-comparability caveat."
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-8",
+        "path": "artifacts/155bf882c453c974/slide-8.jpg",
+        "page": 8,
+        "observation": "Decision actions by responsible party fit; synthetic status and lack of ROI/headcount/payback support remain visible."
+      }
+    ]
+  },
+  "nativeInspection": [
+    {
+      "runId": "6289820141b0e21f",
+      "slidePartsInspected": [
+        "ppt/slides/slide1.xml",
+        "ppt/slides/slide2.xml",
+        "ppt/slides/slide3.xml"
+      ],
+      "notesPartsInspected": [
+        "ppt/notesSlides/notesSlide1.xml",
+        "ppt/notesSlides/notesSlide2.xml",
+        "ppt/notesSlides/notesSlide3.xml"
+      ],
+      "nativeTableCountInspected": 1,
+      "chartPartsInspected": [
+        "ppt/slides/charts/chart1.xml"
+      ],
+      "embeddedWorkbooksInspected": [
+        "ppt/embeddings/chart-data-snapshot-001.xlsx"
+      ],
+      "workbookScope": "Opened each embedded ZIP in memory; inspected workbook metadata and all worksheet cells, categories, values and formulas (none present). Also resolved actual chart relationships and compared caches to workbook cells and original brief/source."
+    },
+    {
+      "runId": "587a12b058bb4c75",
+      "slidePartsInspected": [
+        "ppt/slides/slide1.xml",
+        "ppt/slides/slide2.xml",
+        "ppt/slides/slide3.xml"
+      ],
+      "notesPartsInspected": [
+        "ppt/notesSlides/notesSlide1.xml",
+        "ppt/notesSlides/notesSlide2.xml",
+        "ppt/notesSlides/notesSlide3.xml"
+      ],
+      "nativeTableCountInspected": 2,
+      "chartPartsInspected": [
+        "ppt/slides/charts/chart1.xml"
+      ],
+      "embeddedWorkbooksInspected": [
+        "ppt/embeddings/chart-data-snapshot-001.xlsx"
+      ],
+      "workbookScope": "Opened each embedded ZIP in memory; inspected workbook metadata and all worksheet cells, categories, values and formulas (none present). Also resolved actual chart relationships and compared caches to workbook cells and original brief/source."
+    },
+    {
+      "runId": "155bf882c453c974",
+      "slidePartsInspected": [
+        "ppt/slides/slide1.xml",
+        "ppt/slides/slide2.xml",
+        "ppt/slides/slide3.xml",
+        "ppt/slides/slide4.xml",
+        "ppt/slides/slide5.xml",
+        "ppt/slides/slide6.xml",
+        "ppt/slides/slide7.xml",
+        "ppt/slides/slide8.xml"
+      ],
+      "notesPartsInspected": [
+        "ppt/notesSlides/notesSlide1.xml",
+        "ppt/notesSlides/notesSlide2.xml",
+        "ppt/notesSlides/notesSlide3.xml",
+        "ppt/notesSlides/notesSlide4.xml",
+        "ppt/notesSlides/notesSlide5.xml",
+        "ppt/notesSlides/notesSlide6.xml",
+        "ppt/notesSlides/notesSlide7.xml",
+        "ppt/notesSlides/notesSlide8.xml"
+      ],
+      "nativeTableCountInspected": 5,
+      "chartPartsInspected": [
+        "ppt/slides/charts/chart1.xml",
+        "ppt/slides/charts/chart2.xml"
+      ],
+      "embeddedWorkbooksInspected": [
+        "ppt/embeddings/chart-data-snapshot-001.xlsx",
+        "ppt/embeddings/chart-data-snapshot-002.xlsx"
+      ],
+      "workbookScope": "Opened each embedded ZIP in memory; inspected workbook metadata and all worksheet cells, categories, values and formulas (none present). Also resolved actual chart relationships and compared caches to workbook cells and original brief/source."
+    }
+  ],
+  "sourceComparison": [
+    {
+      "runId": "6289820141b0e21f",
+      "original": "briefs/6289820141b0e21f/single-slide-source.json",
+      "updated": "artifacts/6289820141b0e21f/updated-source.json",
+      "method": "Parsed recursive JSON comparison, followed by native PPTX text/table/chart/workbook comparison.",
+      "differences": [
+        {
+          "path": "$.data.budget",
+          "before": 300000,
+          "after": 200000
+        }
+      ],
+      "unchanged": "All other JSON fields including both unmodified slide definitions. The actual native slide content retains all source title/subtitle and stage field strings."
+    },
+    {
+      "runId": "587a12b058bb4c75",
+      "original": "briefs/587a12b058bb4c75/single-slide-source.json",
+      "updated": "artifacts/587a12b058bb4c75/updated-source.json",
+      "method": "Parsed recursive JSON comparison, followed by native PPTX text/table/chart/workbook comparison.",
+      "differences": [
+        {
+          "path": "$.data.budget",
+          "before": 300000,
+          "after": 200000
+        }
+      ],
+      "unchanged": "All other JSON fields including both unmodified slide definitions. The actual native slide content retains all source title/subtitle and stage field strings."
+    }
+  ],
+  "independentCalculations": {
+    "editRunHeadroom": "200000 - 220000 = -20000; original 300000 - 220000 = 80000",
+    "unknownReturnTicketGrowth": "15000 / 10000 - 1 = 0.5 = 50%",
+    "unknownReturnSatisfactionChange": "0.80 - 0.88 = -0.08 = -8 percentage points",
+    "costComparisons": "220000/300000=73.3%, 150000/300000=50.0%, 280000/300000=93.3% (one-decimal rounding); nominal differences 80000, 150000, 20000. These do not establish comparable total cost or investment return."
+  },
+  "hashVerification": {
+    "listedArtifactCount": 24,
+    "allListedArtifactHashesMatch": true,
+    "artifacts": [
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "deck",
+        "path": "artifacts/6289820141b0e21f/deck.pptx",
+        "expectedSha256": "49a90e31643831da5078912f7e4f1c189ca7056b78d2a313aa1d58fbfc548c1a",
+        "actualSha256": "49a90e31643831da5078912f7e4f1c189ca7056b78d2a313aa1d58fbfc548c1a",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "change-scope",
+        "path": "artifacts/6289820141b0e21f/change-scope.md",
+        "expectedSha256": "7eb7b414038ca2b59caf8db8a0cc0861566bfe33739301425aecd415bb419c7f",
+        "actualSha256": "7eb7b414038ca2b59caf8db8a0cc0861566bfe33739301425aecd415bb419c7f",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "storyboard",
+        "path": "artifacts/6289820141b0e21f/storyboard.md",
+        "expectedSha256": "42e85ab135d2c717f039d96e2d3126a2f0d39e33cc8cd2ef1b9d02f2cfb48c33",
+        "actualSha256": "42e85ab135d2c717f039d96e2d3126a2f0d39e33cc8cd2ef1b9d02f2cfb48c33",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "updated-source",
+        "path": "artifacts/6289820141b0e21f/updated-source.json",
+        "expectedSha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10",
+        "actualSha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-1",
+        "path": "artifacts/6289820141b0e21f/slide-1.jpg",
+        "expectedSha256": "48fee80245d2af7eede0ffb09679e7987ddd63782d14ab4c38616dd6354b94fe",
+        "actualSha256": "48fee80245d2af7eede0ffb09679e7987ddd63782d14ab4c38616dd6354b94fe",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-2",
+        "path": "artifacts/6289820141b0e21f/slide-2.jpg",
+        "expectedSha256": "68268b1a3b8efc91c2a2d792a3021e8f7a0cb4e4ee03fed14e114e99654b8285",
+        "actualSha256": "68268b1a3b8efc91c2a2d792a3021e8f7a0cb4e4ee03fed14e114e99654b8285",
+        "matches": true
+      },
+      {
+        "runId": "6289820141b0e21f",
+        "artifactId": "slide-3",
+        "path": "artifacts/6289820141b0e21f/slide-3.jpg",
+        "expectedSha256": "5b44ca454acda006a00e084bb70b28496cf0bfc2a202f20e2c00bc1092a437c2",
+        "actualSha256": "5b44ca454acda006a00e084bb70b28496cf0bfc2a202f20e2c00bc1092a437c2",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "deck",
+        "path": "artifacts/587a12b058bb4c75/deck.pptx",
+        "expectedSha256": "b5d45c89baf44b3670c0c73acacb127bbf198036d823ea0490d8b6b6cb9012ea",
+        "actualSha256": "b5d45c89baf44b3670c0c73acacb127bbf198036d823ea0490d8b6b6cb9012ea",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "change-scope",
+        "path": "artifacts/587a12b058bb4c75/change-scope.md",
+        "expectedSha256": "ddf0befacf887ef4eeee76684d17c9305d30d25fe96630757b99207a9c04ab52",
+        "actualSha256": "ddf0befacf887ef4eeee76684d17c9305d30d25fe96630757b99207a9c04ab52",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "storyboard",
+        "path": "artifacts/587a12b058bb4c75/storyboard.md",
+        "expectedSha256": "5223708f241f149f972c08d2426caadc348b77ad00dbb9ce99f574b6c8c58fa8",
+        "actualSha256": "5223708f241f149f972c08d2426caadc348b77ad00dbb9ce99f574b6c8c58fa8",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "updated-source",
+        "path": "artifacts/587a12b058bb4c75/updated-source.json",
+        "expectedSha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10",
+        "actualSha256": "32bc3396c2ebf4dbc1c7691b852d0f16a79b5dfff1a882b59a536edf97ae9f10",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-1",
+        "path": "artifacts/587a12b058bb4c75/slide-1.jpg",
+        "expectedSha256": "30ee6c784984f74a553391f5300f745bd5288c95ed11eeb17e8a369b319e0d2d",
+        "actualSha256": "30ee6c784984f74a553391f5300f745bd5288c95ed11eeb17e8a369b319e0d2d",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-2",
+        "path": "artifacts/587a12b058bb4c75/slide-2.jpg",
+        "expectedSha256": "60b0f15229001348547317c1e32f3a88d3dd9184e444a55b77adc11248246c02",
+        "actualSha256": "60b0f15229001348547317c1e32f3a88d3dd9184e444a55b77adc11248246c02",
+        "matches": true
+      },
+      {
+        "runId": "587a12b058bb4c75",
+        "artifactId": "slide-3",
+        "path": "artifacts/587a12b058bb4c75/slide-3.jpg",
+        "expectedSha256": "26ea5f00cffc06b91332dc23411e0c112967b7ca79d5e1e7320fd9d5a65e557c",
+        "actualSha256": "26ea5f00cffc06b91332dc23411e0c112967b7ca79d5e1e7320fd9d5a65e557c",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "deck",
+        "path": "artifacts/155bf882c453c974/deck.pptx",
+        "expectedSha256": "dabe02cca92486bba4499d9bab8cb43980119646ab59a14c55eee5622c03c5f6",
+        "actualSha256": "dabe02cca92486bba4499d9bab8cb43980119646ab59a14c55eee5622c03c5f6",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "storyboard",
+        "path": "artifacts/155bf882c453c974/storyboard.md",
+        "expectedSha256": "7ee519b23da6b2c4a437ae0cb16932fb261309cc8e8e0e0036d5e42e5f083247",
+        "actualSha256": "7ee519b23da6b2c4a437ae0cb16932fb261309cc8e8e0e0036d5e42e5f083247",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-1",
+        "path": "artifacts/155bf882c453c974/slide-1.jpg",
+        "expectedSha256": "50a129da0d61be8f934dddf29f70d6019b8eaa864bedd6120a108627745e76eb",
+        "actualSha256": "50a129da0d61be8f934dddf29f70d6019b8eaa864bedd6120a108627745e76eb",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-2",
+        "path": "artifacts/155bf882c453c974/slide-2.jpg",
+        "expectedSha256": "cba73b3a104392297cb747716223ed699cfc5be2e62a62d61c7be863606ef9bb",
+        "actualSha256": "cba73b3a104392297cb747716223ed699cfc5be2e62a62d61c7be863606ef9bb",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-3",
+        "path": "artifacts/155bf882c453c974/slide-3.jpg",
+        "expectedSha256": "4843caf8dee537e3363ce4e2dafa05472e22993e07893bc0bcd71c25c0f4bc23",
+        "actualSha256": "4843caf8dee537e3363ce4e2dafa05472e22993e07893bc0bcd71c25c0f4bc23",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-4",
+        "path": "artifacts/155bf882c453c974/slide-4.jpg",
+        "expectedSha256": "b665010e57802e6db1ce2210e9be290831d8d3d5008a34bb9bf3825ff6a873ba",
+        "actualSha256": "b665010e57802e6db1ce2210e9be290831d8d3d5008a34bb9bf3825ff6a873ba",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-5",
+        "path": "artifacts/155bf882c453c974/slide-5.jpg",
+        "expectedSha256": "ca3c2b69d411a2f236b49a84a135feea99e98d30c6ec8c88f6750d56360271f9",
+        "actualSha256": "ca3c2b69d411a2f236b49a84a135feea99e98d30c6ec8c88f6750d56360271f9",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-6",
+        "path": "artifacts/155bf882c453c974/slide-6.jpg",
+        "expectedSha256": "5eaaae6bdce38a3e62a136c87f39eff31ce81f365dac4792d370818676c705b8",
+        "actualSha256": "5eaaae6bdce38a3e62a136c87f39eff31ce81f365dac4792d370818676c705b8",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-7",
+        "path": "artifacts/155bf882c453c974/slide-7.jpg",
+        "expectedSha256": "42f7d64c5a31290b2b2105c52ea3cb15b8bdacc86fb0925e7f94519427354763",
+        "actualSha256": "42f7d64c5a31290b2b2105c52ea3cb15b8bdacc86fb0925e7f94519427354763",
+        "matches": true
+      },
+      {
+        "runId": "155bf882c453c974",
+        "artifactId": "slide-8",
+        "path": "artifacts/155bf882c453c974/slide-8.jpg",
+        "expectedSha256": "56e25daca439ab61f7a0a9f65a23472412b65aa240b884140fd7072789b5a85e",
+        "actualSha256": "56e25daca439ab61f7a0a9f65a23472412b65aa240b884140fd7072789b5a85e",
+        "matches": true
+      }
+    ],
+    "otherInspectedInputs": [
+      {
+        "path": "packet.json",
+        "sha256": "b18ff037c86c298d1f759583d0457106467d399c12ddce9dea7041eb44a61f85",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "criteria.json",
+        "sha256": "581358a2f565f3c3dd46b0824a1d87f2197f24c4fad5aabf0812443aa740ad88",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "assessment-template.json",
+        "sha256": "349fd4f06156b39df58bca90aa98eea1989b837dfd009c0e4a1ac02676f54d56",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "briefs/155bf882c453c974/brief.json",
+        "sha256": "6d9b7a428c57f41ca09cdd2dc10d40e97c9ed1654cd7bc867f7361826370365c",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "briefs/587a12b058bb4c75/brief.json",
+        "sha256": "cbf3c7943d709d5e5f6ebff043d0b823e4555eb52efe3d9e6f324a8917ace7af",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "briefs/587a12b058bb4c75/single-slide-source.json",
+        "sha256": "2093a1f441cf8a1b0394296de22b250935358129d960bae1143988f127eeb297",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "briefs/6289820141b0e21f/brief.json",
+        "sha256": "cbf3c7943d709d5e5f6ebff043d0b823e4555eb52efe3d9e6f324a8917ace7af",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      },
+      {
+        "path": "briefs/6289820141b0e21f/single-slide-source.json",
+        "sha256": "2093a1f441cf8a1b0394296de22b250935358129d960bae1143988f127eeb297",
+        "comparison": "Computed for inspected input; no expected digest supplied in packet for this file."
+      }
+    ]
+  },
+  "limitations": [
+    "No PowerPoint desktop application was opened or inspected. No independent edit/reopen test was performed, and no desktop rendering compatibility or application acceptance is claimed.",
+    "The supplied final JPEGs were visually inspected. The assessor did not generate a new independent render from the PPTX. Native slide content and values were cross-checked directly inside each actual PPTX.",
+    "The local-edit original attachments are JSON only. No original PPTX or original-reference page images are included. Content/order preservation can be checked against JSON; unchanged original visual appearance and the run 587a12b058bb4c75 change-scope.md pixel-identity assertion cannot be independently verified.",
+    "Presence of native chart/table/text objects, valid references and matching embedded workbook cells supports native editability structurally. Interactive editing in PowerPoint was not exercised. Chart workbook snapshots are linked with autoUpdate=0; the review does not claim a live formula-driven update/recalculation workflow.",
+    "The packet has no unknown-return delivery-status narrative outside the storyboard and artifacts. The eight-slide PPTX and all eight final renders are present, so the missing-tool explanation clause is not triggered by a missing requested output."
+  ],
+  "readBoundary": "Read only this packet and official read-only Presentations guidance. Did not read parent assignments, execution/acceptance logs, generators, target skill snapshot, prior outcomes or other review folders. No deck, source, render, brief, criteria or manifest was edited.",
+  "writes": [
+    "assessment.json",
+    "assessment-notes.json"
+  ]
+}
