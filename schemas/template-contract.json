@@ -1,0 +1,1090 @@
+{
+  "version": "3",
+  "canvas_px": [
+    1280,
+    720
+  ],
+  "fonts": {
+    "title": "Songti SC",
+    "body": "Arial Unicode MS"
+  },
+  "cover": {
+    "asset": "assets/brand/cover-background.jpg",
+    "text_color": "#FFFFFF"
+  },
+  "presentation": "assets/templates/consulting-page-library.pptx",
+  "input_example": "assets/templates/page-library.json",
+  "builder": "scripts/build-deck.mjs",
+  "document_fields": [
+    "name",
+    "slides",
+    "theme",
+    "style",
+    "mode"
+  ],
+  "modes": [
+    "deck",
+    "single-slide",
+    "template_example"
+  ],
+  "common_fields": {
+    "layout": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "source": {
+      "type": "text"
+    },
+    "notes": {
+      "type": "text"
+    }
+  },
+  "templates": [
+    {
+      "id": "T01",
+      "name": "封面",
+      "question": "交代主题与受众",
+      "native_objects": [
+        "editable_white_text",
+        "user_background_image"
+      ],
+      "physical_page": 1,
+      "fields": {
+        "kicker": {
+          "type": "text"
+        },
+        "status": {
+          "type": "text"
+        },
+        "date": {
+          "type": "text"
+        }
+      },
+      "text_capacity": {
+        "title_units": 22
+      }
+    },
+    {
+      "id": "T02",
+      "name": "执行摘要",
+      "question": "建议与依据如何支持本次决定",
+      "native_objects": [
+        "text",
+        "semantic_icons"
+      ],
+      "physical_page": 2,
+      "fields": {
+        "sections": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              },
+              "icon": {
+                "type": "text"
+              }
+            }
+          },
+          "required": true
+        },
+        "metrics": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "label": {
+                "type": "text",
+                "required": true
+              },
+              "value": {
+                "type": "text",
+                "required": true
+              }
+            }
+          }
+        },
+        "decision": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T03",
+      "name": "事实与数据对照",
+      "question": "同口径数量关系说明什么",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx",
+        "native_fact_table"
+      ],
+      "physical_page": 3,
+      "fields": {
+        "chart": {
+          "type": "object",
+          "fields": {
+            "heading": {
+              "type": "text",
+              "required": true
+            },
+            "categories": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 5,
+              "items": {
+                "type": "text"
+              },
+              "required": true
+            },
+            "values": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 5,
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "required": true
+            },
+            "unit": {
+              "type": "text"
+            },
+            "max": {
+              "type": "number"
+            },
+            "majorUnit": {
+              "type": "number"
+            },
+            "format": {
+              "type": "text"
+            },
+            "emphasisIndex": {
+              "type": "integer"
+            }
+          },
+          "required": true
+        },
+        "facts": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "label": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              },
+              "icon": {
+                "type": "text"
+              }
+            }
+          },
+          "required": true
+        },
+        "takeaway": {
+          "type": "text"
+        },
+        "caveat": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T04",
+      "name": "方案比较",
+      "question": "相同标准下如何取舍",
+      "native_objects": [
+        "native_table"
+      ],
+      "physical_page": 4,
+      "fields": {
+        "headers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "text"
+          },
+          "required": true
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "highlightColumn": {
+          "type": "integer"
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "name": "现状与目标",
+      "question": "同一维度怎样改变",
+      "native_objects": [
+        "native_table"
+      ],
+      "physical_page": 5,
+      "fields": {
+        "headers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "text"
+          },
+          "default": [
+            "维度",
+            "现状",
+            "目标与条件"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T06",
+      "name": "流程与例外",
+      "question": "谁交接什么，例外转给谁",
+      "native_objects": [
+        "native_nodes",
+        "attached_connectors",
+        "native_role_table"
+      ],
+      "physical_page": 6,
+      "fields": {
+        "steps": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "text"
+          },
+          "required": true
+        },
+        "emphasisStep": {
+          "type": "integer"
+        },
+        "exception": {
+          "type": "object",
+          "fields": {
+            "fromStep": {
+              "type": "integer"
+            },
+            "text": {
+              "type": "text",
+              "required": true
+            }
+          }
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "text"
+            }
+          }
+        },
+        "roleHeaders": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "text"
+          },
+          "default": [
+            "责任人",
+            "关键动作",
+            "权限与边界"
+          ]
+        },
+        "takeaway": {
+          "type": "text"
+        },
+        "releaseConditions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "text"
+            }
+          }
+        },
+        "gateLabel": {
+          "type": "text"
+        }
+      },
+      "condition_mode": {
+        "steps": 3
+      }
+    },
+    {
+      "id": "T07",
+      "name": "阶段交付与责任",
+      "question": "每阶段交付什么、何时完成",
+      "native_objects": [
+        "native_table",
+        "editable_stage_headers"
+      ],
+      "physical_page": 7,
+      "fields": {
+        "stages": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "fields": {
+              "name": {
+                "type": "text",
+                "required": true
+              },
+              "deliverable": {
+                "type": "text",
+                "required": true
+              },
+              "criteria": {
+                "type": "text",
+                "required": true
+              },
+              "owner": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T08",
+      "name": "时间计划",
+      "question": "关键活动何时执行并复核",
+      "native_objects": [
+        "native_table",
+        "editable_stage_bands"
+      ],
+      "physical_page": 8,
+      "fields": {
+        "periods": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 6,
+          "items": {
+            "type": "text"
+          },
+          "required": true
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "fields": {
+              "name": {
+                "type": "text",
+                "required": true
+              },
+              "span": {
+                "type": "integer",
+                "required": true,
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "gates": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              }
+            }
+          }
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T09",
+      "name": "指标验收",
+      "question": "用什么口径决定是否达到要求",
+      "native_objects": [
+        "native_table",
+        "editable_metric_text"
+      ],
+      "physical_page": 9,
+      "fields": {
+        "metrics": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "label": {
+                "type": "text",
+                "required": true
+              },
+              "value": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "headers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "text"
+          },
+          "default": [
+            "评价维度",
+            "指标与口径",
+            "标准与限制"
+          ]
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "T10",
+      "name": "预算与决策",
+      "question": "投入、条件和权限是什么",
+      "native_objects": [
+        "native_budget_table",
+        "editable_decision_text"
+      ],
+      "physical_page": 10,
+      "fields": {
+        "unit": {
+          "type": "text",
+          "default": "元"
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "headers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "text"
+          }
+        },
+        "total": {
+          "type": "object",
+          "fields": {
+            "value": {
+              "type": "number",
+              "required": true
+            },
+            "label": {
+              "type": "text",
+              "required": true
+            },
+            "condition": {
+              "type": "text",
+              "required": true
+            }
+          }
+        },
+        "decisions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        },
+        "decisionHeading": {
+          "type": "text",
+          "default": "需要确认"
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "A01",
+      "name": "比较主图",
+      "question": "哪项更高、差多少",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "fields": {
+        "chart": {
+          "type": "object",
+          "fields": {
+            "categories": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 7,
+              "items": {
+                "type": "text"
+              },
+              "required": true
+            },
+            "series": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "fields": {
+                  "name": {
+                    "type": "text",
+                    "required": true
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "required": true
+                  }
+                }
+              },
+              "required": true
+            },
+            "unit": {
+              "type": "text",
+              "required": true
+            },
+            "format": {
+              "type": "text"
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "emphasisIndex": {
+              "type": "integer"
+            },
+            "emphasisReason": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "A02",
+      "name": "比较与解释",
+      "question": "差异如何影响选择",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "fields": {
+        "chart": {
+          "type": "object",
+          "fields": {
+            "categories": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 7,
+              "items": {
+                "type": "text"
+              },
+              "required": true
+            },
+            "series": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "fields": {
+                  "name": {
+                    "type": "text",
+                    "required": true
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "required": true
+                  }
+                }
+              },
+              "required": true
+            },
+            "unit": {
+              "type": "text",
+              "required": true
+            },
+            "format": {
+              "type": "text"
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "emphasisIndex": {
+              "type": "integer"
+            },
+            "emphasisReason": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        },
+        "insights": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    {
+      "id": "A03",
+      "name": "趋势主图",
+      "question": "随时间发生什么变化",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "fields": {
+        "chart": {
+          "type": "object",
+          "fields": {
+            "categories": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 8,
+              "items": {
+                "type": "text"
+              },
+              "required": true
+            },
+            "series": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "fields": {
+                  "name": {
+                    "type": "text",
+                    "required": true
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "required": true
+                  }
+                }
+              },
+              "required": true
+            },
+            "unit": {
+              "type": "text",
+              "required": true
+            },
+            "format": {
+              "type": "text"
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "emphasisIndex": {
+              "type": "integer"
+            },
+            "emphasisReason": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "A04",
+      "name": "趋势与解释",
+      "question": "转折、差距意味着什么",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "fields": {
+        "chart": {
+          "type": "object",
+          "fields": {
+            "categories": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 8,
+              "items": {
+                "type": "text"
+              },
+              "required": true
+            },
+            "series": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "fields": {
+                  "name": {
+                    "type": "text",
+                    "required": true
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "required": true
+                  }
+                }
+              },
+              "required": true
+            },
+            "unit": {
+              "type": "text",
+              "required": true
+            },
+            "format": {
+              "type": "text"
+            },
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "emphasisIndex": {
+              "type": "integer"
+            },
+            "emphasisReason": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        },
+        "insights": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    {
+      "id": "A05",
+      "name": "决策总表",
+      "question": "多个方案在哪些条件上不同",
+      "native_objects": [
+        "native_table"
+      ],
+      "fields": {
+        "headers": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "text"
+          },
+          "required": true
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "numericColumns": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "highlightRow": {
+          "type": "integer"
+        },
+        "columnWidths": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 96
+          }
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        }
+      }
+    },
+    {
+      "id": "A06",
+      "name": "决策与条件",
+      "question": "为什么选它、何时可以执行",
+      "native_objects": [
+        "native_table"
+      ],
+      "fields": {
+        "headers": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "text"
+          },
+          "required": true
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "text"
+            }
+          },
+          "required": true
+        },
+        "numericColumns": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "highlightRow": {
+          "type": "integer"
+        },
+        "columnWidths": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 96
+          }
+        },
+        "caption": {
+          "type": "text"
+        },
+        "takeaway": {
+          "type": "text"
+        },
+        "insights": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "fields": {
+              "heading": {
+                "type": "text",
+                "required": true
+              },
+              "text": {
+                "type": "text",
+                "required": true
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    }
+  ]
+}

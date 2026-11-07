@@ -34,7 +34,7 @@ for (const primary of primaries) {
   assert.ok(contrastRatio(t.C.ink, t.C.pale) >= 4.5);
   assert.deepEqual(t.table.header, {fill:t.C.blue, color:t.C.onPrimary, border:t.C.blue});
   assert.equal(t.table.emphasis.fill, t.C.pale);
-  assert.equal(t.audit.cover, 'fixed-user-image-white-text');
+  assert.equal(t.audit.cover, 'controlled-by-style-profile');
   for (const value of [t.C.blue,t.C.pale,t.C.primaryText,t.C.primaryDark,t.chart.comparison]) {
     assert.ok(sameHueFamily(value,primary), `Unrequested hue ${value} from ${primary}`);
   }

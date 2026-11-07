@@ -1,0 +1,519 @@
+{
+  "data": {
+    "source": "合成案例；1—3月工单，90天支出估算；非真实业务结果",
+    "sourceLedger": [
+      {
+        "id": "S1",
+        "locator": "本文件data.ticketCounts",
+        "date": "2026-11-07",
+        "status": "synthetic-observation",
+        "scope": "示例企业1—3月",
+        "unit": "件"
+      },
+      {
+        "id": "S2",
+        "locator": "本文件data.costs与data.alternatives",
+        "date": "2026-11-07",
+        "status": "synthetic-estimate",
+        "scope": "90天增量支出，含设置与试点执行",
+        "unit": "元"
+      },
+      {
+        "id": "S3",
+        "locator": "本文件data.gates",
+        "date": "2026-11-07",
+        "status": "proposed-assumption",
+        "scope": "需由董事会与负责人确认的准入条件"
+      }
+    ],
+    "ticketCounts": [
+      10000,
+      12000,
+      15000
+    ],
+    "budget": 300000,
+    "costs": {
+      "software": 160000,
+      "content": 40000,
+      "measurement": 20000
+    },
+    "alternatives": {
+      "process": 150000,
+      "staffing": 280000
+    },
+    "gates": {
+      "baselineDefined": true,
+      "privacyApproved": true
+    },
+    "benefit": null
+  },
+  "calculated": {
+    "spend": {
+      "op": "add",
+      "args": [
+        {
+          "ref": "data.costs.software"
+        },
+        {
+          "ref": "data.costs.content"
+        },
+        {
+          "ref": "data.costs.measurement"
+        }
+      ]
+    },
+    "growth": {
+      "op": "subtract",
+      "args": [
+        {
+          "op": "divide",
+          "args": [
+            {
+              "ref": "data.ticketCounts.2"
+            },
+            {
+              "ref": "data.ticketCounts.0"
+            }
+          ]
+        },
+        1
+      ]
+    },
+    "headroom": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.budget"
+        },
+        {
+          "ref": "calc.spend"
+        }
+      ]
+    },
+    "eligible": {
+      "op": "and",
+      "args": [
+        {
+          "op": "gte",
+          "args": [
+            {
+              "ref": "calc.headroom"
+            },
+            0
+          ]
+        },
+        {
+          "ref": "data.gates.baselineDefined"
+        },
+        {
+          "ref": "data.gates.privacyApproved"
+        }
+      ]
+    },
+    "decision": {
+      "op": "if",
+      "args": [
+        {
+          "ref": "calc.eligible"
+        },
+        "建议开展有条件的知识库试点",
+        "预算或准入条件未满足，暂缓试点"
+      ]
+    },
+    "benefitLabel": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "ref": "data.benefit"
+            },
+            null
+          ]
+        },
+        "效果与回收期未知",
+        "需要重新核对收益口径"
+      ]
+    },
+    "highlight": {
+      "op": "if",
+      "args": [
+        {
+          "ref": "calc.eligible"
+        },
+        0,
+        3
+      ]
+    }
+  },
+  "presentation": {
+    "style": {
+      "profile": "generic",
+      "purpose": "reading"
+    },
+    "theme": {
+      "primary": "#245A73"
+    },
+    "slides": [
+      {
+        "layout": "T01",
+        "title": "客服投入决策",
+        "subtitle": "董事会讨论稿",
+        "status": "合成案例，90天试点预算",
+        "date": "2026年11月7日",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T02",
+        "title": {
+          "ref": "calc.decision"
+        },
+        "sections": [
+          {
+            "heading": "决定请求",
+            "text": "批准有限范围试点\n效果验证后再扩展"
+          },
+          {
+            "heading": "已知证据",
+            "text": {
+              "text": [
+                "工单增长 ",
+                {
+                  "ref": "calc.growth",
+                  "format": "percent",
+                  "decimals": 0
+                },
+                "\n根因尚未证实"
+              ]
+            }
+          },
+          {
+            "heading": "执行边界",
+            "text": {
+              "ref": "calc.benefitLabel"
+            }
+          }
+        ],
+        "metrics": [
+          {
+            "value": {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "label": "90天试点支出／元"
+          },
+          {
+            "value": {
+              "ref": "data.budget",
+              "format": "money"
+            },
+            "label": "本轮预算上限／元"
+          },
+          {
+            "value": "待验证",
+            "label": "解决效率与质量影响"
+          }
+        ],
+        "decision": {
+          "text": [
+            "预算余量 ",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            " 元"
+          ]
+        },
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      },
+      {
+        "layout": "A03",
+        "title": {
+          "text": [
+            "工单量较1月变化 ",
+            {
+              "ref": "calc.growth",
+              "format": "percent",
+              "decimals": 0
+            },
+            "，根因待验证"
+          ]
+        },
+        "subtitle": "同一业务范围的三个月合成记录",
+        "chart": {
+          "categories": [
+            "1月",
+            "2月",
+            "3月"
+          ],
+          "series": [
+            {
+              "name": "工单量",
+              "values": {
+                "ref": "data.ticketCounts"
+              }
+            }
+          ],
+          "unit": "单位：件／月",
+          "min": 0
+        },
+        "caption": "工单增加可能来自客户增长、产品问题或重复咨询。",
+        "takeaway": "现有证据支持调查与试点，尚不足以归因。",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      },
+      {
+        "layout": "A05",
+        "title": "三种投入的效果仍需同口径验证",
+        "headers": [
+          "方案",
+          "90天支出／元",
+          "作用机制",
+          "效果状态"
+        ],
+        "rows": [
+          [
+            "知识库试点",
+            {
+              "ref": "calc.spend",
+              "format": "money"
+            },
+            "减少重复查找",
+            "未知"
+          ],
+          [
+            "流程改造",
+            {
+              "ref": "data.alternatives.process",
+              "format": "money"
+            },
+            "减少交接等待",
+            "未知"
+          ],
+          [
+            "扩充人手",
+            {
+              "ref": "data.alternatives.staffing",
+              "format": "money"
+            },
+            "增加处理容量",
+            "未知"
+          ],
+          [
+            "维持现状",
+            "0",
+            "维持当前能力",
+            "增量效果为零"
+          ]
+        ],
+        "numericColumns": [
+          1
+        ],
+        "highlightRow": {
+          "ref": "calc.highlight"
+        },
+        "columnWidths": [
+          240,
+          230,
+          390,
+          304
+        ],
+        "caption": "支出均为90天增量估算；后续持续成本另行评审。",
+        "takeaway": "知识库试点的选择取决于验证价值，不能以成本直接推定回报。",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T07",
+        "title": "三阶段试点形成下一轮投资依据",
+        "stages": [
+          {
+            "name": "基线记录",
+            "deliverable": "按工单类型记录\n耗时与质量",
+            "criteria": "负责人复核口径\n记录完整",
+            "owner": "客服负责人"
+          },
+          {
+            "name": "小范围试点",
+            "deliverable": "限定团队验证\n知识库检索",
+            "criteria": "复核质量与效率\n记录异常",
+            "owner": "知识库负责人"
+          },
+          {
+            "name": "投资复核",
+            "deliverable": "比较试点与基线\n提交限制说明",
+            "criteria": "董事会决定继续\n调整或停止",
+            "owner": "项目负责人"
+          }
+        ],
+        "takeaway": "2周基线、4周试点、2周复核是建议安排，需负责人确认。",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T10",
+        "title": {
+          "ref": "calc.decision"
+        },
+        "unit": "元",
+        "rows": [
+          [
+            {
+              "ref": "data.costs.software"
+            },
+            "试点软件",
+            "90天使用与配置"
+          ],
+          [
+            {
+              "ref": "data.costs.content"
+            },
+            "内容整理",
+            "限定知识范围"
+          ],
+          [
+            {
+              "ref": "data.costs.measurement"
+            },
+            "效果核对",
+            "质量与耗时记录"
+          ]
+        ],
+        "total": {
+          "value": {
+            "ref": "calc.spend"
+          },
+          "label": "总支出估算",
+          "condition": "批准后分阶段使用"
+        },
+        "decisions": [
+          {
+            "heading": "预算授权",
+            "text": {
+              "text": [
+                "预算余量 ",
+                {
+                  "ref": "calc.headroom",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          },
+          {
+            "heading": "准入条件",
+            "text": "口径与隐私检查\n须由负责人确认"
+          },
+          {
+            "heading": "扩展条件",
+            "text": "以试点证据评审\n不预先承诺收益"
+          }
+        ],
+        "takeaway": {
+          "ref": "calc.benefitLabel"
+        },
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：S1为工单合成记录，S2为费用测算，S3为建议准入条件。",
+            {
+              "ref": "calc.benefitLabel"
+            },
+            "。预算允许不等于方案已获批准，需董事会和负责人确认。"
+          ]
+        }
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "condition": {
+        "op": "gte",
+        "args": [
+          {
+            "ref": "data.budget"
+          },
+          0
+        ]
+      },
+      "message": "预算不能为负数"
+    },
+    {
+      "condition": {
+        "op": "eq",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "ref": "calc.spend"
+              },
+              {
+                "ref": "calc.headroom"
+              }
+            ]
+          },
+          {
+            "ref": "data.budget"
+          }
+        ]
+      },
+      "message": "支出与预算余量必须闭合"
+    }
+  ]
+}

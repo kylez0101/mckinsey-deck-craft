@@ -1,0 +1,495 @@
+{
+  "data": {
+    "source": "合成研究服务案例；单月30件请求；首学期支出估算",
+    "sourceLedger": [
+      {
+        "id": "U1",
+        "locator": "本文件data.requests",
+        "date": "2026-11-07",
+        "status": "synthetic-observation",
+        "scope": "两院系单月请求",
+        "unit": "件"
+      },
+      {
+        "id": "U2",
+        "locator": "本文件data.options",
+        "date": "2026-11-07",
+        "status": "synthetic-estimate",
+        "scope": "首学期增量支出",
+        "unit": "元"
+      },
+      {
+        "id": "U3",
+        "locator": "本文件data.priority",
+        "date": "2026-11-07",
+        "status": "proposed-priority",
+        "scope": "需由试点院系确认的服务范围与准入原则"
+      }
+    ],
+    "requests": [
+      12,
+      10,
+      8
+    ],
+    "budget": 100000,
+    "availableStaff": 2,
+    "minimumStaff": 2,
+    "options": {
+      "officeHours": 60000,
+      "shared": 90000,
+      "dedicated": 160000
+    },
+    "priority": "覆盖资料检索、数据整理、方法咨询；保留院系审批权",
+    "governanceReady": true,
+    "measuredEffect": null
+  },
+  "calculated": {
+    "totalRequests": {
+      "op": "add",
+      "args": [
+        {
+          "ref": "data.requests.0"
+        },
+        {
+          "ref": "data.requests.1"
+        },
+        {
+          "ref": "data.requests.2"
+        }
+      ]
+    },
+    "headroom": {
+      "op": "subtract",
+      "args": [
+        {
+          "ref": "data.budget"
+        },
+        {
+          "ref": "data.options.shared"
+        }
+      ]
+    },
+    "staffReady": {
+      "op": "gte",
+      "args": [
+        {
+          "ref": "data.availableStaff"
+        },
+        {
+          "ref": "data.minimumStaff"
+        }
+      ]
+    },
+    "eligible": {
+      "op": "and",
+      "args": [
+        {
+          "op": "gte",
+          "args": [
+            {
+              "ref": "calc.headroom"
+            },
+            0
+          ]
+        },
+        {
+          "ref": "calc.staffReady"
+        },
+        {
+          "ref": "data.governanceReady"
+        }
+      ]
+    },
+    "decision": {
+      "op": "if",
+      "args": [
+        {
+          "ref": "calc.eligible"
+        },
+        "建议在两院系试行共享研究服务",
+        "人员、预算或治理条件未满足，暂缓共享试点"
+      ]
+    },
+    "effectText": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "ref": "data.measuredEffect"
+            },
+            null
+          ]
+        },
+        "服务效果尚未测量",
+        "需复核效果来源"
+      ]
+    },
+    "dedicatedStatus": {
+      "op": "if",
+      "args": [
+        {
+          "op": "gte",
+          "args": [
+            {
+              "ref": "data.budget"
+            },
+            {
+              "ref": "data.options.dedicated"
+            }
+          ]
+        },
+        "需核实专职岗位",
+        "超出当前预算"
+      ]
+    }
+  },
+  "presentation": {
+    "style": {
+      "profile": "generic",
+      "purpose": "reading"
+    },
+    "theme": {
+      "primary": "#35644B"
+    },
+    "slides": [
+      {
+        "layout": "T01",
+        "title": "共享研究服务试点",
+        "subtitle": "院系负责人评审稿",
+        "status": "合成案例，首学期计划",
+        "date": "2026年11月7日",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T02",
+        "title": {
+          "ref": "calc.decision"
+        },
+        "sections": [
+          {
+            "heading": "服务范围",
+            "text": "资料检索与数据整理\n提供方法咨询"
+          },
+          {
+            "heading": "治理边界",
+            "text": "院系保留审批权\n限制敏感资料范围"
+          },
+          {
+            "heading": "验证目标",
+            "text": "记录等待与返工\n不预先承诺成效"
+          }
+        ],
+        "metrics": [
+          {
+            "value": {
+              "ref": "calc.totalRequests",
+              "format": "integer"
+            },
+            "label": "合成记录的单月请求／件"
+          },
+          {
+            "value": {
+              "ref": "data.options.shared",
+              "format": "money"
+            },
+            "label": "共享试点首学期支出／元"
+          },
+          {
+            "value": "两院系",
+            "label": "建议先行范围"
+          }
+        ],
+        "decision": {
+          "text": [
+            "上限 ",
+            {
+              "ref": "data.budget",
+              "format": "money"
+            },
+            " 元；余量 ",
+            {
+              "ref": "calc.headroom",
+              "format": "money"
+            },
+            " 元"
+          ]
+        },
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      },
+      {
+        "layout": "A01",
+        "title": "三类请求共同构成试点服务范围",
+        "subtitle": "两院系单月合成记录，不代表全校需求",
+        "chart": {
+          "categories": [
+            "资料检索",
+            "数据整理",
+            "方法咨询"
+          ],
+          "series": [
+            {
+              "name": "请求量",
+              "values": {
+                "ref": "data.requests"
+              }
+            }
+          ],
+          "unit": "单位：件／月",
+          "min": 0
+        },
+        "caption": "请求量不能直接换算成服务工时或价值。",
+        "takeaway": "先记录处理时间与权限要求，再校准实际服务容量。",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      },
+      {
+        "layout": "A05",
+        "title": "三种服务模式的范围与投入",
+        "headers": [
+          "方案",
+          "首学期支出／元",
+          "服务范围",
+          "主要限制"
+        ],
+        "rows": [
+          [
+            "预约咨询",
+            {
+              "ref": "data.options.officeHours",
+              "format": "money"
+            },
+            "方法咨询",
+            "整理支持有限"
+          ],
+          [
+            "共享试点",
+            {
+              "ref": "data.options.shared",
+              "format": "money"
+            },
+            "三类请求",
+            {
+              "text": [
+                "最低需",
+                {
+                  "ref": "data.minimumStaff",
+                  "format": "integer"
+                },
+                "人"
+              ]
+            }
+          ],
+          [
+            "专职团队",
+            {
+              "ref": "data.options.dedicated",
+              "format": "money"
+            },
+            "三类请求",
+            {
+              "ref": "calc.dedicatedStatus"
+            }
+          ]
+        ],
+        "numericColumns": [
+          1
+        ],
+        "columnWidths": [
+          230,
+          240,
+          330,
+          364
+        ],
+        "caption": "全部为合成支出估算；三种方案的服务效果未知。",
+        "takeaway": {
+          "ref": "calc.decision"
+        },
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T06",
+        "title": "试点启动需要同时满足三项条件",
+        "releaseConditions": [
+          [
+            "人员",
+            {
+              "text": [
+                "可用 ",
+                {
+                  "ref": "data.availableStaff",
+                  "format": "integer"
+                },
+                " 人，最低 ",
+                {
+                  "ref": "data.minimumStaff",
+                  "format": "integer"
+                },
+                " 人"
+              ]
+            }
+          ],
+          [
+            "预算",
+            {
+              "text": [
+                "上限 ",
+                {
+                  "ref": "data.budget",
+                  "format": "money"
+                },
+                " 元；余量 ",
+                {
+                  "ref": "calc.headroom",
+                  "format": "money"
+                },
+                " 元"
+              ]
+            }
+          ],
+          [
+            "治理",
+            "院系确认资料范围、访问权限与审批责任"
+          ]
+        ],
+        "gateLabel": "三项条件同时满足后进入试点",
+        "steps": [
+          "确认请求与权限",
+          "分配服务并记录",
+          "院系复核结果"
+        ],
+        "takeaway": "条件未满足时由项目负责人补证或调整范围，不能直接扩大服务。",
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      },
+      {
+        "layout": "T07",
+        "title": "试点记录将决定是否扩大服务",
+        "stages": [
+          {
+            "name": "准备",
+            "deliverable": "服务目录与权限表\n记录当前等待",
+            "criteria": {
+              "text": [
+                "院系确认范围\n至少",
+                {
+                  "ref": "data.minimumStaff",
+                  "format": "integer"
+                },
+                "人到岗"
+              ]
+            },
+            "owner": "试点协调人"
+          },
+          {
+            "name": "试行",
+            "deliverable": "两院系请求台账\n记录耗时与返工",
+            "criteria": "每周复核异常\n保留原审批链",
+            "owner": "服务负责人"
+          },
+          {
+            "name": "复核",
+            "deliverable": "比较等待与返工\n列出未解决事项",
+            "criteria": "院系决定扩大\n调整或停止",
+            "owner": "院系负责人"
+          }
+        ],
+        "takeaway": {
+          "ref": "calc.effectText"
+        },
+        "source": {
+          "ref": "data.source"
+        },
+        "notes": {
+          "text": [
+            "来源ID：U1为分类请求合成记录，U2为首学期成本估算，U3为建议服务优先级。",
+            {
+              "ref": "calc.effectText"
+            },
+            "。治理就绪为训练假设，正式项目需院系确认。"
+          ]
+        }
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "condition": {
+        "op": "gte",
+        "args": [
+          {
+            "ref": "data.availableStaff"
+          },
+          0
+        ]
+      },
+      "message": "可用人员不能为负数"
+    },
+    {
+      "condition": {
+        "op": "eq",
+        "args": [
+          {
+            "ref": "calc.totalRequests"
+          },
+          30
+        ]
+      },
+      "message": "本合成台账的分类数必须与30件总量一致"
+    }
+  ]
+}

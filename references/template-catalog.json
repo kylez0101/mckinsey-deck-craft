@@ -1,5 +1,6 @@
 {
-  "version": "2",
+  "version": "3",
+  "schema_source": "schemas/template-contract.json",
   "canvas_px": [
     1280,
     720
@@ -15,50 +16,70 @@
   "presentation": "assets/templates/consulting-page-library.pptx",
   "input_example": "assets/templates/page-library.json",
   "builder": "scripts/build-deck.mjs",
+  "common_inputs": [
+    "layout",
+    "title",
+    "subtitle?",
+    "source?",
+    "notes?"
+  ],
   "templates": [
     {
       "id": "T01",
       "name": "封面",
       "question": "交代主题与受众",
-      "inputs": [
-        "title",
-        "subtitle",
-        "kicker?",
-        "status?",
-        "date?"
-      ],
-      "capacity": {
-        "title_units": 22
-      },
       "native_objects": [
         "editable_white_text",
         "user_background_image"
       ],
-      "physical_page": 1
+      "physical_page": 1,
+      "text_capacity": {
+        "title_units": 22
+      },
+      "inputs": [
+        "kicker?",
+        "status?",
+        "date?"
+      ],
+      "capacity": {},
+      "defaults": {}
     },
     {
       "id": "T02",
       "name": "执行摘要",
       "question": "建议与依据如何支持本次决定",
+      "native_objects": [
+        "text",
+        "semantic_icons"
+      ],
+      "physical_page": 2,
       "inputs": [
         "sections",
         "metrics?",
         "decision?"
       ],
       "capacity": {
-        "sections": 3,
-        "metrics_max": 3
+        "sections": [
+          3,
+          3
+        ],
+        "metrics": [
+          0,
+          3
+        ]
       },
-      "native_objects": [
-        "text",
-        "semantic_icons"
-      ],
-      "physical_page": 2
+      "defaults": {}
     },
     {
       "id": "T03",
       "name": "事实与数据对照",
       "question": "同口径数量关系说明什么",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx",
+        "native_fact_table"
+      ],
+      "physical_page": 3,
       "inputs": [
         "chart",
         "facts",
@@ -66,27 +87,29 @@
         "caveat?"
       ],
       "capacity": {
-        "categories": [
+        "chart.categories": [
+          2,
+          5
+        ],
+        "chart.values": [
           2,
           5
         ],
         "facts": [
           1,
           3
-        ],
-        "numeric_series": 1
+        ]
       },
-      "native_objects": [
-        "native_chart",
-        "embedded_xlsx",
-        "native_fact_table"
-      ],
-      "physical_page": 3
+      "defaults": {}
     },
     {
       "id": "T04",
       "name": "方案比较",
       "question": "相同标准下如何取舍",
+      "native_objects": [
+        "native_table"
+      ],
+      "physical_page": 4,
       "inputs": [
         "headers",
         "rows",
@@ -94,50 +117,67 @@
         "takeaway?"
       ],
       "capacity": {
-        "options": [
-          2,
-          4
+        "headers": [
+          3,
+          5
         ],
         "rows": [
           2,
           5
         ]
       },
-      "native_objects": [
-        "native_table"
-      ],
-      "physical_page": 4
+      "defaults": {}
     },
     {
       "id": "T05",
       "name": "现状与目标",
       "question": "同一维度怎样改变",
-      "inputs": [
-        "rows",
-        "headers?",
-        "takeaway?"
-      ],
-      "capacity": {
-        "dimensions": [
-          2,
-          5
-        ],
-        "columns": 3
-      },
       "native_objects": [
         "native_table"
       ],
-      "physical_page": 5
+      "physical_page": 5,
+      "inputs": [
+        "headers?",
+        "rows",
+        "takeaway?"
+      ],
+      "capacity": {
+        "headers": [
+          3,
+          3
+        ],
+        "rows": [
+          2,
+          5
+        ]
+      },
+      "defaults": {
+        "headers": [
+          "维度",
+          "现状",
+          "目标与条件"
+        ]
+      }
     },
     {
       "id": "T06",
       "name": "流程与例外",
       "question": "谁交接什么，例外转给谁",
+      "native_objects": [
+        "native_nodes",
+        "attached_connectors",
+        "native_role_table"
+      ],
+      "physical_page": 6,
+      "condition_mode": {
+        "steps": 3
+      },
       "inputs": [
         "steps",
+        "emphasisStep?",
         "exception?",
         "roles?",
-        "emphasisStep?",
+        "roleHeaders?",
         "takeaway?",
         "releaseConditions?",
         "gateLabel?"
@@ -147,25 +187,36 @@
           3,
           5
         ],
-        "exception_destinations": 1,
-        "roles_max": 3,
-        "and_conditions": [
+        "roles": [
+          0,
+          3
+        ],
+        "roleHeaders": [
+          3,
+          3
+        ],
+        "releaseConditions": [
           2,
           4
-        ],
-        "condition_mode_steps": 3
+        ]
       },
-      "native_objects": [
-        "native_nodes",
-        "attached_connectors",
-        "native_role_table"
-      ],
-      "physical_page": 6
+      "defaults": {
+        "roleHeaders": [
+          "责任人",
+          "关键动作",
+          "权限与边界"
+        ]
+      }
     },
     {
       "id": "T07",
       "name": "阶段交付与责任",
       "question": "每阶段交付什么、何时完成",
+      "native_objects": [
+        "native_table",
+        "editable_stage_headers"
+      ],
+      "physical_page": 7,
       "inputs": [
         "stages",
         "takeaway?"
@@ -176,16 +227,17 @@
           4
         ]
       },
-      "native_objects": [
-        "native_table",
-        "editable_stage_headers"
-      ],
-      "physical_page": 7
+      "defaults": {}
     },
     {
       "id": "T08",
       "name": "时间计划",
       "question": "关键活动何时执行并复核",
+      "native_objects": [
+        "native_table",
+        "editable_stage_bands"
+      ],
+      "physical_page": 8,
       "inputs": [
         "periods",
         "rows",
@@ -198,22 +250,30 @@
           4,
           6
         ],
-        "workstreams": [
+        "rows": [
           2,
           3
         ],
-        "gates_max": 3
+        "phases": [
+          1,
+          null
+        ],
+        "gates": [
+          0,
+          3
+        ]
       },
-      "native_objects": [
-        "native_table",
-        "editable_stage_bands"
-      ],
-      "physical_page": 8
+      "defaults": {}
     },
     {
       "id": "T09",
       "name": "指标验收",
       "question": "用什么口径决定是否达到要求",
+      "native_objects": [
+        "native_table",
+        "editable_metric_text"
+      ],
+      "physical_page": 9,
       "inputs": [
         "metrics",
         "rows",
@@ -225,45 +285,230 @@
           2,
           3
         ],
-        "criteria": [
+        "rows": [
           2,
           4
+        ],
+        "headers": [
+          3,
+          3
         ]
       },
-      "native_objects": [
-        "native_table",
-        "editable_metric_text"
-      ],
-      "physical_page": 9
+      "defaults": {
+        "headers": [
+          "评价维度",
+          "指标与口径",
+          "标准与限制"
+        ]
+      }
     },
     {
       "id": "T10",
       "name": "预算与决策",
       "question": "投入、条件和权限是什么",
+      "native_objects": [
+        "native_budget_table",
+        "editable_decision_text"
+      ],
+      "physical_page": 10,
       "inputs": [
+        "unit?",
         "rows",
+        "headers?",
         "total?",
         "decisions",
-        "unit?",
-        "headers?",
+        "decisionHeading?",
         "takeaway?"
       ],
       "capacity": {
-        "budget_components": [
+        "rows": [
           2,
           4
+        ],
+        "headers": [
+          3,
+          3
         ],
         "decisions": [
           1,
           3
         ]
       },
+      "defaults": {
+        "unit": "元",
+        "decisionHeading": "需要确认"
+      }
+    },
+    {
+      "id": "A01",
+      "name": "比较主图",
+      "question": "哪项更高、差多少",
       "native_objects": [
-        "native_budget_table",
-        "editable_decision_text"
+        "native_chart",
+        "embedded_xlsx"
       ],
-      "physical_page": 10
+      "inputs": [
+        "chart",
+        "caption?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "chart.categories": [
+          2,
+          7
+        ],
+        "chart.series": [
+          1,
+          2
+        ]
+      },
+      "defaults": {}
+    },
+    {
+      "id": "A02",
+      "name": "比较与解释",
+      "question": "差异如何影响选择",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "inputs": [
+        "chart",
+        "caption?",
+        "takeaway?",
+        "insights"
+      ],
+      "capacity": {
+        "chart.categories": [
+          2,
+          7
+        ],
+        "chart.series": [
+          1,
+          2
+        ],
+        "insights": [
+          1,
+          3
+        ]
+      },
+      "defaults": {}
+    },
+    {
+      "id": "A03",
+      "name": "趋势主图",
+      "question": "随时间发生什么变化",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "inputs": [
+        "chart",
+        "caption?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "chart.categories": [
+          3,
+          8
+        ],
+        "chart.series": [
+          1,
+          2
+        ]
+      },
+      "defaults": {}
+    },
+    {
+      "id": "A04",
+      "name": "趋势与解释",
+      "question": "转折、差距意味着什么",
+      "native_objects": [
+        "native_chart",
+        "embedded_xlsx"
+      ],
+      "inputs": [
+        "chart",
+        "caption?",
+        "takeaway?",
+        "insights"
+      ],
+      "capacity": {
+        "chart.categories": [
+          3,
+          8
+        ],
+        "chart.series": [
+          1,
+          2
+        ],
+        "insights": [
+          1,
+          3
+        ]
+      },
+      "defaults": {}
+    },
+    {
+      "id": "A05",
+      "name": "决策总表",
+      "question": "多个方案在哪些条件上不同",
+      "native_objects": [
+        "native_table"
+      ],
+      "inputs": [
+        "headers",
+        "rows",
+        "numericColumns?",
+        "highlightRow?",
+        "columnWidths?",
+        "caption?",
+        "takeaway?"
+      ],
+      "capacity": {
+        "headers": [
+          2,
+          6
+        ],
+        "rows": [
+          2,
+          5
+        ]
+      },
+      "defaults": {}
+    },
+    {
+      "id": "A06",
+      "name": "决策与条件",
+      "question": "为什么选它、何时可以执行",
+      "native_objects": [
+        "native_table"
+      ],
+      "inputs": [
+        "headers",
+        "rows",
+        "numericColumns?",
+        "highlightRow?",
+        "columnWidths?",
+        "caption?",
+        "takeaway?",
+        "insights"
+      ],
+      "capacity": {
+        "headers": [
+          2,
+          5
+        ],
+        "rows": [
+          2,
+          4
+        ],
+        "insights": [
+          1,
+          3
+        ]
+      },
+      "defaults": {}
     }
-  ],
-  "builder_revision": "post-blind-1"
+  ]
 }

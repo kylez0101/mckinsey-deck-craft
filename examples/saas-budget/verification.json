@@ -1,0 +1,66 @@
+{
+  "status": "machine_checks_passed",
+  "artifact": {
+    "path": "report.pptx",
+    "sha256": "930060275dc65e550a8659177499828f949b4281a00296f80a82e0a0b11c4b8b",
+    "pages": 6
+  },
+  "source": {
+    "path": "source.json",
+    "sha256": "d8d36441d023a6bd9febf76e37731fbe7345695632c65d50e6b9aaea4136f659"
+  },
+  "toolchain": {
+    "node": "24.19.0",
+    "artifactTool": "2.8.99",
+    "python": "3.12.14",
+    "lxml": "6.1.1"
+  },
+  "checks": {
+    "structureData": {
+      "status": "passed",
+      "scope": "Final-package integrity, declared native tables/charts, embedded literal workbooks and runtime reimport."
+    },
+    "content": {
+      "status": "passed",
+      "scope": "Source facts, units, unknown states, calculations, titles and conditional recommendations reviewed."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Every final slide inspected at full size; overview.jpg is a contact sheet, not the sole review evidence."
+    },
+    "editReopen": {
+      "status": "passed",
+      "scope": "Independent copy: native text/table/chart and original embedded literal workbook edited, package reopened, finalized with workbook preservation, reimported and rendered; university flow node also edited. Business claims are not automatically synchronized by arbitrary manual edits.",
+      "observations": [
+        {
+          "kind": "text",
+          "part": "ppt/slides/slide1.xml",
+          "before": "客服投入决策",
+          "after": "客服投入决策（副本）"
+        },
+        {
+          "kind": "table",
+          "part": "ppt/slides/slide4.xml",
+          "before": "知识库试点",
+          "after": "知识库试点核对"
+        },
+        {
+          "kind": "chartAndWorkbook",
+          "part": "ppt/slides/charts/chart1.xml",
+          "workbook": "ppt/embeddings/chart-data-snapshot-001.xlsx",
+          "cell": "B2",
+          "before": "10000",
+          "after": "10001"
+        }
+      ]
+    },
+    "targetApplication": {
+      "status": "not_run",
+      "scope": "PowerPoint desktop editing and display were not checked."
+    }
+  },
+  "limitations": [
+    "Synthetic worked example, not a real operating result or blind-test score.",
+    "The private runtime is needed only for the bundled full exporter; portable compilation and other host tools remain supported."
+  ]
+}

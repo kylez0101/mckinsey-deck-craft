@@ -1,88 +1,120 @@
 import {createTheme} from './theme.mjs';
-import path from 'node:path';
-import {pathToFileURL} from 'node:url';
-const skillDir=process.env.DECK_PRESENTATIONS_SKILL_DIR;
-if(!skillDir)throw new Error('Set DECK_PRESENTATIONS_SKILL_DIR to the installed presentations skill directory');
-const {applyPresentationChartFont}=await import(pathToFileURL(path.join(skillDir,'container_tools/artifact_tool_utils.mjs')));
+import {numericScale} from './chart-scale.mjs';
 
-function themedAdvanced(config){
-const theme=config?.C?config:createTheme(config??{});
-const C={...theme.C,gray:theme.chart.context,line:theme.C.rule,negative:theme.chart.negative};
-const fmt=v=>new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(v);
-const line=(fill,width=1)=>({fill,width,style:'solid'});
-const text=(fill=C.ink,bold=false)=>({typeface:'Arial Unicode MS',fontSize:18,fill:fill===C.blue?C.primaryText:fill===C.gray?theme.C.gray:fill===C.accent?C.accentText:fill,bold});
-const point=(idx,label,position,fill=C.ink,bold=false)=>({idx,text:label,position,showValue:false,showSeriesName:false,showCategoryName:false,textStyle:text(fill,bold)});
-function finite(v,label){if(!Number.isFinite(v))throw new Error(`${label} must be finite`);return v;}
-// Source arithmetic can contain IEEE-754 noise. Currency is retained to cents.
-const money=(v,label)=>Math.round(finite(v,label)*100)/100;
-function options(data){
- if(!Array.isArray(data.options)||!data.options.length)throw new Error('data.options is required');
- return data.options.map(o=>({...o,low:money(o.low,'low'),base:money(o.base,'base'),high:money(o.high,'high'),cost:money(o.cost,'cost'),external:finite(o.external,'external')}));
+function finite(value, label) {
+  if (!Number.isFinite(value)) throw new Error(`${label} must be finite`);
+  return value;
 }
-function chart(slide,rect,series,xAxis,yAxis){
- const ch=slide.charts.add('scatter',{
-  position:{...rect},series,scatterOptions:{style:'lineWithMarkers',varyColors:false},hasLegend:false,
-  xAxis:{visible:true,position:'bottom',numberFormatCode:'#,##0',textStyle:text(C.gray),line:line(C.line,.7),majorGridlines:line(C.line,.6),...xAxis},
-  yAxis:{visible:false,position:'left',line:line('none',0),majorGridlines:null,...yAxis},
-  dataLabels:{visible:true,showValue:false,showSeriesName:false,showCategoryName:false,textStyle:text()},
-  chartFill:'#FFFFFF',chartLine:line('none',0),plotAreaFill:'#FFFFFF',plotAreaLine:line('none',0),
- });
- applyPresentationChartFont(ch,{fontFamily:'Arial Unicode MS'});
- return ch;
+function options(data, fields) {
+  if (!Array.isArray(data.options) || !data.options.length) throw new Error('data.options is required');
+  return data.options.map(option => {
+    if (!option || typeof option !== 'object') throw new Error('Each option must be an object');
+    const result = {...option};
+    for (const field of fields) result[field] = finite(option[field], field);
+    return result;
+  });
 }
-
-/** Native XY scenario ranges. low/base/high are demand scenarios, not probabilities. */
-function addRangeChart(slide,rect,data){
- const rows=options(data).filter(o=>data.baselineId===undefined||o.id!==data.baselineId);
- if(!rows.length)throw new Error('Range chart needs non-baseline options');
- const low=Math.min(0,...rows.map(o=>o.low)),high=Math.max(0,...rows.map(o=>o.high));
- const step=high-low>10000?10000:1000;
- const span=high-low||step;
- const min=Math.floor((low-span*.18)/step)*step;
- const max=Math.ceil((high+span*.1)/step)*step;
- const series=[];
- rows.forEach((o,i)=>{
-  const y=rows.length-i,color=o.id===data.highlightId?C.blue:C.gray;
-  series.push({name:`${o.id} ${o.name}：需求低高情景`,xValues:[o.low,o.high],values:[y,y],line:line(color,3),marker:{symbol:'circle',size:7,fill:color},
-   dataLabelOverrides:[point(0,`${o.id} ${o.name}\n${fmt(o.low)}`,'left',o.low<0?C.negative:C.ink),point(1,fmt(o.high),'right')]});
-  series.push({name:`${o.id} 基准情景`,xValues:[o.base],values:[y],line:line('none',0),marker:{symbol:'circle',size:11,fill:color},
-   dataLabelOverrides:[point(0,`${fmt(o.base)} 基准`,'top',color,true)]});
- });
- return chart(slide,rect,series,{min,max,majorUnit:step},{min:0,max:rows.length+1,majorUnit:1});
+function display(data, axis, values) {
+  const config = {...data.display, ...data.axes?.[axis]};
+  const allowed = new Set(['unit', 'decimals', 'locale', 'percent', 'label', 'min', 'max', 'majorUnit', 'includeZero']);
+  const unsupported = Object.keys(config).filter(key => !allowed.has(key));
+  if (unsupported.length) throw new Error(`Unknown axis display fields: ${unsupported.join(', ')}`);
+  if (config.decimals !== undefined && (!Number.isInteger(config.decimals) || config.decimals < 0 || config.decimals > 12)) throw new Error('Display decimals must be an integer from 0 to 12');
+  if (config.unit !== undefined && typeof config.unit !== 'string') throw new Error('Display unit must be text');
+  if (config.percent !== undefined && typeof config.percent !== 'boolean') throw new Error('Display percent must be boolean');
+  if (config.includeZero !== undefined && typeof config.includeZero !== 'boolean') throw new Error('Axis includeZero must be boolean');
+  const small = values.some(value => value !== 0 && Math.abs(value) < 1e-9);
+  const format = (config.decimals === undefined ? (small ? '0.######E+00' : values.every(Number.isInteger) ? '#,##0' : '#,##0.############') : '#,##0' + (config.decimals ? '.' + '0'.repeat(config.decimals) : '')) + (config.percent ? '%' : '');
+  const style = config.percent ? 'percent' : 'decimal';
+  const formatter = new Intl.NumberFormat(config.locale ?? 'en-US', {style, ...(config.decimals === undefined ? {maximumFractionDigits: 12} : {minimumFractionDigits: config.decimals, maximumFractionDigits: config.decimals})});
+  const scientific = new Intl.NumberFormat(config.locale ?? 'en-US', {style, notation: 'scientific', maximumFractionDigits: 6});
+  return {
+    ...config,
+    numberFormatCode: format + (config.unit ? `" ${config.unit.replaceAll('"', '""')}"` : ''),
+    formatValue(value) {
+      const label = config.decimals === undefined && value !== 0 && Math.abs(value) < 1e-9 ? scientific.format(value) : formatter.format(value);
+      return label + (config.unit ? ` ${config.unit}` : '');
+    },
+  };
 }
 
-/** Native XY dumbbells. Values retain gross and net sales at the two ends. */
-function addDumbbellChart(slide,rect,data){
- if(!Array.isArray(data.hourly)||!data.hourly.length)throw new Error('data.hourly is required');
- const rows=data.hourly.map(o=>({...o,gross:money(o.gross,'gross'),net:money(o.net,'net')}));
- const high=Math.max(0,...rows.flatMap(o=>[o.gross,o.net])),step=high>1000?500:100;
- const comparison=C.accent??C.gray;
- const series=rows.map((o,i)=>({name:o.name,xValues:[o.net,o.gross],values:[rows.length-i,rows.length-i],line:line(C.line,3),marker:{symbol:'circle',size:10,fill:comparison},
-  points:[{idx:0,fill:C.blue,line:line(C.blue,1)},{idx:1,fill:comparison,line:line(comparison,1)}],
-  dataLabelOverrides:[point(0,`${o.name}\n${data.netLabel??'净新增'} ${fmt(o.net)}`,'left',C.blue,true),point(1,`${data.grossLabel??'需求估计'} ${fmt(o.gross)}`,'right')]}));
- return chart(slide,rect,series,{min:Math.min(0,...rows.flatMap(o=>[o.gross,o.net])),max:Math.max(step,Math.ceil(high*1.15/step)*step),majorUnit:step},{min:0,max:rows.length+1,majorUnit:1});
+function themedAdvanced(config, adapters = {}) {
+  const theme = config?.C ? config : createTheme(config ?? {});
+  const C = {...theme.C, gray: theme.chart.context, line: theme.C.rule, negative: theme.chart.negative};
+  const fontFamily = adapters.fontFamily ?? 'Arial Unicode MS';
+  const fontSize = adapters.fontSize ?? 18;
+  if (typeof fontFamily !== 'string' || !fontFamily.trim()) throw new Error('fontFamily must be non-empty text');
+  if (!Number.isFinite(fontSize) || fontSize <= 0) throw new Error('fontSize must be a positive finite number');
+  if (adapters.applyChartFont !== undefined && typeof adapters.applyChartFont !== 'function') throw new Error('applyChartFont must be a function');
+  const line = (fill, width = 1) => ({fill, width, style: 'solid'});
+  const text = (fill = C.ink, bold = false) => ({typeface: fontFamily, fontSize, fill: fill === C.blue ? C.primaryText : fill === C.gray ? theme.C.gray : fill === C.accent ? C.accentText : fill, bold});
+  const point = (idx, label, position, fill = C.ink, bold = false) => ({idx, text: label, position, showValue: false, showSeriesName: false, showCategoryName: false, textStyle: text(fill, bold)});
+  function chart(slide, rect, series, xAxis, yAxis) {
+    const ch = slide.charts.add('scatter', {
+      position: {...rect}, series, scatterOptions: {style: 'lineWithMarkers', varyColors: false}, hasLegend: false,
+      xAxis: {visible: true, position: 'bottom', textStyle: text(C.gray), line: line(C.line, .7), majorGridlines: line(C.line, .6), ...xAxis},
+      yAxis: {visible: false, position: 'left', line: line('none', 0), majorGridlines: null, ...yAxis},
+      dataLabels: {visible: true, showValue: false, showSeriesName: false, showCategoryName: false, textStyle: text()},
+      chartFill: '#FFFFFF', chartLine: line('none', 0), plotAreaFill: '#FFFFFF', plotAreaLine: line('none', 0),
+    });
+    if (adapters.applyChartFont !== undefined) {
+      adapters.applyChartFont(ch, {fontFamily});
+    }
+    return ch;
+  }
+
+  /** Scenario names describe input assumptions, not an ordering of outcomes. */
+  function addRangeChart(slide, rect, data) {
+    const rows = options(data, ['low', 'base', 'high']).filter(option => data.baselineId === undefined || option.id !== data.baselineId);
+    if (!rows.length) throw new Error('Range chart needs non-baseline options');
+    const values = rows.flatMap(option => [option.low, option.base, option.high]);
+    const x = display(data, 'x', values), labels = data.labels ?? {};
+    // End labels sit outside their points. Include zero as a reference value,
+    // then pad both ends instead of pinning the plotting area at that value.
+    // Explicit bounds stay exact, and includeZero:false can request a local view.
+    const domainValues = x.includeZero === false ? values : [0, ...values];
+    const domain = numericScale(domainValues, {...x, includeZero: false});
+    const series = [];
+    rows.forEach((option, index) => {
+      const y = rows.length - index, color = option.id === data.highlightId ? C.blue : C.gray;
+      series.push({name: `${option.id} ${option.name}：${labels.range ?? '低高情景'}`, xValues: [option.low, option.high], values: [y, y], line: line(color, 3), marker: {symbol: 'circle', size: 7, fill: color},
+        dataLabelOverrides: [point(0, `${option.id} ${option.name}\n${x.formatValue(option.low)}`, 'left', option.low < 0 ? C.negative : C.ink), point(1, x.formatValue(option.high), 'right')]});
+      series.push({name: `${option.id} ${labels.base ?? '基准情景'}`, xValues: [option.base], values: [y], line: line('none', 0), marker: {symbol: 'circle', size: 11, fill: color},
+        dataLabelOverrides: [point(0, `${x.formatValue(option.base)} ${labels.base ?? '基准'}`, 'top', color, true)]});
+    });
+    return chart(slide, rect, series, {...domain, numberFormatCode: x.numberFormatCode}, {min: 0, max: rows.length + 1, majorUnit: 1});
+  }
+
+  /** Each row supplies two values in the same unit; no sales semantics required. */
+  function addDumbbellChart(slide, rect, data) {
+    if (!Array.isArray(data.hourly) || !data.hourly.length) throw new Error('data.hourly is required');
+    const rows = data.hourly.map(option => ({...option, gross: finite(option.gross, 'gross'), net: finite(option.net, 'net')}));
+    const values = rows.flatMap(option => [option.gross, option.net]), x = display(data, 'x', values), comparison = C.accent ?? C.gray;
+    const series = rows.map((option, index) => ({name: option.name, xValues: [option.net, option.gross], values: [rows.length - index, rows.length - index], line: line(C.line, 3), marker: {symbol: 'circle', size: 10, fill: comparison},
+      points: [{idx: 0, fill: C.blue, line: line(C.blue)}, {idx: 1, fill: comparison, line: line(comparison)}],
+      dataLabelOverrides: [point(0, `${option.name}\n${data.netLabel ?? '比较值'} ${x.formatValue(option.net)}`, 'left', C.blue, true), point(1, `${data.grossLabel ?? '参照值'} ${x.formatValue(option.gross)}`, 'right')]}));
+    return chart(slide, rect, series, {...numericScale(values, x), numberFormatCode: x.numberFormatCode}, {min: 0, max: rows.length + 1, majorUnit: 1});
+  }
+
+  function addInvestmentChart(slide, rect, data) {
+    const rows = options(data, ['cost', 'base']);
+    const xValues = rows.map(option => option.cost), yValues = rows.map(option => option.base);
+    const x = display(data, 'x', xValues), y = display(data, 'y', yValues);
+    const series = rows.map(option => {
+      const color = option.id === data.highlightId ? C.blue : option.id === data.baselineId ? C.gray : C.ink;
+      const position = data.labelPositions?.[option.id] ?? (option.id === data.highlightId ? 'bottom' : 'top');
+      let label = `${option.id} ${option.name}\n${x.label ?? '投入'} ${x.formatValue(option.cost)} / ${y.label ?? '贡献'} ${y.formatValue(option.base)}`;
+      if (data.externalLabel) label += `\n${data.externalLabel} ${finite(option.external, 'external')}${data.externalUnit ? ' ' + data.externalUnit : ''}`;
+      return {name: `${option.id} ${option.name}`, xValues: [option.cost], values: [option.base], line: line('none', 0), marker: {symbol: 'circle', size: option.id === data.highlightId ? 13 : 10, fill: color},
+        dataLabelOverrides: [point(0, data.labelText?.[option.id] ?? label, position, color, option.id === data.highlightId)]};
+    });
+    return chart(slide, rect, series,
+      {...numericScale(xValues, x), numberFormatCode: x.numberFormatCode},
+      {visible: true, ...numericScale(yValues, y), numberFormatCode: y.numberFormatCode, textStyle: text(C.gray), line: line(C.line, .7), majorGridlines: line(C.line, .6)});
+  }
+  return {addRangeChart, addDumbbellChart, addInvestmentChart};
 }
 
-/** Native cost × contribution scatter. No categorical x substitution. */
-function addInvestmentChart(slide,rect,data){
- const rows=options(data),highX=Math.max(...rows.map(o=>o.cost)),highY=Math.max(...rows.map(o=>o.base));
- const xValues=rows.map(o=>o.cost),yValues=rows.map(o=>o.base);
- const xStep=Math.max(0,...xValues)-Math.min(0,...xValues)>20000?10000:5000,yStep=Math.max(0,...yValues)-Math.min(0,...yValues)>10000?5000:2000;
- const domain=(values,step)=>{let min=Math.min(0,...values),max=Math.max(0,...values),span=max-min;if(!span)return {min:0,max:step};return {min:min<0?Math.floor((min-span*.08)/step)*step:0,max:max>0?Math.ceil((max+span*.2)/step)*step:0};};
- const xDomain=domain(xValues,xStep),yDomain=domain(yValues,yStep);
- const series=rows.map(o=>{
-  const color=o.id===data.highlightId?C.blue:o.id===data.baselineId?C.gray:C.ink;
-  const position=data.labelPositions?.[o.id]??(o.id===data.highlightId?'bottom':'top');
-  return {name:`${o.id} ${o.name}`,xValues:[o.cost],values:[o.base],line:line('none',0),marker:{symbol:'circle',size:o.id===data.highlightId?13:10,fill:color},
-   dataLabelOverrides:[point(0,data.labelText?.[o.id]??`${o.id} ${o.name}\n投入 ${fmt(o.cost)} / 贡献 ${fmt(o.base)}\n外援 ${fmt(o.external)} 人时/周末`,position,color,o.id===data.highlightId)]};
- });
- return chart(slide,rect,series,
-  {...xDomain,majorUnit:xStep},
-  {visible:true,...yDomain,majorUnit:yStep,numberFormatCode:'#,##0',textStyle:text(C.gray),line:line(C.line,.7),majorGridlines:line(C.line,.6)});
-}
-
-return {addRangeChart,addDumbbellChart,addInvestmentChart};
-}
-export function addRangeChart(slide,rect,data){return themedAdvanced(data.theme).addRangeChart(slide,rect,data);}
-export function addDumbbellChart(slide,rect,data){return themedAdvanced(data.theme).addDumbbellChart(slide,rect,data);}
-export function addInvestmentChart(slide,rect,data){return themedAdvanced(data.theme).addInvestmentChart(slide,rect,data);}
+export function addRangeChart(slide, rect, data, adapters) {return themedAdvanced(data.theme, adapters).addRangeChart(slide, rect, data);}
+export function addDumbbellChart(slide, rect, data, adapters) {return themedAdvanced(data.theme, adapters).addDumbbellChart(slide, rect, data);}
+export function addInvestmentChart(slide, rect, data, adapters) {return themedAdvanced(data.theme, adapters).addInvestmentChart(slide, rect, data);}
